@@ -49,4 +49,5 @@ jobs:
 
       - name: Build and deploy (conditional)
         if: github.ref == 'refs/head/main' && success()
-        run: | echo "Build and deploy process here"
+        run: | 
+          echo "Build and deploy process here"
