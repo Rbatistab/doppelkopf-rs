@@ -27,14 +27,16 @@ jobs:
         with:
           path: ~/.cargo/registry/
           key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
-          restore-keys: | ${{ runner.os }}-cargo-build-
+          restore-keys: | 
+            ${{ runner.os }}-cargo-registry-
 
       - name: Cache Cargo build
         uses: actions/cache@v2
         with:
           path: ~/.cargo/build/
           key: ${{ runner.os }}-cargo-build-${{ hashFiles('**/Cargo.lock') }}
-          restore-keys: | ${{ runner.os }}-cargo-build-
+          restore-keys: | 
+            ${{ runner.os }}-cargo-build-
 
       - name: Build
         run: cargo build --verbose
