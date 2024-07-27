@@ -15,20 +15,20 @@
   - [ ] Find all the nouns
   - [ ] Determine what each noun can do and wether it's valid or not
 - [ ] Deterine a game structure that keeps track of the game and show the score (remember it doesn't take actions)
-- [ ] Determine 
-
-Whiteboard it, lay out the whole structure then start coding the modules
-On top of all that simulate the game, but you need to actually receive actions from he player and communicate the action of the player
-Probably can make the game first, game is composed of a bunch of rules and you check that the whole game is valid, you test individual parts, no need to have a whole E2E test of all
-
-From that you move to the UI design, consider the graphical capabilities of the CLI
-Also create AI players (randomly, or how?), you have to know what is a good reaction to something, called even design multiple AI characters
-First make the game work, then make it playable
+- [ ] Create a diagram in draw.io (?)
 
 # BACKLOG
 
-- [ ] Set up a CI/CD structure on github with clippy as a mandatory step
+- [x] Set up a CI/CD structure on github with clippy as a mandatory step
+- [ ] Split into a `Cards` crate library, agnostic to the game and a `doppelkopf-game` crate to handle the game (consider a rule engine crate)
+- [ ] Explain the game on `README.md`
 - [ ] Listen to Zelda's final summary of the game on the recording
 - [ ] Define a design and architecture
 - [ ] Code the modules from the nouns
+- [ ] Make the game work
+  - [ ] Code the game
+  - [ ] Check that the rules apply to the game (validate rules)
+  - [ ] Create AI players
+  - [ ] Simulate the game with mocked player actions
+- [ ] Make the game playable
 
