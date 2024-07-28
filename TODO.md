@@ -17,6 +17,7 @@ TBD
 - [x] Set up a CI/CD structure on github with clippy as a mandatory step
 - [x] Split into a `Cards` crate library, agnostic to the game and a `doppelkopf-game` crate to handle the game (consider a rule engine crate)
 - [ ] Explain the game on `README.md` (IN PROGRESS)
+  - [ ] [Adding color seems cool!](https://clemensjarnach.github.io/02-articles/2023-05-02-article.html)
 - [ ] Listen to Zelda's final summary of the game on the recording
 - [ ] Define a design and architecture
 - [ ] Code the modules from the nouns
