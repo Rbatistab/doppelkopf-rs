@@ -6,7 +6,7 @@ Me too, which is why I bring you this open source version of [doppelkopf game](h
 Doppelkopf is a popular card game in Germany, family of the "trick-tacking" games. This game is played with a double deck of cards with three variants according to the number of players:
 * 8 players: 2 x 32 (*Type I*) 
 * 6 players: 2 x 24 (*Type H*)
-* 4 players: 2 x 20 cards (*Type G*)
+* 4 players: 2 x 24 cards (*Type G*)
 
 Also, since Doppelkopf is german it's easy as hell to understand the rules, just like german language.
 
@@ -15,9 +15,21 @@ TBD
 
 ## How to play? -> In progress
 
-### Packs
+🌰In a nutshell, you have team `Contra` and team `Re`. ***Always 2 there are, no more, no less.***
 
-You have a card pack of 40 or 48 cards, from which you remove all cards bellow rank 9:
+* `Re` team achieves 121 or more points -> `Re` wins
+* `Re` fails to get the points -> `Contra` wins
+* The teams are not known from the start
+
+### 1. Deal the packs
+
+You have a card pack of 48 cards, from which you remove all cards bellow rank 9 and have:
+* 4 Suites (French or German):
+  * ♦ Diamonds (or Bells for german)
+  * ❤ Hearts (german and french)
+  * ♠ Spades (or Leaves for german)
+  * ♣ Clubs (or Acorns for german)
+* Each suit has 6 possible ranks (2 cards of each suit per rank or 'Doppelkopf'):
 
 | Card | Points per card |
 |------|-----------------|
@@ -28,5 +40,6 @@ You have a card pack of 40 or 48 cards, from which you remove all cards bellow r
 | Jacks(Unters) | 2 |
 | Nines | 0 |
 
-With 2 types of suites:
+***If you play with 40 cards, remove the nines, no body wants them anyway.***
 
+Start by dealing 12 cards to each player (10 if 40 cards).
