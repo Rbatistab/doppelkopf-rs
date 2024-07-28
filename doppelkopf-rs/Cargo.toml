@@ -1,0 +1,13 @@
+[package]
+name = "doppelkopf-rs"
+version = "0.1.0"
+edition = "2021"
+authors = ["Russell Batista <russbatisbarrrco@gmail.com>"]
+description = "A CLI implementation of Doppelkopf cards game - https://en.wikipedia.org/wiki/Doppelkopf"
+license = "MIT"
+homepage = "https://rbatistab.com/"
+# documentation = "TBD"
+repository = "https://github.com/Rbatistab/doppelkopf-rs"
+
+[dependencies]
+game-cards = { path = "../game-cards" }
