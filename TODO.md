@@ -1,7 +1,13 @@
 # TODO
 
+**Main design goal**: make something that will entertain people
+
 ## High level stuff
-TBD
+
+- [ ] Determine who the user it and what it wants (ex. to be entertained)
+- [ ] Define the presentation of the game
+- [ ] Determine how to track the state of the game in terms of the actions and the score
+- [ ] Define how to store the game
 
 ## Planning and design
 
