@@ -1,9 +1,9 @@
 # doppelkopf-rs
 
-Do you love those moments when playing [Uno](https://www.letsplayuno.com/) turns a card game into a game of thornes episode?
+Do you love those moments when playing [Uno](https://www.letsplayuno.com/) turns a card game into a game of thrones episode?
 Me too, which is why I bring you this open source version of [doppelkopf game](https://en.wikipedia.org/wiki/Doppelkopf) 
 
-***Disclaimer: grug sees public domain game, grug sees no lawsuits, grub develops***
+***Disclaimer: grug sees public domain game, grug sees no lawsuits, grub develops game***
 
 ## Installation
 
@@ -15,7 +15,7 @@ $ doppelkopf-rs
 
 ## The game
 
-Doppelkopf is a popular card game in Germany, family of the "trick-tacking" games based on strategy, teamwork, and tactical decision-making. And since it's German it won't be complicated to understand.
+Doppelkopf is a popular card game in Germany, family of the "trick-tacking" games, based on strategy, teamwork, and tactical decision-making. And since it's German it won't be complicated to understand.
 
 ### Rules
 
