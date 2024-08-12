@@ -16,29 +16,70 @@ $ doppelkopf-rs
 ## The game
 
 Doppelkopf is a popular card game in Germany, family of the "trick-tacking" games, based on strategy, teamwork, and tactical decision-making. And since it's German it won't be complicated to understand.
+It goes as:
+1. [Card deal](#card-deal)
+1. [Play tricks](#play-tricks)
+1. [Make teams](#make-teams)
+1. IN PROGRESS
 
-### Rules
 
-* Win by doing tricks and scoring points: You'll previously agree the points(or rounds too). *Defaults to 121 points*.
-* Dynamic teams: You'll form 2 teams which may or not be known at the start, and can change members from round to round.
-* This game is played with a double deck of cards:
-  * 8 players: 2 x 32 (*Type I*) 
-  * 6 players: 2 x 24 (*Type H*)
-  * 4 players: 2 x 24 cards (*Type G*) -> Each player is dealt 12 cards
-* A dealer is the first to deal, then the dealing passes clockwise
+### Card deal
 
-### Gameplay -> [IN PROGRESS]
+On the standard game, you'll have to deal 2 decks (red and black) of 24 (*or 20*) cards each for a total of 48 (*or 40*) cards. Remove all cards with rank lower to 9 to have 48 cards:
+* 4 Suites (French or [German](https://en.wikipedia.org/wiki/German-suited_playing_cards) deck):
+  * ♦ Diamonds (*or Bells for german*)
+  * ❤ Hearts (*german and french*)
+  * ♠ Spades (*or Leaves for german*)
+  * ♣ Clubs (*or Acorns for german*)
+* Each suit has 6 possible ranks (2 cards of each suit per rank or *'Doppelkopf'*):
+    | Card | Points per card |
+    |------|-----------------|
+    | Aces (*Deuces*) | 11 |
+    | Tens | 10 |
+    | Kings | 4 |
+    | Queens (*Obers*) | 3 |
+    | Jacks (*Unters*) | 2 |
+    | Nines | 0 |
 
-1. The player to the left of the dealer leads the first trick.
-1. Players must follow suit if possible; if not, they can play any card.
-1. The trick is won by the highest trump or the highest card of the suit led.
-1. The winner of the trick leads the next one.
+***If you want to play with 40 cards, remove the nines, no body wants them anyway.***
+
+Start by dealing 12 cards to each player (*10 for 40-card games*).The dealer is the first player to deal, and dealing passes clockwise.
+
+### Play tricks
+
+Doppelkopf is won by playing tricks to score points in a team. **The default is to win a round by scoring 121 points or more**, however it's possible to pre-agree a different score or a number of rounds.
+
+Points are scored based on the number and value of the tricks won. Some specific card combinations or achievements can also earn extra points.
+
+The game flows like this:
+
+1. The player to the left of the dealer leads the first trick. This is, play a card which normally will be the highest at hand.
+1. Players must follow suit if possible there are 3 options:
+    * Play a [trump](#trumps)
+    * Play any card
+    * Discard 
+1. The trick is won, in order, by:
+    1. The highest trump 
+    1. The highest card of the suit led. Since each card exists twice, there is the possibility of a tie; in that case, the first-played card wins the trick
+1. The player that won gets all the cards, which won't be played again. The card points taken in the tricks are counted and each player in the [winning team](#form-teams) gets the game points added to their score, while the losing players have that value deducted.
+1. The winner of the trick leads the next one 
+
+#### Trumps
+
+On a normal game, this is the trump, that starts with the 10 of hearts (called *Dulle* or *Tolle*)
+
+❤️ 10 | ♣️ Q | ♠️ Q | ❤️ Q | ♦️ Q | ♣️ J | ♠️ J | ❤️ J | ♦️ J | ♦️ A | ♦️ 10 | ♦️ K | ♦️ 9
+
+### Form teams
+
+You'll form 2 teams which normally are not known from the start. Teams can change from round to round.
 
 🌰In a nutshell you'll have 2 teams, `Contra` and team `Re`. ***Always two there are, no more, no less.***
-* `Re` team achieves 121 or more points -> `Re` wins
+* `Re` team achieves at least 121 points (*or a different pre-agreed condition*) -> `Re` wins
 * `Re` fails to get the points -> `Contra` wins
 
-Scoring: Points are scored based on the number and value of the tricks won. Some specific card combinations or achievements can also earn extra points.
+In the normal game, the players who hold the queens of clubs (Die Alten = "the old women" or "the elders") or Obers of acorns constitute Re, while the other two are Kontra. In these games, the actual teams are not known from the start. When a player has both queens of clubs or Obers of acorns, that player declares a Wedding (Hochzeit). 
+
 
 ### Special features
 
@@ -46,26 +87,8 @@ Scoring: Points are scored based on the number and value of the tricks won. Some
 * **Doppelkopf**: A trick is worth double points if it contains 40 or more points (usually means two Aces are in the trick).
 * **Piglets and Marriage**: Some versions of the game include additional rules like "Piglets" (special scoring bonuses) and "Marriage" (a player holding both Queens of Clubs can declare a marriage to determine the teams for that round).
 
-### Pack dealing
+## Game sources:
 
-You have a card pack of 48 cards, from which you remove all cards bellow rank 9 and have:
-* 4 Suites (French or German):
-  * ♦ Diamonds (or Bells for german)
-  * ❤ Hearts (german and french)
-  * ♠ Spades (or Leaves for german)
-  * ♣ Clubs (or Acorns for german)
-* Each suit has 6 possible ranks (2 cards of each suit per rank or 'Doppelkopf'):
-
-| Card | Points per card |
-|------|-----------------|
-| Aces(Deuces) | 11 |
-| Tens | 10 |
-| Kings | 4 |
-| Queens(Obers) | 3 |
-| Jacks(Unters) | 2 |
-| Nines | 0 |
-
-***If you play with 40 cards, remove the nines, no body wants them anyway.***
-
-Start by dealing 12 cards to each player (10 if 40 cards).
-Cards: The game uses 48 cards, comprising two decks of 24 cards (9, 10, Jack, Queen, King, Ace in each of the four suits: Diamonds, Hearts, Spades, Clubs).
+* [Wikipedia](https://en.wikipedia.org/wiki/Doppelkopf)
+* https://www.pagat.com/schafkopf/doko.html
+* https://boardgamegeek.com/blogpost/127676/doppelkopf-20-a-brilliant-traditional-trick-taker
