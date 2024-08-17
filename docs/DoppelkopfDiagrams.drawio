@@ -1,9 +1,97 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0" version="24.7.6">
-  <diagram name="Page-1" id="oIAwmTRgkffAONk_1_cy">
-    <mxGraphModel>
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0" version="24.7.7">
+  <diagram name="HighLevelGame_FirstStep_Deal" id="oIAwmTRgkffAONk_1_cy">
+    <mxGraphModel dx="1050" dy="576" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-24" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;" vertex="1" parent="1">
+          <mxGeometry x="80" y="32" width="920" height="528" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="S8KlZGZ3m0UXMsahNMXa-4" target="S8KlZGZ3m0UXMsahNMXa-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-4" value="" style="rounded=1;whiteSpace=wrap;html=1;gradientColor=#0000CC;fillColor=#FF0000;opacity=25;" vertex="1" parent="1">
+          <mxGeometry x="110" y="80" width="170" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-1" value="" style="sketch=0;html=1;aspect=fixed;strokeColor=#B20000;shadow=0;fillColor=#e51400;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;shape=mxgraph.gcp2.files;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="146" y="116" width="100" height="97" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-2" value="" style="sketch=0;html=1;aspect=fixed;shadow=0;fillColor=#0050ef;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;shape=mxgraph.gcp2.files;strokeColor=#001DBC;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="146" y="242" width="100" height="97" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-6" value="&lt;b&gt;2 Decks&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="160" y="50" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-7" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/142-mini-country-flags-16x16px/32/flag-france2x.png" vertex="1" parent="1">
+          <mxGeometry x="146" y="351" width="32" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-8" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/142-mini-country-flags-16x16px/32/flag-germany2x.png" vertex="1" parent="1">
+          <mxGeometry x="209" y="350" width="32" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-9" value="(French or German&lt;br&gt;suits)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="135" y="383" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-10" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="386.95" y="140" width="210" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-11" value="Dealer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="220" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-13" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="477" y="360" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-14" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="627" y="220" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-15" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="477" y="59" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-16" value="" style="sketch=0;html=1;aspect=fixed;shadow=0;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;shape=mxgraph.gcp2.files;gradientColor=#0000FF;fillColor=#FF0000;" vertex="1" parent="1">
+          <mxGeometry x="477" y="150" width="29.9" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-17" value="" style="sketch=0;html=1;aspect=fixed;shadow=0;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;shape=mxgraph.gcp2.files;gradientColor=#0000FF;fillColor=#FF0000;" vertex="1" parent="1">
+          <mxGeometry x="477.1" y="310" width="29.9" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-18" value="" style="sketch=0;html=1;aspect=fixed;shadow=0;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;shape=mxgraph.gcp2.files;gradientColor=#0000FF;fillColor=#FF0000;" vertex="1" parent="1">
+          <mxGeometry x="557" y="230.5" width="29.9" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-19" value="" style="sketch=0;html=1;aspect=fixed;shadow=0;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;shape=mxgraph.gcp2.files;gradientColor=#0000FF;fillColor=#FF0000;" vertex="1" parent="1">
+          <mxGeometry x="407" y="235.5" width="29.9" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-20" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="357" y="250" as="sourcePoint" />
+            <mxPoint x="467" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-21" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="357" y="259.5" as="sourcePoint" />
+            <mxPoint x="457" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-22" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="358" y="255.5" as="sourcePoint" />
+            <mxPoint x="397" y="256" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-23" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=-0.167;entryY=0.259;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="S8KlZGZ3m0UXMsahNMXa-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="362" y="257" as="sourcePoint" />
+            <mxPoint x="412" y="207" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="577" y="300" />
+              <mxPoint x="362" y="207" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-25" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;First Step: Deal and contract&lt;br&gt;&lt;/h1&gt;&lt;p&gt;1) Each player is &lt;b&gt;dealt 12 cards&lt;/b&gt; (or 10, if playing with 40 cards).&lt;br&gt;&lt;br&gt;2) Contract: All players say &quot;&lt;i&gt;Fine&lt;/i&gt;&quot;(or &quot;&lt;i&gt;Gesund&quot;&lt;/i&gt; í ¼í·©í ¼í·ª) to agree a normal game or someone says &quot;&lt;i&gt;Hold&lt;/i&gt;&quot; (or &quot;&lt;i&gt;Halt&quot;&lt;/i&gt; í ¼í·©í ¼í·ª) for another type. If 2 players have a &quot;&lt;i&gt;Hold&lt;/i&gt;&quot;, the highest one wins:&lt;br&gt;&lt;br&gt;&lt;i&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Compulsory Solo &amp;gt; Free Solo &amp;gt; Wedding&lt;/i&gt;&lt;br&gt;&lt;/p&gt;&lt;h3 style=&quot;margin-top: 0px;&quot;&gt;Contracts&lt;/h3&gt;&lt;p&gt;&amp;nbsp;- &lt;b&gt;Normal game:&lt;/b&gt; 2 Players with the &lt;i&gt;Queens of clubs&lt;/i&gt; (or &lt;i&gt;Obers&lt;/i&gt; í ¼í·©í ¼í·ª) are a team (&lt;b&gt;&lt;i&gt;Re&lt;/i&gt;&lt;/b&gt;), against the other 2 (&lt;i&gt;&lt;b&gt;Kontra&lt;/b&gt;&lt;/i&gt;). &lt;br&gt;&lt;br&gt;&amp;nbsp;- &lt;b&gt;Wedding: &lt;/b&gt;Single player with the 2&amp;nbsp;&lt;i&gt;Queens of clubs&lt;/i&gt; (or &lt;i&gt;Obers&lt;/i&gt; í ¼í·©í ¼í·ª) announces a wedding with another player (&lt;i&gt;Red team&lt;/i&gt;) to play against the other 2. Is the player with the &lt;i&gt;2 Queens of Clubs&lt;/i&gt; doesn&#39;t announce, he will play a silent solo.&lt;br&gt;&lt;br&gt;&amp;nbsp;- &lt;b&gt;Solo: &lt;/b&gt;A single player goes beserk and plays the other three. They will earn (or lose) three times the value of their scorecard on each win (or lose). There are 4 types of solo games&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;&lt;br&gt;&lt;br&gt;&lt;/b&gt;*&lt;i&gt;Each type of contract has it&#39;s own Trump&lt;/i&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="34" width="320" height="516" as="geometry" />
+        </mxCell>
+        <mxCell id="S8KlZGZ3m0UXMsahNMXa-26" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Double Head (Doppelkopf í ¼í·©í ¼í·ª)&lt;br&gt;&lt;/h1&gt;&lt;p&gt;From the 2 decks we have only Aces (&lt;i&gt;Deuces&lt;/i&gt; í ¼í·©í ¼í·ª), Tens, Kings, Queens (&lt;i&gt;Obers&lt;/i&gt; í ¼í·©í ¼í·ª), Jacks (&lt;i&gt;Unters&lt;/i&gt; í ¼í·©í ¼í·ª) and, optionally, Nines. Suits are Diamonds (&lt;i&gt;Bells&lt;/i&gt; í ¼í·©í ¼í·ª), Hearts (&lt;i&gt;Spades &lt;/i&gt;í ¼í·©í ¼í·ª) and Clubs (&lt;i&gt;Acorns&lt;/i&gt; í ¼í·©í ¼í·ª)&lt;br&gt;&lt;br&gt;There are 2 suits of every card for each rank (or &lt;i&gt;Doppelkopf&lt;/i&gt;).&lt;br&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="420" width="410" height="140" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
