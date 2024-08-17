@@ -1,6 +1,7 @@
 # TODO
 
 **Main design goal**: make something that will entertain people
+I'll drop this here and sort it later:  https://app.diagrams.net/#HRbatistab%2Fdoppelkopf-rs%2Fmain%2Fdocs%2FDoppelkopfDiagrams.drawio#%7B%22pageId%22%3A%22oIAwmTRgkffAONk_1_cy%22%7D
 
 ## High level stuff
 

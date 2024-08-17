@@ -17,13 +17,15 @@ $ doppelkopf-rs
 
 Doppelkopf is a popular card game in Germany, family of the "trick-tacking" games, based on strategy, teamwork, and tactical decision-making. And since it's German it won't be complicated to understand.
 It goes as:
-1. [Card deal](#card-deal)
+1. [Card deal and contract](#card-deal)
 1. [Play tricks](#play-tricks)
 1. [Make teams](#make-teams)
 1. IN PROGRESS
 
 
 ### Card deal
+
+![first_step_card_deal_and_contract](https://drive.google.com/file/d/14LU9xWeFtXcxrdjszvoKeMhkKsQ8jW8o/view?usp=sharing)
 
 On the standard game, you'll have to deal 2 decks (red and black) of 24 (*or 20*) cards each for a total of 48 (*or 40*) cards. Remove all cards with rank lower to 9 to have 48 cards:
 * 4 Suites (French or [German](https://en.wikipedia.org/wiki/German-suited_playing_cards) deck):
