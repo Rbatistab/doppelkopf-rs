@@ -17,35 +17,55 @@ $ doppelkopf-rs
 
 Doppelkopf is a popular card game in Germany, family of the "trick-tacking" games, based on strategy, teamwork, and tactical decision-making. And since it's German it won't be complicated to understand.
 It goes as:
-1. [Card deal and contract](#card-deal)
+1. [Card deal and contract](#card-deal-and-contract)
 1. [Play tricks](#play-tricks)
 1. [Make teams](#make-teams)
 1. IN PROGRESS
 
 
-### Card deal
+### Card deal and contract
 
-![first_step_card_deal_and_contract](https://drive.google.com/uc?export=view&id=1hJFfwWdAZAMFxe5x4E-X9C0xhGTgtPl4)
+![first_step_card_deal_and_contract](https://drive.google.com/uc?export=view&id=1zV2rW_a4iCs9uYO9FmfmYFaqUFYcwfPq)
 
-On the standard game, you'll have to deal 2 decks (red and black) of 24 (*or 20*) cards each for a total of 48 (*or 40*) cards. Remove all cards with rank lower to 9 to have 48 cards:
+On the standard game, you'll have to deal 2 decks (red and black) of 24 (*or 20*) cards each for a total of 48 (*or 40*) cards. Remove all cards with rank lower to 9 to have 48 cards, consisting of:
 * 4 Suites (French or [German](https://en.wikipedia.org/wiki/German-suited_playing_cards) deck):
-  * ♦ Diamonds (*or Bells for german*)
+  * ♦ Diamonds (*or Bells 🇩🇪*)
   * ❤ Hearts (*german and french*)
-  * ♠ Spades (*or Leaves for german*)
-  * ♣ Clubs (*or Acorns for german*)
+  * ♠ Spades (*or Leaves 🇩🇪*)
+  * ♣ Clubs (*or Acorns 🇩🇪*)
 * Each suit has 6 possible ranks (2 cards of each suit per rank or *'Doppelkopf'*):
-    | Card | Points per card |
-    |------|-----------------|
-    | Aces (*Deuces*) | 11 |
-    | Tens | 10 |
-    | Kings | 4 |
-    | Queens (*Obers*) | 3 |
-    | Jacks (*Unters*) | 2 |
-    | Nines | 0 |
-
-***If you want to play with 40 cards, remove the nines, no body wants them anyway.***
+***If you want to play with 40 cards just remove the nines.***
 
 Start by dealing 12 cards to each player (*10 for 40-card games*).The dealer is the first player to deal, and dealing passes clockwise.
+
+After this, you'll need to agree a contract, also known as auction. In this phase, the players either agree to a [normal-game](#normal_game) by saying "*Fine*" (*Gesund 🇩🇪*) or one or more of the players call "*Hold*" (*Halt 🇩🇪*) to call a [wedding](#wedding) or a [solo](#solo)
+
+***Always two there are, no more, no less.*** Once the contract is set, there will be two teams of 2 vs 2 or 1 vs 3.
+
+#### Normal game
+
+When 2 different players have a Queens of Clubs (or *Obers* 🇩🇪, known as *Die Alten*, the elders") they are a team (**Re**) and will play against the other 2 (**Kontra**):
+* `Re` team achieves at least 121 points (*or a different pre-agreed condition*) -> `Re` wins
+* `Re` fails to get the points -> `Kontra` wins
+On a normal game, this is the trump, that starts with the 10 of hearts, called *Dulle* (or *Tolle* 🇩🇪):
+
+❤️ 10 | ♣️ Q | ♠️ Q | ❤️ Q | ♦️ Q | ♣️ J | ♠️ J | ❤️ J | ♦️ J | ♦️ A | ♦️ 10 | ♦️ K | ♦️ 9
+
+#### Wedding
+
+A player (*suitor*) that has both Queens of Clubs can call a "wedding" and form a **Re** team with the first player to win a trick. However, if the *suitor* wons the first three games, he/she should play a *Diamond [solo](#solo)* against the other three. Also, a *suitor* can chose not to say "wedding" on the contract and play a *Diamond [solo](#solo)* too, called *Silent Solo* (*Stilles Solo 🇩🇪*).
+
+Wedding uses the same Trump as the [normal game](#normal-game)
+
+#### Solo
+
+***May you ride eternal, shiny and chrome.*** A single player will play against the other three. He/She will earn trice the value of the score card in case of winning a trick or lose trice the value on the other case, there are:
+* ♦ Diamond Solo: Same Trump as the [normal game](#normal-game)
+* Jack Solo (*Bubensolo 🇩🇪*): Only Jacks make a Trump
+* Queen Solo (*Damensolo 🇩🇪*): Only Queen make a Trump
+* Ace Solo (*Fleischloser/Knochenmann 🇩🇪*): There are no Trumps
+* Suit Solo (*Farbensolo 🇩🇪*): Announce a Suit to be a Trump for Jacks and Queens
+
 
 ### Play tricks
 
@@ -66,31 +86,23 @@ The game flows like this:
 1. The player that won gets all the cards, which won't be played again. The card points taken in the tricks are counted and each player in the [winning team](#form-teams) gets the game points added to their score, while the losing players have that value deducted.
 1. The winner of the trick leads the next one 
 
-#### Trumps
 
-On a normal game, this is the trump, that starts with the 10 of hearts (called *Dulle* or *Tolle*)
-
-❤️ 10 | ♣️ Q | ♠️ Q | ❤️ Q | ♦️ Q | ♣️ J | ♠️ J | ❤️ J | ♦️ J | ♦️ A | ♦️ 10 | ♦️ K | ♦️ 9
-
-### Form teams
-
-You'll form 2 teams which normally are not known from the start. Teams can change from round to round.
-
-🌰In a nutshell you'll have 2 teams, `Contra` and team `Re`. ***Always two there are, no more, no less.***
-* `Re` team achieves at least 121 points (*or a different pre-agreed condition*) -> `Re` wins
-* `Re` fails to get the points -> `Contra` wins
-
-In the normal game, the players who hold the queens of clubs (Die Alten = "the old women" or "the elders") or Obers of acorns constitute Re, while the other two are Kontra. In these games, the actual teams are not known from the start. When a player has both queens of clubs or Obers of acorns, that player declares a Wedding (Hochzeit). 
-
+    | Card | Points per card |
+    |------|-----------------|
+    | Aces (*Deuces*) | 11 |
+    | Tens | 10 |
+    | Kings | 4 |
+    | Queens (*Obers*) | 3 |
+    | Jacks (*Unters*) | 2 |
+    | Nines | 0 |
 
 ### Special features
 
-* **Re and Kontra**: At the beginning of each round, players can declare "Re" or "Kontra" to double the points at stake. 
 * **Doppelkopf**: A trick is worth double points if it contains 40 or more points (usually means two Aces are in the trick).
-* **Piglets and Marriage**: Some versions of the game include additional rules like "Piglets" (special scoring bonuses) and "Marriage" (a player holding both Queens of Clubs can declare a marriage to determine the teams for that round).
 
 ## Game sources:
 
 * [Wikipedia](https://en.wikipedia.org/wiki/Doppelkopf)
 * https://www.pagat.com/schafkopf/doko.html
 * https://boardgamegeek.com/blogpost/127676/doppelkopf-20-a-brilliant-traditional-trick-taker
+
