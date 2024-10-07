@@ -105,4 +105,4 @@ The game flows like this:
 * [Wikipedia](https://en.wikipedia.org/wiki/Doppelkopf)
 * https://www.pagat.com/schafkopf/doko.html
 * https://boardgamegeek.com/blogpost/127676/doppelkopf-20-a-brilliant-traditional-trick-taker
-
+* https://www.deck-of-cards.com/doppelkopf.html

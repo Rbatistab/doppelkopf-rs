@@ -3,13 +3,6 @@
 **Main design goal**: make something that will entertain people
 I'll drop this here and sort it later:  https://app.diagrams.net/#HRbatistab%2Fdoppelkopf-rs%2Fmain%2Fdocs%2FDoppelkopfDiagrams.drawio#%7B%22pageId%22%3A%22oIAwmTRgkffAONk_1_cy%22%7D
 
-## High level stuff
-
-- [ ] Determine who the user it and what it wants (ex. to be entertained)
-- [ ] Define the presentation of the game
-- [ ] Determine how to track the state of the game in terms of the actions and the score
-- [ ] Define how to store the game
-
 ## Planning and design
 
 - [ ] Model the game structures
