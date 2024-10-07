@@ -5,7 +5,12 @@ Me too, which is why I bring you this open source version of [doppelkopf game](h
 
 ***Disclaimer: grug sees public domain game, grug sees no lawsuits, grub develops game***
 
-## Installation
+Doppelkopf game whole cross-platform application:
+* Infrasctrucre: [dopplekopf-cdk](https://github.com/Rbatistab/dopplekopf-cdk/tree/main)
+* Frontend application: [dopplekopf-app](https://github.com/Rbatistab/doppelkopf-app)
+* Backend: [dopplekopf-rs](https://github.com/Rbatistab/doppelkopf-rs)
+
+## Installation -> Maybe this won't happen
 
 ***(When this is in crates.io)***
 ```
