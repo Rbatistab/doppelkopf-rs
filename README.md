@@ -30,7 +30,7 @@ It goes as:
 
 ### Card deal and contract
 
-![first_step_card_deal_and_contract](https://drive.google.com/uc?export=view&id=1zV2rW_a4iCs9uYO9FmfmYFaqUFYcwfPq)
+![first_step_card_deal_and_contract](https://drive.google.com/uc?export=view&id=15rBJbUubBfbccd2OJ7pha5I9s-Dr5Ql6)
 
 On the standard game, you'll have to deal 2 decks (red and black) of 24 (*or 20*) cards each for a total of 48 (*or 40*) cards. Remove all cards with rank lower to 9 to have 48 cards, consisting of:
 * 4 Suites (French or [German](https://en.wikipedia.org/wiki/German-suited_playing_cards) deck):
