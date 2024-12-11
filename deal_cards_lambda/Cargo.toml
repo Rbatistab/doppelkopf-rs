@@ -1,16 +1,16 @@
 [package]
-name = "join_new_game"
+name = "deal_cards_lambda"
 version = "0.1.0"
 edition = "2021"
 authors = ["Russell Batista <russbatisbarrrco@gmail.com>"]
-description = "Lambda operation that creates a new game state and stores it"
+description = "Lambda operation that updates game state to represent a card dealing"
 license = "MIT"
 homepage = "https://rbatistab.com/"
 # documentation = "TBD"
 repository = "https://github.com/Rbatistab/doppelkopf-rs"
 
 [[bin]]
-name="join_new_game_handler"
-path="src/join_new_game_handler.rs"
+name="deal_cards_lambda_handler"
+path="src/deal_cards_lambda_handler.rs"
 
 [dependencies]

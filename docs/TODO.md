@@ -6,8 +6,7 @@
 ## Backend 
 
 - [ ] Model the [operations](https://github.com/Rbatistab/dopplekopf-cdk/blob/main/docs/ARCHITECTURE_AND_DESIGN.md?plain=1#L68-L73)
-- [ ] Split the operations into crates
-- [ ] Turn project into a set of Lambdas
+- [x] Split the operations into crates
 - [ ] Turn project into a set of Lambdas
 - [ ] Set a UUID generator
 - [x] Split into a `Cards` crate library, agnostic to the game and a `doppelkopf-game` crate to handle the game (consider a rule engine crate)

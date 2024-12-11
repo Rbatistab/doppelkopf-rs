@@ -10,4 +10,4 @@ homepage = "https://rbatistab.com/"
 repository = "https://github.com/Rbatistab/doppelkopf-rs"
 
 [dependencies]
-game-cards = { path = "../game-cards" }
+game-cards = { path = "../doppelkopf_game_cards_lib" }

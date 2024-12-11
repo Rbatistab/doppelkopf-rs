@@ -3,12 +3,12 @@ members = [
   # CLI game
   "doppelkopf-rs",
   # Lambda operations
-  "get_new_game_id",
-  "join_new_game",
-  "deal_cards",
-  "make_announcement",
-  "play_trick",
+  "get_new_game_id_lambda",
+  "join_new_game_lambda",
+  "deal_cards_lambda",
+  "make_announcement_lambda",
+  "play_trick_lambda",
   # Universal Libraries
-  "game-cards"
+  "doppelkopf_game_cards_lib"
 ]
 resolver = "2"

@@ -1,5 +1,5 @@
 [package]
-name = "get_new_game_id"
+name = "get_new_game_id_lambda"
 version = "0.1.0"
 edition = "2021"
 authors = ["Russell Batista <russbatisbarrrco@gmail.com>"]
@@ -10,7 +10,7 @@ homepage = "https://rbatistab.com/"
 repository = "https://github.com/Rbatistab/doppelkopf-rs"
 
 [[bin]]
-name="get_new_game_id_handler"
-path="src/get_new_game_id_handler.rs"
+name="get_new_game_id_lambda_handler"
+path= "src/get_new_game_id_lambda_handler.rs"
 
 [dependencies]

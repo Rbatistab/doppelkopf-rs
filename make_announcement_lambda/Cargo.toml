@@ -1,5 +1,5 @@
 [package]
-name = "make_announcement"
+name = "make_announcement_lambda"
 version = "0.1.0"
 edition = "2021"
 authors = ["Russell Batista <russbatisbarrrco@gmail.com>"]
@@ -10,7 +10,7 @@ homepage = "https://rbatistab.com/"
 repository = "https://github.com/Rbatistab/doppelkopf-rs"
 
 [[bin]]
-name="make_announcement_hanlder"
-path="src/make_announcement.rs"
+name="make_announcement_lambda_hanlder"
+path= "src/make_announcement_lambda_hander.rs"
 
 [dependencies]
