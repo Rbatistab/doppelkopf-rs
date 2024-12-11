@@ -1,0 +1,16 @@
+[package]
+name = "get_new_game_id"
+version = "0.1.0"
+edition = "2021"
+authors = ["Russell Batista <russbatisbarrrco@gmail.com>"]
+description = "Creates a new game and stores it on the database"
+license = "MIT"
+homepage = "https://rbatistab.com/"
+# documentation = "TBD"
+repository = "https://github.com/Rbatistab/doppelkopf-rs"
+
+[[bin]]
+name="get_new_game_id_handler"
+path="src/get_new_game_id_handler.rs"
+
+[dependencies]

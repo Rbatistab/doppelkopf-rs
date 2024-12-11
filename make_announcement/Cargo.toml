@@ -1,0 +1,16 @@
+[package]
+name = "make_announcement"
+version = "0.1.0"
+edition = "2021"
+authors = ["Russell Batista <russbatisbarrrco@gmail.com>"]
+description = "Lambda operation that updates the game state to represent that a user made an announcement"
+license = "MIT"
+homepage = "https://rbatistab.com/"
+# documentation = "TBD"
+repository = "https://github.com/Rbatistab/doppelkopf-rs"
+
+[[bin]]
+name="make_announcement_hanlder"
+path="src/make_announcement.rs"
+
+[dependencies]

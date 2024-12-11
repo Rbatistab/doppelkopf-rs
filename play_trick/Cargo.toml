@@ -1,0 +1,16 @@
+[package]
+name = "play_trick"
+version = "0.1.0"
+edition = "2021"
+authors = ["Russell Batista <russbatisbarrrco@gmail.com>"]
+description = "Lambda operation that updates game state to represent that user played a card (trick)"
+license = "MIT"
+homepage = "https://rbatistab.com/"
+# documentation = "TBD"
+repository = "https://github.com/Rbatistab/doppelkopf-rs"
+
+[[bin]]
+name="play_trick_handler"
+path="src/play_trick_handler.rs"
+
+[dependencies]
