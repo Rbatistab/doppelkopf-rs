@@ -9,5 +9,17 @@ homepage = "https://rbatistab.com/"
 # documentation = "TBD"
 repository = "https://github.com/Rbatistab/doppelkopf-rs"
 
+[lib]
+name="game_lib"
+path = "src/lib/lib.rs"
+
+[[bin]]
+name="dppkf"
+path="src/dppkf.rs"
+
 [dependencies]
 game-cards = { path = "../doppelkopf_game_cards_lib" }
+clap = { version = "4.5.23", features = ["derive"] }
+env_logger = "0.11.5"
+log = "0.4.22"
+uuid = { version = "1.11.0", features = ["v4"] }

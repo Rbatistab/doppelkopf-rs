@@ -5,9 +5,15 @@
 
 ## Backend 
 
+- [ ] [IN_PROGRESS] Make the game playable as a CLI application
+  - [x] Add clap and enable `dppkf play` to start a game
+  - [ ] Make logic to start a new game
+    - [x] Define a game state structure
+    - [x] Create a new game from CLI commands
+    - [x] Create the logic to add mock players to the game
+  - [ ] Make the logic to deal cards
 - [ ] Model the [operations](https://github.com/Rbatistab/dopplekopf-cdk/blob/main/docs/ARCHITECTURE_AND_DESIGN.md?plain=1#L68-L73)
 - [x] Split the operations into crates
-- [ ] Turn project into a set of Lambdas
 - [ ] Set a UUID generator
 - [x] Split into a `Cards` crate library, agnostic to the game and a `doppelkopf-game` crate to handle the game (consider a rule engine crate)
 - [ ] Make the game work
