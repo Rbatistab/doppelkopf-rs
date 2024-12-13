@@ -1,6 +1,4 @@
-pub fn hello_cards() {
-    println!("hello cards");
-}
+pub mod decks;
 pub fn add(left: usize, right: usize) -> usize {
     left + right
 }
