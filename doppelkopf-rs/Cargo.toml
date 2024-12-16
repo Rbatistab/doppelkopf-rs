@@ -18,8 +18,9 @@ name="dppkf"
 path="src/dppkf.rs"
 
 [dependencies]
-game-cards = { path = "../doppelkopf_game_cards_lib" }
+doppelkopf_cards_lib = { path = "../doppelkopf_cards_lib" }
 clap = { version = "4.5.23", features = ["derive"] }
+const_format = "0.2.34"
 env_logger = "0.11.5"
 log = "0.4.22"
 uuid = { version = "1.11.0", features = ["v4"] }

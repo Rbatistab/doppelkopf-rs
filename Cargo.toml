@@ -9,6 +9,6 @@ members = [
   "make_announcement_lambda",
   "play_trick_lambda",
   # Universal Libraries
-  "doppelkopf_game_cards_lib"
+  "doppelkopf_cards_lib"
 ]
 resolver = "2"

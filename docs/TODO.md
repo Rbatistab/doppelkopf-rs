@@ -7,7 +7,14 @@
 
 - [ ] [IN_PROGRESS] Make the game playable as a CLI application
   - [x] Add clap and enable `dppkf play` to start a game
+    - [x] Enable play command to play a game and add descriptions
+    - [x] Allow play command to have `player_name`, `suit_type` and `game_id` argument options
+    - [x] Set a debugging flag
+  - [ ] Add a `cheat-sheet` command to the game
+    - [ ] [IN_PROGRESS] Make a general sheat cheet to print
+    - [ ] Split by parts of the game (ex. trumps, game types, etc.)
   - [ ] Make logic to start a new game
+    - [ ] Process `player_name`, `suit_type` and `game_id` options on the start of a new game
     - [x] Define a game state structure
     - [x] Create a new game from CLI commands
     - [x] Create the logic to add mock players to the game
