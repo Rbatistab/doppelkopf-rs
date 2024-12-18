@@ -1,22 +1,48 @@
 use const_format::concatcp;
-use crate::utils::cli_text_style::{BOLD, RED, RESET, UNDERLINE};
+use crate::utils::cli_text_style::{BLUE, BOLD, ITALIC, RED, RESET, UNDERLINE};
 
 pub const GAME_OVERVIEW: &str = concatcp!(
     BOLD, UNDERLINE, "\nGame Overview\n", RESET,
-    "\nYou'll start with 2 decks of 24 or 20 cars ",
-    "\nYou and 3 other players will be dealt 12 (or 10 cards)."
-    // "You'll have to deal 2 decks (", RED, "red", RESET,
-    // " and ", BOLD, "black", RESET,
-    // ") of 24 (*or 20*) cards each for a total of 48 (*or 40*) cards."
+    BOLD, "1. Card Deal\n", RESET,
+    "\n- You'll start with 2 decks of 24 or 20 cards (", RED, BOLD, "red", RESET, " and ", BOLD, "black", RESET, ").",
+    "\n- One of the players will be the dealer and will deal 12 or 10 cards to each player, including himself.",
+    "\n* This CLI will print ", BOLD, "black", RESET, " as ", BLUE, BOLD, "blue", RESET, " for display purposes.",
+    BOLD, "\n\n2. Contract\n", RESET,
+    "\n- All players say 'Fine' to agree to a normal game.",
+    "\n- One or more players will say 'Hold' to ask for a different kind of game.",
+    "\n- For more than one 'Hold' the highest one wins the contract: \n",
+    ITALIC, "    Compulsory Solo > Free Solo > Wedding", RESET,
+    BOLD, "\n\n3. Play tricks and bids\n", RESET,
+    "\n- The player left to the dealer plays the first trick (may make a bid too).",
+    "\n- The next player to the left will play the second trick and so on until the fourth player. Optionally may bid to increase the score, but a bad bid will rest more points.",
+    BOLD, "\n\n4. Evaluate the rules (scoring)\n", RESET,
+    "\n- The game rules will determine the winner of the round and the amount of points that each team wins or loses.",
 );
 
-// You'll have to deal 2 decks (red and black) of 24 (*or 20*) cards each for a total of 48 (*or 40*) cards. Remove all cards with rank lower to 9 to have 48 cards, consisting of:
-// * 4 Suites (French or [German](https://en.wikipedia.org/wiki/German-suited_playing_cards) deck):
-// * ♦ Diamonds (*or Bells 🇩🇪*)
-// * ❤ Hearts (*german and french*)
-// * ♠ Spades (*or Leaves 🇩🇪*)
-// * ♣ Clubs (*or Acorns 🇩🇪*)
-// * Each suit has 6 possible ranks (2 cards of each suit per rank or *'Doppelkopf'*):
-// ***If you want to play with 40 cards just remove the nines.***
-//
-// Start by dealing 12 cards to each player (*10 for 40-card games*).The dealer is the first player to deal, and dealing passes clockwise.
+pub const CARD_DEAL: &str = concatcp!(
+    "card deal"
+);
+
+pub const CONTRACTS: &str = concatcp!(
+    "contracts"
+);
+
+pub const TRICKS: &str = concatcp!(
+    "tricks"
+);
+
+pub const TRUMPS: &str = concatcp!(
+    "trumps"
+);
+
+pub const RULES: &str = concatcp!(
+    "rules"
+);
+
+pub const SPECIAL_FEATURES: &str = concatcp!(
+    "special features"
+);
+
+pub const SCORING: &str = concatcp!(
+   "scoring"
+);

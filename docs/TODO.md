@@ -11,8 +11,10 @@
     - [x] Allow play command to have `player_name`, `suit_type` and `game_id` argument options
     - [x] Set a debugging flag
   - [ ] Add a `cheat-sheet` command to the game
-    - [ ] [IN_PROGRESS] Make a general sheat cheet to print
-    - [ ] Split by parts of the game (ex. trumps, game types, etc.)
+    - [x] Make a general sheat cheet to print
+    - [x] Split by parts of the game (ex. trumps, game types, etc.)
+    - [x] Make an enum for the options of cheat sheets, `CheatSheetOption`
+    - [ ] Fill the strings with the proper cheat sheet
   - [ ] Make logic to start a new game
     - [ ] Process `player_name`, `suit_type` and `game_id` options on the start of a new game
     - [x] Define a game state structure

@@ -11,6 +11,7 @@ use utils::constants::cli_commands::{
     PLAY_ABOUT,
     CHEAT_SHEET_ABOUT
 };
+use crate::commands::cheat_sheet::CheatSheetOption;
 
 #[derive(Parser)]
 #[command(version)]
@@ -47,7 +48,11 @@ enum Commands {
     },
 
     #[command(about=CHEAT_SHEET_ABOUT)]
-    CheatSheet,
+    CheatSheet {
+        /// Available cheat sheets
+        #[arg(short, long)]
+        cheat: Option<CheatSheetOption>
+    }
 
 }
 
@@ -63,8 +68,8 @@ fn main() {
         Some(Commands::Play {game_id, player_name, suit_type, pack_size}) => {
             commands::play::play_doppelkopf();
         },
-        Some(Commands::CheatSheet) => {
-            commands::cheat_sheet::print_cheat_sheet();
+        Some(Commands::CheatSheet { cheat }) => {
+            commands::cheat_sheet::print_cheat_sheet(cheat);
         },
         None => { }
     }

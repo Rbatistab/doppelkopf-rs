@@ -1,15 +1,48 @@
+use clap::ValueEnum;
 use log::debug;
-use crate::utils::constants::cheat_sheet_strings::GAME_OVERVIEW;
+use crate::utils::constants::cheat_sheet_strings::{CARD_DEAL, CONTRACTS, GAME_OVERVIEW, RULES, SCORING, SPECIAL_FEATURES, TRICKS, TRUMPS};
 
-pub enum CheatSheetOptions {
-    Contract,
+#[derive(Clone, ValueEnum)]
+pub enum CheatSheetOption {
+    GameOverview,
+    CardDeal,
+    Contracts,
+    Tricks,
     Trumps,
-    Bids,
-    SpecialFeatures
+    Rules,
+    SpecialFeatures,
+    Scoring
 }
 
-pub fn print_cheat_sheet() {
+pub fn print_cheat_sheet(cheat: &Option<CheatSheetOption>) {
     debug!("Printing cheat sheet");
-    println!("Mock cheat sheet");
-    println!("{GAME_OVERVIEW}");
+    match *cheat {
+        Some(CheatSheetOption::GameOverview) => {
+            println!("{GAME_OVERVIEW}");
+        },
+        Some(CheatSheetOption::CardDeal) => {
+            println!("{CARD_DEAL}");
+        },
+        Some(CheatSheetOption::Contracts) => {
+            println!("{CONTRACTS}");
+        },
+        Some(CheatSheetOption::Tricks) => {
+            println!("{TRICKS}");
+        },
+        Some(CheatSheetOption::Trumps) => {
+            println!("{TRUMPS}");
+        },
+        Some(CheatSheetOption::Rules) => {
+            println!("{RULES}");
+        },
+        Some(CheatSheetOption::SpecialFeatures) => {
+            println!("{SPECIAL_FEATURES}");
+        },
+        Some(CheatSheetOption::Scoring) => {
+            println!("{SCORING}");
+        },
+        None => {
+            println!("{GAME_OVERVIEW}");
+        }
+    }
 }
