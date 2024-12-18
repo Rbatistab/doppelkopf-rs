@@ -8,7 +8,8 @@ use log::debug;
 use utils::constants::cli_commands::{
     CLI_ABOUT,
     CLI_LONG_ABOUT,
-    PLAY_ABOUT,
+    JOIN_GAME_ABOUT,
+    NEW_GAME_ABOUT,
     CHEAT_SHEET_ABOUT
 };
 use crate::commands::cheat_sheet::CheatSheetOption;
@@ -27,12 +28,8 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Commands {
-    #[command(about=PLAY_ABOUT)]
-    Play {
-        /// Existing game id
-        #[arg(short, long)]
-        game_id: Option<String>,
-
+    #[command(about=NEW_GAME_ABOUT)]
+    NewGame {
         /// Player name
         #[arg(short, long)]
         player_name: Option<String>,
@@ -45,6 +42,17 @@ enum Commands {
         /// Pack size - only 40 or 48 sizes allowed
         #[arg(short, long)]
         pack_size: Option<u8>
+    },
+
+    #[command(about=JOIN_GAME_ABOUT)]
+    JoinGame {
+        /// Existing game id
+        #[arg(short, long)]
+        game_id: Option<String>,
+
+        /// Player name
+        #[arg(short, long)]
+        player_name: Option<String>,
     },
 
     #[command(about=CHEAT_SHEET_ABOUT)]
@@ -65,9 +73,12 @@ fn main() {
     }
 
     match &cli.command {
-        Some(Commands::Play {game_id, player_name, suit_type, pack_size}) => {
-            commands::play::play_doppelkopf();
+        Some(Commands::NewGame {player_name, suit_type, pack_size}) => {
+            commands::new_game::new_game();
         },
+        Some(Commands::JoinGame { game_id, player_name }) => {
+            commands::join_game::join_game();
+        }
         Some(Commands::CheatSheet { cheat }) => {
             commands::cheat_sheet::print_cheat_sheet(cheat);
         },

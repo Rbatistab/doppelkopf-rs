@@ -3,8 +3,8 @@ use log::debug;
 use game_lib::model::game_state::GameState;
 use game_lib::model::player::Player;
 
-pub fn play_doppelkopf() {
-    debug!("Starting doppelkopf game");
+pub fn new_game() {
+    debug!("Creating new doppelkopf game...");
 
     let player = get_player();
     debug!("Created new player, {}", player.name);
