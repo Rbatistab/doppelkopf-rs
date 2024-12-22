@@ -7,7 +7,7 @@ intended_text "${regular_text}" "Running 'dppkf -h'"
 
 if dppkpf -h; then
   echo ""
-  info_text "${regular_text}" "Doppelkopf is installed! ✅"
+  info_text "${regular_text}" "Doppelkopf is installed! ✅\n"
   exit 0
 else
   error_text "${bold_color_red}" "Failed verify installation ❌"

@@ -25,5 +25,5 @@ info_uninstalling_binary(){
 #	  None
 ###############################################################################
 info_deleted_files(){
-    info_text "${regular_text}" "Doppelkopf has been removed! ✅"
+    info_text "${regular_text}" "Doppelkopf has been removed! ✅\n"
 }

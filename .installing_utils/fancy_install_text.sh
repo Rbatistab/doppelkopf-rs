@@ -25,6 +25,6 @@ info_installing_binary(){
 #	  None
 ###############################################################################
 info_installed_files(){
-    info_text "${regular_text}" "Doppelkopf files installed! ✅"
+    info_text "${regular_text}" "Doppelkopf files installed! ✅\n"
     intended_text "${regular_text}" "Verify installation by running: 'dppkf -h"
 }

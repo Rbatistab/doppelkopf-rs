@@ -11,6 +11,6 @@ if ! command -v cargo >/dev/null 2>&1; then
   exit 1
 fi
 
-info_text "${regular_text}" "Dependencies checked! ✅"
+info_text "${regular_text}" "Dependencies checked! ✅\n"
 
 exit 0

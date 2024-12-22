@@ -24,7 +24,7 @@ info_text "${regular_text}" "Detected OS: ${OS}"
 case "$OS" in
   "Linux"|"Darwin")
     # Linux installer
-    info_text "${regular_text}" "${OS} is compatible with this installer! ✅"
+    info_text "${regular_text}" "${OS} is compatible with this installer! ✅\n"
     exit 0
     ;;
   "MINGW"*|"MSYS"*|"CYGWIN"*)
