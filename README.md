@@ -199,13 +199,15 @@ Game score and round winner:
 1. The winner of the trick leads the next one
 
    | Card | Points per card |
-       |------|-----------------|
+   |------|-----------------|
    | Aces (*Deuces*) | 11 |
    | Tens | 10 |
    | Kings | 4 |
    | Queens (*Obers*) | 3 |
    | Jacks (*Unters*) | 2 |
    | Nines | 0 |
+
+
 
 Score of each player:
 
