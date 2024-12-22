@@ -1,32 +1,33 @@
 # doppelkopf-rs
 
-Do you love those moments when playing [Uno](https://www.letsplayuno.com/) turns a card game into a game of thrones episode?
-Me too, which is why I bring you this open source version of [doppelkopf game](https://en.wikipedia.org/wiki/Doppelkopf) 
-
-***Disclaimer: grug sees public domain game, grug sees no lawsuits, grub develops game***
-
-Doppelkopf game whole cross-platform application:
-* Infrasctrucre: [dopplekopf-cdk](https://github.com/Rbatistab/dopplekopf-cdk/tree/main)
+This package offers a CLI implementation of the German Card game [Doppekkopf](https://en.wikipedia.org/wiki/Doppelkopf) and serves as a backed on a larger end-to-end project:
+* Infrasctructure: [dopplekopf-cdk](https://github.com/Rbatistab/dopplekopf-cdk/tree/main)
 * Frontend application: [dopplekopf-app](https://github.com/Rbatistab/doppelkopf-app)
 * Backend: [dopplekopf-rs](https://github.com/Rbatistab/doppelkopf-rs)
 
-## Installation -> Maybe this won't happen
+## Installation 
 
-***(When this is in crates.io)***
+Clone the package and follow the installer:
 ```
-$ cargo install doppelkopf-rs --locked
-$ doppelkopf-rs
+git clone https://github.com/Rbatistab/doppelkopf-rs.git
+cd doppelkopf-rs
+make install
+cd ../
+rm -rf doppelkopf-rs
+```
+
+To uninstall clone the package and follow the "unistaller":
+```shell
+git clone https://github.com/Rbatistab/doppelkopf-rs.git
+cd doppelkopf-rs
+make uninstall
+cd ../
+rm -rf doppelkopf-rs
 ```
 
 ## The game
 
 Doppelkopf is a popular card game in Germany, family of the "trick-tacking" games, based on strategy, teamwork, and tactical decision-making. And since it's German it won't be complicated to understand.
-It goes as:
-1. [Card deal and contract](#card-deal-and-contract)
-1. [Play tricks](#play-tricks)
-1. [Make teams](#make-teams)
-1. IN PROGRESS
-
 
 ### Card deal and contract
 

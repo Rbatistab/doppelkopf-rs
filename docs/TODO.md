@@ -6,7 +6,7 @@
 ## Backend 
 
 - [ ] [IN_PROGRESS] Make the game playable as a CLI application
-  - [ ] Make it installable (`.install.sh` + instructions)
+  - [x] Make it installable (`.install.sh` + instructions)
   - [x] Add clap to handle the CLI
     - [x] Set a debugging flag
   - [ ] [IN_PROGRESS] Make a `cheat-sheet` command

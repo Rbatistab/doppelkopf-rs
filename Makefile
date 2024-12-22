@@ -1,16 +1,16 @@
 .SILENT:
-.PHONY: all build install unistall clean
 
-# Config variables
--include config.mk
-
-# Defaults (linux/darwin)
+# Defaults for linux/darwin
 PREFIX ?= /usr/local
 BIN ?= $(PREFIX)/bin
-BINARY_NAME = dppkf
 
-# 1. Set env vars (configure)
-# 2. Install (make)
+# More env variables
+SHELL := /bin/bash
+PACKAGE_BIN_NAME = dppkf
+PACKAGE_BIN_PATH = target/release/$(PACKAGE_BIN_NAME)
+
+# Commands
+.PHONY: all build install unistall clean
 
 all: build
 
@@ -35,13 +35,15 @@ check:
 
 
 install: build
-	echo "Running Doppelkopf installer..."
-#	chmod +x ./install.sh
-#	install -d $(BIN)
-#	./install.sh
+	@source ./.installing_utils/fancy_install_text.sh && info_installing_binary
+	install -d $(BIN)
+	sudo install -m 755 $(PACKAGE_BIN_PATH) $(BIN)/$(PACKAGE_BIN_NAME)
+	@source ./.installing_utils/fancy_install_text.sh && info_installed_files
 
 uninstall:
-	echo "Uninstalling"
+	@source ./.installing_utils/fancy_uninstall_text.sh && info_uninstalling_binary
+	sudo rm -rf $(BIN)/$(PACKAGE_BIN_NAME)
+	@source ./.installing_utils/fancy_uninstall_text.sh && info_deleted_files
 
 clean: check
 	echo "Cleaning"
