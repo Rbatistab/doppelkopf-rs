@@ -1,6 +1,6 @@
 # doppelkopf-rs
 
-This package offers a CLI implementation of the German Card game [Doppekkopf](https://en.wikipedia.org/wiki/Doppelkopf) and serves as a backed on a larger end-to-end project:
+This package offers a CLI implementation of the German Card game [Doppekkopf](https://en.wikipedia.org/wiki/Doppelkopf) and serves as a backend on a larger end-to-end project:
 * Infrasctructure: [dopplekopf-cdk](https://github.com/Rbatistab/dopplekopf-cdk/tree/main)
 * Frontend application: [dopplekopf-app](https://github.com/Rbatistab/doppelkopf-app)
 * Backend: [dopplekopf-rs](https://github.com/Rbatistab/doppelkopf-rs)
@@ -8,19 +8,25 @@ This package offers a CLI implementation of the German Card game [Doppekkopf](ht
 ## Installation 
 
 Clone the package and follow the installer:
-```
+```shell
+# Clone and build the package
 git clone https://github.com/Rbatistab/doppelkopf-rs.git
 cd doppelkopf-rs
+# Install
 make install
+# Clean up
 cd ../
 rm -rf doppelkopf-rs
 ```
 
 To uninstall clone the package and follow the "unistaller":
 ```shell
+# Clone the package
 git clone https://github.com/Rbatistab/doppelkopf-rs.git
 cd doppelkopf-rs
+# Uninstall
 make uninstall
+# Clean up
 cd ../
 rm -rf doppelkopf-rs
 ```
