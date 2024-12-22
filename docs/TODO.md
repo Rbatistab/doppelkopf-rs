@@ -6,20 +6,22 @@
 ## Backend 
 
 - [ ] [IN_PROGRESS] Make the game playable as a CLI application
-  - [x] Add clap and enable `dppkf play` to start a game
-    - [x] Enable play command to play a game and add descriptions
-    - [x] Allow play command to have `player_name`, `suit_type` and `game_id` argument options
+  - [ ] Make it installable (`.install.sh` + instructions)
+  - [x] Add clap to handle the CLI
     - [x] Set a debugging flag
-  - [ ] Add a `cheat-sheet` command to the game
+  - [ ] [IN_PROGRESS] Make a `cheat-sheet` command
     - [x] Make a general sheat cheet to print
     - [x] Split by parts of the game (ex. trumps, game types, etc.)
     - [x] Make an enum for the options of cheat sheets, `CheatSheetOption`
     - [ ] Fill the strings with the proper cheat sheet
-  - [ ] Make logic to start a new game
-    - [ ] Process `player_name`, `suit_type` and `game_id` options on the start of a new game
-    - [x] Define a game state structure
+  - [ ] Make a `start-game` command
+    - [x] Enable `start-game` command and add descriptions
+    - [x] Allow play command to have `player-name`, `suit-type` and `pack-size` argument options
     - [x] Create a new game from CLI commands
     - [x] Create the logic to add mock players to the game
+  - [ ] Make `join-game` command
+    - [ ] Process `player_name` and `game_id` options to join the game
+  - [ ] Define a game state structure
   - [ ] Make the logic to deal cards
 - [ ] Model the [operations](https://github.com/Rbatistab/dopplekopf-cdk/blob/main/docs/ARCHITECTURE_AND_DESIGN.md?plain=1#L68-L73)
 - [x] Split the operations into crates
