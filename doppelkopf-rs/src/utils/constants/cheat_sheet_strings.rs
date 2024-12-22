@@ -32,7 +32,15 @@ pub const TRICKS: &str = concatcp!(
 );
 
 pub const TRUMPS: &str = concatcp!(
-    "trumps"
+    BOLD, "Normal Game", RESET, "Starts with the 10 of hearts, called ", ITALIC, "Dulle", RESET, "(or ", ITALIC, "Tolle", RESET, " 🇩🇪):\n",
+    "  ❤️ 10 | ♣️ Q | ♠️ Q | ❤️ Q | ♦️ Q | ♣️ J | ♠️ J | ❤️ J | ♦️ J | ♦️ A | ♦️ 10 | ♦️ K | ♦️ 9\n\n",
+    BOLD, "Wedding", RESET, "Same Trump as the normal game", ITALIC, "Dulle", RESET, "(or ", ITALIC, "Tolle", RESET, " 🇩🇪):\n\n",
+    BOLD, "Solos:\n", RESET,
+    "- Diamond Solo: Same Trump as the normal game\n",
+    "- Jack Solo (Bubensolo 🇩🇪): Only Jacks make a Trump\n",
+    "- Queen Solo (Damensolo 🇩🇪): Only Queen make a Trump\n",
+    "- Ace Solo (Fleischloser/Knochenmann 🇩🇪): There are no Trumps\n",
+    "- Suit Solo (Farbensolo 🇩🇪): Announce a Suit to be a Trump for Jacks and Queens\n"
 );
 
 pub const RULES: &str = concatcp!(
