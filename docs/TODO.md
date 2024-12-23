@@ -14,13 +14,19 @@
     - [x] Split by parts of the game (ex. trumps, game types, etc.)
     - [x] Make an enum for the options of cheat sheets, `CheatSheetOption`
     - [ ] Fill the strings with the proper cheat sheet
-  - [ ] Make a `start-game` command
-    - [x] Enable `start-game` command and add descriptions
+    - [ ] Add clap tests
+    - [ ] Add tests to `cheat_sheet.rs`
+  - [ ] Make a `new-game` command
+    - [x] Enable `new-game` command and add descriptions
     - [x] Allow play command to have `player-name`, `suit-type` and `pack-size` argument options
     - [x] Create a new game from CLI commands
     - [x] Create the logic to add mock players to the game
+    - [ ] Add clap tests
+    - [ ] Add tests to `new_game_cli.rs`
   - [ ] Make `join-game` command
     - [ ] Process `player_name` and `game_id` options to join the game
+    - [ ] Add clap tests
+    - [ ] Add tests to `join_game_cli.rs`
   - [ ] Define a game state structure
   - [ ] Make the logic to deal cards
 - [ ] Model the [operations](https://github.com/Rbatistab/dopplekopf-cdk/blob/main/docs/ARCHITECTURE_AND_DESIGN.md?plain=1#L68-L73)

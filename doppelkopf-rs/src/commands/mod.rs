@@ -1,3 +1,3 @@
-pub mod new_game;
-pub mod cheat_sheet;
-pub mod join_game;
+pub mod new_game_cli;
+pub mod cheat_sheet_cli;
+pub mod join_game_cli;

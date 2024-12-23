@@ -46,7 +46,7 @@ $ dppkf new-game
 To join an existing game, just follow with the `join-game` command:
 ```shell
 # Start a new game with interactive mode
-$ dppkf new-game 
+$ dppkf join-game 
 ````
 
 ### 2. [IN PROGRESS]

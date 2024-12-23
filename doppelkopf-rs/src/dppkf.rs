@@ -12,7 +12,7 @@ use utils::constants::cli_commands::{
     NEW_GAME_ABOUT,
     CHEAT_SHEET_ABOUT
 };
-use crate::commands::cheat_sheet::CheatSheetOption;
+use crate::commands::cheat_sheet_cli::CheatSheetOption;
 
 #[derive(Parser)]
 #[command(version)]
@@ -31,16 +31,17 @@ enum Commands {
     #[command(about=NEW_GAME_ABOUT)]
     NewGame {
         /// Player name
-        #[arg(short, long)]
+        #[arg(short = 'n', long)]
         player_name: Option<String>,
 
         /// Suit Type
         #[arg(value_enum)]
         #[arg(short, long)]
-        suit_type: Option<u8>,
+        suit_type: Option<SuitType>,
 
-        /// Pack size - only 40 or 48 sizes allowed
-        #[arg(short, long)]
+        /// Pack Size [possible values: 40, 48]
+        #[arg(short = 'p', long)]
+        #[arg(value_parser = valid_pack_size)]
         pack_size: Option<u8>
     },
 
@@ -64,6 +65,16 @@ enum Commands {
 
 }
 
+fn valid_pack_size(s: &str) -> Result<u8, String> {
+    let invalid_pack_size_message = "Pack size can only be '40' or '48'.";
+    let size: u8 = s.parse().map_err(|_| invalid_pack_size_message)?;
+    if size == 40 || size == 48 {
+        Ok(size)
+    } else {
+        Err(String::from(invalid_pack_size_message))
+    }
+}
+
 fn main() {
     let cli = Cli::parse();
 
@@ -74,27 +85,14 @@ fn main() {
 
     match &cli.command {
         Some(Commands::NewGame {player_name, suit_type, pack_size}) => {
-            commands::new_game::new_game();
+            commands::new_game_cli::new_game_cli(player_name, suit_type, pack_size);
         },
         Some(Commands::JoinGame { game_id, player_name }) => {
-            commands::join_game::join_game();
+            commands::join_game_cli::join_game();
         }
         Some(Commands::CheatSheet { cheat }) => {
-            commands::cheat_sheet::print_cheat_sheet(cheat);
+            commands::cheat_sheet_cli::print_cheat_sheet(cheat);
         },
         None => { }
     }
 }
-
-// struct NewGameArgs {
-//     player_name: String,
-//     game_id: Option<String>,
-//     suit_type: SuitType
-// }
-//
-// fn get_new_game_arguments(cli: &Cli)  {
-//     // game id
-//     // player name
-//     // suit type
-// }
-
