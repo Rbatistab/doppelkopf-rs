@@ -1,4 +1,4 @@
-pub mod decks;
+pub mod deck;
 pub mod suits;
 
 pub fn add(left: usize, right: usize) -> usize {
