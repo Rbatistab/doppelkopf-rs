@@ -14,15 +14,15 @@
     - [x] Split by parts of the game (ex. trumps, game types, etc.)
     - [x] Make an enum for the options of cheat sheets, `CheatSheetOption`
     - [ ] Fill the strings with the proper cheat sheet
-    - [ ] Add clap tests
     - [ ] Add tests to `cheat_sheet.rs`
+    - [ ] Add docs
   - [ ] Make a `new-game` command
     - [x] Enable `new-game` command and add descriptions
     - [x] Allow play command to have `player-name`, `suit-type` and `pack-size` argument options
     - [x] Create a new game from CLI commands
     - [x] Create the logic to add mock players to the game
-    - [ ] Add clap tests
     - [ ] Add tests to `new_game_cli.rs`
+    - [ ] Add docs
   - [ ] Make `join-game` command
     - [ ] Process `player_name` and `game_id` options to join the game
     - [ ] Add clap tests
