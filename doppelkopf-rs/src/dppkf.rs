@@ -1,18 +1,17 @@
-mod commands;
-mod utils;
+mod cli;
 
 use clap::{Parser, Subcommand};
-use doppelkopf_cards_lib::suits::SuitType;
-use env_logger::{Builder, Env};
-use log::debug;
-use utils::constants::cli_commands::{
+use dppkf_lib::utils::constants::cli_commands::{
     CLI_ABOUT,
     CLI_LONG_ABOUT,
     JOIN_GAME_ABOUT,
     NEW_GAME_ABOUT,
     CHEAT_SHEET_ABOUT
 };
-use crate::commands::cheat_sheet_cli::CheatSheetOption;
+use dppkf_lib::model::types::cheat_sheet::CheatSheetOption;
+use doppelkopf_cards_lib::suits::SuitType;
+use env_logger::{Builder, Env};
+use log::debug;
 
 #[derive(Parser)]
 #[command(version)]
@@ -85,13 +84,13 @@ fn main() {
 
     match &cli.command {
         Some(Commands::NewGame {player_name, suit_type, pack_size}) => {
-            commands::new_game_cli::new_game_cli(player_name, suit_type, pack_size);
+            cli::cli_commands::new_game_cli::new_game_cli(player_name, suit_type, pack_size);
         },
         Some(Commands::JoinGame { game_id, player_name }) => {
-            commands::join_game_cli::join_game();
+            cli::cli_commands::join_game_cli::join_game();
         }
         Some(Commands::CheatSheet { cheat }) => {
-            commands::cheat_sheet_cli::print_cheat_sheet(cheat);
+            cli::cli_commands::cheat_sheet_cli::print_cheat_sheet(cheat);
         },
         None => { }
     }

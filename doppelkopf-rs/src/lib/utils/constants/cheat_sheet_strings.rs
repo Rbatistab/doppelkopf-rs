@@ -1,5 +1,5 @@
 use const_format::concatcp;
-use crate::utils::cli_text_style::{BLUE, BOLD, ITALIC, RED, RESET, UNDERLINE};
+use crate::utils::text_style::{BLUE, BOLD, ITALIC, RED, RESET, UNDERLINE};
 
 pub const GAME_OVERVIEW: &str = concatcp!(
     BOLD, UNDERLINE, "\nGame Overview\n", RESET,
@@ -11,7 +11,7 @@ pub const GAME_OVERVIEW: &str = concatcp!(
     "\n- All players say 'Fine' to agree to a normal game.",
     "\n- One or more players will say 'Hold' to ask for a different kind of game.",
     "\n- For more than one 'Hold' the highest one wins the contract: \n",
-    ITALIC, "    Compulsory Solo > Free Solo > Wedding", RESET,
+    "    ", ITALIC, "Compulsory Solo > Free Solo > Wedding", RESET,
     BOLD, "\n\n3. Play tricks and bids\n", RESET,
     "\n- The player left to the dealer plays the first trick (may make a bid too).",
     "\n- The next player to the left will play the second trick and so on until the fourth player. Optionally may bid to increase the score, but a bad bid will rest more points.",
@@ -32,9 +32,9 @@ pub const TRICKS: &str = concatcp!(
 );
 
 pub const TRUMPS: &str = concatcp!(
-    BOLD, "Normal Game", RESET, "Starts with the 10 of hearts, called ", ITALIC, "Dulle", RESET, "(or ", ITALIC, "Tolle", RESET, " 🇩🇪):\n",
+    BOLD, "Normal Game\n", RESET, "Starts with the 10 of hearts, called ", ITALIC, "Dulle", RESET, "(or ", ITALIC, "Tolle", RESET, " 🇩🇪):\n",
     "  ❤️ 10 | ♣️ Q | ♠️ Q | ❤️ Q | ♦️ Q | ♣️ J | ♠️ J | ❤️ J | ♦️ J | ♦️ A | ♦️ 10 | ♦️ K | ♦️ 9\n\n",
-    BOLD, "Wedding", RESET, "Same Trump as the normal game", ITALIC, "Dulle", RESET, "(or ", ITALIC, "Tolle", RESET, " 🇩🇪):\n\n",
+    BOLD, "Wedding\n", RESET, "Same Trump as the normal game\n\n",
     BOLD, "Solos:\n", RESET,
     "- Diamond Solo: Same Trump as the normal game\n",
     "- Jack Solo (Bubensolo 🇩🇪): Only Jacks make a Trump\n",

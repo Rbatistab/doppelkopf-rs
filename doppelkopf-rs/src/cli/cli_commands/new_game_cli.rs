@@ -1,8 +1,7 @@
 use std::io;
 use log::debug;
 use doppelkopf_cards_lib::suits::SuitType;
-use game_lib::model::game_state::GameState;
-use game_lib::model::player::Player;
+use dppkf_lib::model::types::player::Player;
 
 pub fn new_game_cli(player_name: &Option<String>, suit_type: &Option<SuitType>, pack_size: &Option<u8>) {
     debug!("Creating new doppelkopf game...");
@@ -48,32 +47,32 @@ pub fn new_game_cli(player_name: &Option<String>, suit_type: &Option<SuitType>, 
     // Evaluate rules (from lib)
 }
 
-fn get_player_from_cli() -> Player {
-    debug!("Getting player's name");
-    println!("What's your name? ");
-
-    let mut player_name = String::new();
-    io::stdin()
-        .read_line(&mut player_name)
-        .expect("Failed to read your name");
-
-    Player::from_name(player_name.trim().to_string())
-}
-
-fn add_mock_players(game_state: &mut GameState) {
-    let mock_player_names = ["Sabina", "Jasper", "Matthias"];
-
-    for name in mock_player_names.iter() {
-        game_state.add_player(Player::from_name(name.parse().unwrap()));
-    }
-
-}
-
-#[cfg(test)]
-mod new_game_cli_tests {
-    #[test]
-    fn test_no_arguments_provided() {
-        // TBD
-       assert_eq!(1,1) ;
-    }
-}
+// fn get_player_from_cli() -> Player {
+//     debug!("Getting player's name");
+//     println!("What's your name? ");
+//
+//     let mut player_name = String::new();
+//     io::stdin()
+//         .read_line(&mut player_name)
+//         .expect("Failed to read your name");
+//
+//     Player::from_name(player_name.trim().to_string())
+// }
+//
+// fn add_mock_players(game_state: &mut GameState) {
+//     let mock_player_names = ["Sabina", "Jasper", "Matthias"];
+//
+//     for name in mock_player_names.iter() {
+//         game_state.add_player(Player::from_name(name.parse().unwrap()));
+//     }
+//
+// }
+//
+// #[cfg(test)]
+// mod new_game_cli_tests {
+//     #[test]
+//     fn test_no_arguments_provided() {
+//         // TBD
+//        assert_eq!(1,1) ;
+//     }
+// }

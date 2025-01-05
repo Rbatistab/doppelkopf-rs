@@ -10,7 +10,7 @@ homepage = "https://rbatistab.com/"
 repository = "https://github.com/Rbatistab/doppelkopf-rs"
 
 [lib]
-name="game_lib"
+name="dppkf_lib"
 path = "src/lib/lib.rs"
 
 [[bin]]

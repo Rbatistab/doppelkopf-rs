@@ -1,7 +1,7 @@
 use uuid::Uuid;
 use doppelkopf_cards_lib::decks::Deck;
 use doppelkopf_cards_lib::suits::SuitType;
-use crate::model::player::Player;
+use crate::model::types::player::Player;
 
 #[derive(Debug)]
 pub struct GameState {
