@@ -4,7 +4,7 @@ use crate::utils::text_style::{BLUE, BOLD, ITALIC, RED, RESET, UNDERLINE};
 pub const GAME_OVERVIEW: &str = concatcp!(
     BOLD, UNDERLINE, "\nGame Overview\n", RESET,
     BOLD, "1. Card Deal\n", RESET,
-    "\n- You'll start with 2 decks of 24 or 20 cards (", RED, BOLD, "red", RESET, " and ", BOLD, "black", RESET, ").",
+    "\n- You'll start with 2 deck of 24 or 20 cards (", RED, BOLD, "red", RESET, " and ", BOLD, "black", RESET, ").",
     "\n- One of the players will be the dealer and will deal 12 or 10 cards to each player, including himself.",
     "\n* This CLI will print ", BOLD, "black", RESET, " as ", BLUE, BOLD, "blue", RESET, " for display purposes.",
     BOLD, "\n\n2. Contract\n", RESET,

@@ -16,11 +16,13 @@
     - [ ] Fill the strings with the proper cheat sheet
     - [ ] Add tests to `cheat_sheet.rs`
     - [ ] Add docs
+  - [ ] Set a state machine to handle the game state
   - [ ] Make a `new-game` command
     - [x] Enable `new-game` command and add descriptions
     - [x] Allow play command to have `player-name`, `suit-type` and `pack-size` argument options
     - [x] Create a new game from CLI commands
     - [x] Create the logic to add mock players to the game
+    - [ ] Ensure this command updates a game state but does NOT depend on game state machine (state machine agnostic)
     - [ ] Add tests to `new_game_cli.rs`
     - [ ] Add docs
   - [ ] Make `join-game` command

@@ -11,7 +11,8 @@ use crate::model::types::player::Player;
 pub struct NewGameLogicArgs {
     player: Player,
     suit_type: SuitType,
-    pack_size: u8
+    pack_size: u8,
+    // game state handler (DDB, S3, ram)
 }
 
 impl NewGameLogicArgs {

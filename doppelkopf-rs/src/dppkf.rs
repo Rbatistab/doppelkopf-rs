@@ -12,6 +12,7 @@ use dppkf_lib::model::types::cheat_sheet::CheatSheetOption;
 use doppelkopf_cards_lib::suits::SuitType;
 use env_logger::{Builder, Env};
 use log::debug;
+use dppkf_lib::core_logic::game_state_machine::GameStateMachine;
 
 #[derive(Parser)]
 #[command(version)]
@@ -83,6 +84,7 @@ fn main() {
     }
 
     match &cli.command {
+        // The following should be "migrated" to the game state machine
         Some(Commands::NewGame {player_name, suit_type, pack_size}) => {
             cli::cli_commands::new_game_cli::new_game_cli(player_name, suit_type, pack_size);
         },
@@ -92,6 +94,8 @@ fn main() {
         Some(Commands::CheatSheet { cheat }) => {
             cli::cli_commands::cheat_sheet_cli::print_cheat_sheet(cheat);
         },
-        None => { }
+        None => {
+            cli::cli_commands::new_game_cli::new_game_cli(&None, &None, &None);
+        }
     }
 }

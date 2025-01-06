@@ -5,7 +5,7 @@
 use uuid::Uuid;
 
 /// Represents if the player is human or AI
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone)]
 pub enum PlayerType {
     /// Human-controlled player that requires user input for moves
     Human,
@@ -32,7 +32,7 @@ pub enum PlayerType {
 ///     player_type: PlayerType::Human
 /// };
 /// ```
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone)]
 pub struct Player {
     pub id: String,
     pub name: String,
@@ -47,8 +47,10 @@ impl Player {
     ///
     /// # Examples
     /// ```
-    /// use dppkf_lib::model::types::player::Player;
+    /// use dppkf_lib::model::types::player::{Player, PlayerType};
+    ///
     /// let new_player = Player::new();
+    /// assert_eq!(new_player.player_type, PlayerType::Human);
     /// ```
     pub fn new() -> Player {
         Player {
@@ -66,10 +68,17 @@ impl Player {
     /// # Examples
     /// ```
     /// use dppkf_lib::model::types::player::{Player, PlayerType};
-    /// let player_name = String::from("T100");
-    /// let new_player = Player::from(player_name, PlayerType::AiPlayer);
+    ///
+    /// let ai_player_name = String::from("T100");
+    /// let ai_new_player = Player::from(ai_player_name.clone(), PlayerType::AiPlayer);
+    /// assert!(!ai_new_player.id.is_empty());
+    /// assert_eq!(ai_new_player.name, ai_player_name);
+    /// assert_eq!(ai_new_player.player_type, PlayerType::AiPlayer);
+    ///
     /// let human_player_name = String::from("Sarah Connor");
-    /// let human_new_player = Player::from(human_player_name, PlayerType::Human);
+    /// let human_new_player = Player::from(human_player_name.clone(), PlayerType::Human);
+    /// assert_eq!(human_new_player.player_type, PlayerType::Human);
+    /// assert_eq!(human_new_player.score, 0);
     /// ```
     pub fn from(name: String, player_type: PlayerType) -> Player {
         Self {
@@ -80,31 +89,4 @@ impl Player {
         }
     }
 
-}
-
-#[cfg(test)]
-mod player_tests {
-    use super::*;
-
-    #[test]
-    fn test_new_player_from() {
-        let human_player_1_name = String::from("Sarah Connor");
-
-        let human_player_1 = Player::from(human_player_1_name.clone(), PlayerType::Human);
-
-        assert!(!human_player_1.id.is_empty());
-        assert_eq!(human_player_1.name, human_player_1_name);
-        assert_eq!(human_player_1.score, 0);
-        assert_eq!(human_player_1.player_type, PlayerType::Human);
-
-
-        let ai_player_name = String::from("T1000");
-
-        let ai_player = Player::from(ai_player_name.clone(), PlayerType::AiPlayer);
-
-        assert!(!ai_player.id.is_empty());
-        assert_eq!(ai_player.name, ai_player_name);
-        assert_eq!(ai_player.score, 0);
-        assert_eq!(ai_player.player_type, PlayerType::AiPlayer);
-    }
 }
