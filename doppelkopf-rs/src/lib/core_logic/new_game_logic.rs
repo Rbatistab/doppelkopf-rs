@@ -2,7 +2,7 @@
 
 use log::debug;
 use uuid::Uuid;
-use crate::model::operations::new_game_model::NewGameArgs;
+use crate::model::operations::new_game_model::NewGameInput;
 
 /// Creates a new CLI game, it will take parameters from the CLI command `new-game` or it will
 /// capture them dynamically with the user. Will create a new UUID for tha current new game.
@@ -13,7 +13,7 @@ use crate::model::operations::new_game_model::NewGameArgs;
 /// * `pack_size` - (Optional) Pack size
 /// # Returns
 /// * `game_is` - UUID for the current new game
-pub fn get_new_game(args: NewGameArgs) -> String {
+pub fn get_new_game(args: NewGameInput) -> String {
     debug!("Creating new game with args:\n{:?}", args);
     Uuid::new_v4().to_string() // Temporary dummy return
     // set this id to the game state

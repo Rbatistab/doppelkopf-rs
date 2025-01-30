@@ -16,7 +16,7 @@ use doppelkopf_cards_lib::deck::PackSize;
 use doppelkopf_cards_lib::suits::SuitType;
 use dppkf_lib::core_logic::game_state_machine::GameStateMachine;
 use dppkf_lib::core_logic::new_game_logic::get_new_game;
-use dppkf_lib::model::operations::new_game_model::NewGameArgs;
+use dppkf_lib::model::operations::new_game_model::NewGameInput;
 use dppkf_lib::model::types::player::{Player, PlayerType};
 
 /// Creates a new CLI game, it will take parameters from the CLI command `new-game` or it will
@@ -40,7 +40,7 @@ pub fn new_game_cli(player_name: &Option<String>, suit_type: &Option<SuitType>, 
 
     println!("Welcome to doppelkopf! Let's start a new game");
 
-    let mut new_game_args = NewGameArgs::new();
+    let mut new_game_args = NewGameInput::new();
 
     match player_name {
         Some(name) => {
