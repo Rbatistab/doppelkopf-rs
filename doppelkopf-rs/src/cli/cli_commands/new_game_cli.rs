@@ -3,10 +3,11 @@
 use crate::cli::cli_utils::constants::new_game_cli_constants::{FAILED_GET_PLAYER_NAME_STR, FAILED_GET_SUIT_TYPE_STR, GET_PACK_SIZE_STR, GET_PLAYER_NAME_STR, GET_SUIT_TYPES_STR, INVALID_PACK_SIZE_STR, INVALID_SUIT_TYPE_STR};
 use std::io;
 use log::debug;
+use doppelkopf_cards_lib::deck::PackSize;
 use doppelkopf_cards_lib::suits::SuitType;
 use dppkf_lib::core_logic::game_state_machine::GameStateMachine;
 use dppkf_lib::core_logic::new_game_logic::get_new_game;
-use dppkf_lib::model::operations::new_game_model::NewGameLogicArgs;
+use dppkf_lib::model::operations::new_game_model::NewGameArgs;
 use dppkf_lib::model::types::player::{Player, PlayerType};
 
 /// Creates a new CLI game, it will take parameters from the CLI command `new-game` or it will
@@ -29,16 +30,16 @@ pub fn new_game_cli(player_name: &Option<String>, suit_type: &Option<SuitType>, 
 
     println!("Welcome to doppelkopf! Let's start a new game");
 
-    let mut new_game_args = NewGameLogicArgs::new();
+    let mut new_game_args = NewGameArgs::new();
 
     match player_name {
         Some(name) => {
             debug!("Player name provided on 'new-game'");
-            new_game_args.add_player(Player::from(name.to_string(), PlayerType::Human));
+            new_game_args.set_player(Player::from(name.to_string(), PlayerType::Human));
         }
         None => {
             debug!("No player name provided on 'new-game'");
-            new_game_args.add_player(get_player_from_cli());
+            new_game_args.set_player(get_player_from_cli());
         }
     }
 
@@ -56,7 +57,12 @@ pub fn new_game_cli(player_name: &Option<String>, suit_type: &Option<SuitType>, 
     match pack_size {
         Some(size) => {
             debug!("Pack size provided on 'new-game");
-            new_game_args.set_pack_size(size.clone());
+            let size = match size {
+                40 => PackSize::Forty,
+                48 => PackSize::FortyEight,
+                _ => PackSize::FortyEight
+            };
+            new_game_args.set_pack_size(size);
         }
         None => {
             debug!("No pack size provided on 'new-game");
@@ -113,7 +119,7 @@ fn get_suit_type_from_cli() -> SuitType {
     }
 }
 
-pub fn get_pack_size_from_cli() -> u8 {
+pub fn get_pack_size_from_cli() -> PackSize {
     debug!("Getting pack size...");
 
     loop {
@@ -125,8 +131,8 @@ pub fn get_pack_size_from_cli() -> u8 {
             .expect(FAILED_GET_SUIT_TYPE_STR);
 
         match suit_type_input.trim().parse::<u32>() {
-            Ok(1) => return 48,
-            Ok(2) => return 40,
+            Ok(1) => return PackSize::FortyEight,
+            Ok(2) => return PackSize::Forty,
             Ok(_) => {
                 println!("{INVALID_PACK_SIZE_STR}");
                 continue;
@@ -137,5 +143,4 @@ pub fn get_pack_size_from_cli() -> u8 {
             }
         }
     }
-
 }
