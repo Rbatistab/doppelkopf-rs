@@ -82,7 +82,7 @@ fn main() {
             cli::cli_commands::new_game_cli::new_game_cli(player_name, suit_type, pack_size);
         },
         Some(Commands::JoinGame { game_id, player_name }) => {
-            cli::cli_commands::join_game_cli::join_game();
+            cli::cli_commands::join_game_cli::join_game(game_id, player_name);
         }
         Some(Commands::CheatSheet { cheat }) => {
             cli::cli_commands::cheat_sheet_cli::print_cheat_sheet(cheat);

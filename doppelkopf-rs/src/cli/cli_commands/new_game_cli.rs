@@ -27,6 +27,7 @@ use dppkf_lib::model::types::player::{Player, PlayerType};
 /// * `suit_type` - (Optional) Suit Type
 /// * `pack_size` - (Optional) Pack size
 pub fn new_game_cli(player_name: &Option<String>, suit_type: &Option<SuitType>, pack_size: &Option<u8>) {
+    debug!("Creating new game....");
     debug!("Provided player_name: {:?}", player_name);
     debug!("Provided suit_type: {:?}", suit_type);
     debug!("Provided pack_size: {:?}", pack_size);
