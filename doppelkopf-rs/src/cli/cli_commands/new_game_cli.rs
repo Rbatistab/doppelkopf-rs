@@ -10,7 +10,7 @@ use dppkf_lib::model::operations::new_game_model::NewGameLogicArgs;
 use dppkf_lib::model::types::player::{Player, PlayerType};
 
 /// Creates a new CLI game, it will take parameters from the CLI command `new-game` or it will
-/// capture them dynamically with the u- ser.
+/// capture them dynamically with the user.
 ///
 /// # Fields
 /// * `player_name` - (Optional) Name of player creating new game

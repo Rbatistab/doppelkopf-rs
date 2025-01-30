@@ -1,6 +1,11 @@
+//! Dppkf is the entry point of the doppelkopf CLI application. A "CLI client" of the library
+//! dppkf_lib. This library provides the core game logic, the model and utils (like a state machine)
+//! to allow for consumers to utilize the resources they need in their own custom manner.
+
 mod cli;
 
 use clap::{Parser, Subcommand};
+use cli::cli_utils::validations::valid_pack_size;
 use dppkf_lib::utils::constants::cli_commands::{
     CLI_ABOUT,
     CLI_LONG_ABOUT,
@@ -12,7 +17,6 @@ use dppkf_lib::model::types::cheat_sheet::CheatSheetOption;
 use doppelkopf_cards_lib::suits::SuitType;
 use env_logger::{Builder, Env};
 use log::debug;
-use dppkf_lib::core_logic::game_state_machine::GameStateMachine;
 
 #[derive(Parser)]
 #[command(version)]
@@ -65,16 +69,6 @@ enum Commands {
 
 }
 
-fn valid_pack_size(s: &str) -> Result<u8, String> {
-    let invalid_pack_size_message = "Pack size can only be '40' or '48'.";
-    let size: u8 = s.parse().map_err(|_| invalid_pack_size_message)?;
-    if size == 40 || size == 48 {
-        Ok(size)
-    } else {
-        Err(String::from(invalid_pack_size_message))
-    }
-}
-
 fn main() {
     let cli = Cli::parse();
 
@@ -84,7 +78,6 @@ fn main() {
     }
 
     match &cli.command {
-        // The following should be "migrated" to the game state machine
         Some(Commands::NewGame {player_name, suit_type, pack_size}) => {
             cli::cli_commands::new_game_cli::new_game_cli(player_name, suit_type, pack_size);
         },
