@@ -3,56 +3,96 @@
 ## Set up
 - [x] Set up a CI/CD structure on github with clippy as a mandatory step
 
-## Backend 
+---
+
+## Utils
+- [x] Split into a `Cards` crate library, agnostic to the game or it's logic
+  - [ ] Model the card-related types
+    - [ ] Model and document a `Cards` type
+    - [ ] Model and document a `Decks` type
+      - [ ] Model and document a `SuitType` enum
+      - [ ] Model and document a `PackSize` enum
+      - [ ] Make the logic to deal cards
+- [ ] Create a rule engine(?)
+
+---
+## Lib
+- [ ] Model the lib operations types (these are the entry point to the logic from the clients)
+  - [ ] Model  and document a `CheatSheetInput` type (`cheat_sheet_model`)
+  - [ ] Model  and document a `CheatSheetOutput` type  (`cheat_sheet_model`)
+  - [x] Model  and document a `NewGameArgsInput` type  (`new_game_model`)
+  - [ ] Model  and document a `NewGameArgsOutput` type  (`new_game_model`)
+  - [ ] Model  and document a `JoinGameArgsInput` type  (`join_game_model`)
+  - [ ] Model  and document a `JoinGameArgsOutput` type  (`join_game_model`)
+  - [x] Model  and document a `Player` type (`player`)
+  - [x] Model  and document a `GameState` type (`player`)
+  - [x] Create and document a `CheatSheetOption` enum (`cheat_sheet_model`)
+- Add the core logic
+  - [ ] [IN_PROGRESS] Add logic and document for `cheat_sheet_logic`
+    - [x] Make a general cheat sheet to print (overview)
+    - [ ] [IN_PROGRESS] Create constants for the cheat (text) to display as a cheat sheet
+      - [x] Split by parts of the game (ex. trumps, game types, etc.)
+      - [ ] Fill the strings with the proper cheat sheet
+    - [ ] Add tests and docs
+  - [ ] Add logic and document for `new_game_logic`
+    - [ ] (I'm a new game, what do I do?)
+  - [ ] Add logic and document for `join_game_logic`
+    - [ ] (I'm joining a new game, what do I do?)
+  - [ ] Add logic and document for a `game_state_machine` to implement a state design pattern
+- [ ] Set a state machine to handle the game state
+- [ ] Set a UUID generator
+
+---
+
+## Web game (AWS)
+
+***Remember the Web game is a client for the lib and here is the backend for it***
+
+- [ ] Model the [lambda operations](https://github.com/Rbatistab/dopplekopf-cdk/blob/main/docs/ARCHITECTURE_AND_DESIGN.md?plain=1#L68-L73)
+  - [ ] Model  and document a `CheatSheetLambdaInput` type (`cheat_sheet_lambda_model`)
+  - [ ] Model  and document a `CheatSheetLambdaOutput` type  (`cheat_sheet_lambda_model`)
+  - [ ] Model  and document a `NewGameArgsLambdaInput` type  (`new_game_lambda_model`)
+  - [ ] Model  and document a `NewGameArgsLambdaOutput` type  (`new_game_lambda_model`)
+  - [ ] Model  and document a `JoinGameArgsLambdaInput` type  (`join_game_lambda_model`)
+  - [ ] Model  and document a `JoinGameArgsLambdaOutput` type  (`join_game_lambda_model`)
+  - [ ] ...
+- [x] Split the operations into crates
+
+---
+
+## CLI game
+
+***Remember the CLI game is a client for the lib***
 
 - [ ] [IN_PROGRESS] Make the game playable as a CLI application
   - [x] Make it installable (`.install.sh` + instructions)
   - [x] Add clap to handle the CLI
     - [x] Set a debugging flag
-  - [ ] [IN_PROGRESS] Make a `cheat-sheet` command
-    - [x] Make a general sheat cheet to print
-    - [x] Split by parts of the game (ex. trumps, game types, etc.)
-    - [x] Make an enum for the options of cheat sheets, `CheatSheetOption`
-    - [ ] Fill the strings with the proper cheat sheet
-    - [ ] Add tests to `cheat_sheet.rs`
-    - [ ] Add docs
-  - [ ] [IN_PROGRESS] Set a state machine to handle the game state
-  - [ ] Make a `new-game` command
-    - [x] Enable `new-game` command and add descriptions
-    - [x] Allow play command to have `player-name`, `suit-type` and `pack-size` argument options
-    - [x] Create a new game from CLI commands
-    - [x] Create the logic to add mock players to the game
-    - [ ] Ensure this command updates a game state but does NOT depend on game state machine (state machine agnostic)
-    - [ ] Add tests to `new_game_cli.rs`
-    - [ ] Add docs
-  - [ ] Make `join-game` command
-    - [ ] Process `player_name` and `game_id` options to join the game
-    - [ ] Add tests to `join_game_cli.rs`
-  - [ ] Define a game state structure
-  - [ ] Make the logic to deal cards
-- [ ] Model the lib operations types
-  - [x] Model `new_game_model`
-  - [ ] Model `join_game_model`
-  - [x] Model `player`
-  - [x] Model `game_state`
-- [ ] Model the [lambda operations](https://github.com/Rbatistab/dopplekopf-cdk/blob/main/docs/ARCHITECTURE_AND_DESIGN.md?plain=1#L68-L73)
-  - [ ] Model `new_game_lambda_model`
-  - [ ] Model `join_game_lambda_model`
-- [x] Split the operations into crates
-- [ ] Set a UUID generator
-- [x] Split into a `Cards` crate library, agnostic to the game and a `doppelkopf-game` crate to handle the game (consider a rule engine crate)
-- [ ] Create cards models, types and documentation
-  - [ ] Model and document Card
-  - [ ] Model and document Deck
-- [ ] Make the game work (after the game is coded)
-  - [ ] Check that the rules apply to the game (validate rules)
-  - [ ] Create AI players
-  - [ ] Simulate the game with mocked player actions
-- [ ] Make the game playable
+  - [ ] [IN_PROGRESS] Build cli commands to play the game
+    - [x] Create command to get a new cheat sheet
+      - [x] Update Clap commands for `cheat-sheet` option
+      - [x] Make `cheat_sheet_cli` command that consumes `cheat_sheet_logic` from the lib
+      - [ ] Update readme docs
+    - [ ] [ON_HOLD] Create command to start a new game
+      - [x] Update Clap commands for `new-game` option
+      - [ ] Make a `new_game_cli` command that consumes `new_game_logic` from the lib (***Ensure this command updates a game state but does NOT depend on game state machine (state machine agnostic)***)
+        - [x] Enable `new_game_cli` command and add descriptions
+        - [x] Allow play command to have `player-name`, `suit-type` and `pack-size` argument options
+        - [x] Create the logic to add mock players to the game -> Somewhere else
+        - [ ] ...
+        - [ ] Update readme docs
+    - [x] Create command to join a new game
+      - [x] Update Clap commands for `join-game` option
+      - [ ] Make a `join_game_cli` command that consumes `join_game_logic` from the lib
+      - ...
+
+---
 
 ## Research
 
 - [ ] 
+
+---
 
 ## Reviews
 
