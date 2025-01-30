@@ -1,8 +1,10 @@
+/// Model operations for `new_game_logic`
+
 use doppelkopf_cards_lib::deck::PackSize;
 use doppelkopf_cards_lib::suits::SuitType;
 use crate::model::types::player::Player;
 
-/// Model for new game
+/// Model input for `new_game_logic` from the dppkf_lib
 ///
 /// # Fields
 /// * `player` - Instance of Player. Represents the player creating the game
@@ -23,7 +25,7 @@ impl NewGameInput {
     /// * `suit_type` - Instance of SuitType for the new game
     /// * `pack_size` - Enum value of PackSize for new game, represents 40 or 48
     ///
-    /// # Returns NewGameArgs instance
+    /// # Returns NewGameInput instance
     ///
     /// # Example
     /// ```
@@ -51,7 +53,7 @@ impl NewGameInput {
 
     /// Contains the arguments to create a new game. Meant to be consumed by new_game_logic
     ///
-    /// # Returns NewGameArgs instance
+    /// # Returns NewGameInput instance
     ///
     /// # Example
     /// ```
@@ -128,7 +130,7 @@ impl Default for NewGameInput {
     /// by new_game_logic.
     /// It's the same as 'NewGameInput::new()'
     ///
-    /// # Returns NewGameArgs instance
+    /// # Returns NewGameInput instance
     ///
     /// # Example
     /// ```

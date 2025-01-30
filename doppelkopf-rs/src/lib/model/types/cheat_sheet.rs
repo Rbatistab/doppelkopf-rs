@@ -1,7 +1,7 @@
 use clap::ValueEnum;
 
 /// Represent the desired cheat sheet.
-#[derive(Clone, Debug, ValueEnum)]
+#[derive(Clone, Debug, PartialEq, ValueEnum)]
 pub enum CheatSheetOption {
     // Very general game overview
     GameOverview,

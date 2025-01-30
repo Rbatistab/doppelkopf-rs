@@ -18,8 +18,8 @@
 ---
 ## Lib
 - [ ] Model the lib operations types (these are the entry point to the logic from the clients)
-  - [ ] Model  and document a `CheatSheetInput` type (`cheat_sheet_model`)
-  - [ ] Model  and document a `CheatSheetOutput` type  (`cheat_sheet_model`)
+  - [x] Model  and document a `CheatSheetInput` type (`cheat_sheet_model`)
+  - [x] Model  and document a `CheatSheetOutput` type  (`cheat_sheet_model`)
   - [x] Model  and document a `NewGameArgsInput` type  (`new_game_model`)
   - [ ] Model  and document a `NewGameArgsOutput` type  (`new_game_model`)
   - [ ] Model  and document a `JoinGameArgsInput` type  (`join_game_model`)
