@@ -43,3 +43,14 @@ impl PlayingRoundStateMachine {
     }
 }
 
+impl Default for PlayingRoundStateMachine {
+    /// Creates default Round State Machine
+    /// It's the same as 'PlayingRoundStatemachine::new()'
+    ///
+    /// # Returns
+    /// * New PlayingRoundStateMachine instance on DealingCards step
+    fn default() -> Self {
+        Self::new()
+    }
+}
+

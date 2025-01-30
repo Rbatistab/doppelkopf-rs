@@ -27,16 +27,24 @@
     - [ ] Add docs
   - [ ] Make `join-game` command
     - [ ] Process `player_name` and `game_id` options to join the game
-    - [ ] Add clap tests
     - [ ] Add tests to `join_game_cli.rs`
   - [ ] Define a game state structure
   - [ ] Make the logic to deal cards
-- [ ] Model the [operations](https://github.com/Rbatistab/dopplekopf-cdk/blob/main/docs/ARCHITECTURE_AND_DESIGN.md?plain=1#L68-L73)
+- [ ] Model the lib operations types
+  - [x] Model `new_game_model`
+  - [ ] Model `join_game_model`
+  - [x] Model `player`
+  - [x] Model `game_state`
+- [ ] Model the [lambda operations](https://github.com/Rbatistab/dopplekopf-cdk/blob/main/docs/ARCHITECTURE_AND_DESIGN.md?plain=1#L68-L73)
+  - [ ] Model `new_game_lambda_model`
+  - [ ] Model `join_game_lambda_model`
 - [x] Split the operations into crates
 - [ ] Set a UUID generator
 - [x] Split into a `Cards` crate library, agnostic to the game and a `doppelkopf-game` crate to handle the game (consider a rule engine crate)
-- [ ] Make the game work
-  - [ ] Code the game
+- [ ] Create cards models, types and documentation
+  - [ ] Model and document Card
+  - [ ] Model and document Deck
+- [ ] Make the game work (after the game is coded)
   - [ ] Check that the rules apply to the game (validate rules)
   - [ ] Create AI players
   - [ ] Simulate the game with mocked player actions

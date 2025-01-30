@@ -68,9 +68,7 @@ impl NewGameArgs {
     pub fn new() -> NewGameArgs {
         NewGameArgs {
             player: Player::new(),
-            /// Defaults to French suit
             suit_type: SuitType::French,
-            /// Defaults to 48 cards
             pack_size: PackSize::FortyEight
         }
     }
@@ -122,5 +120,29 @@ impl NewGameArgs {
     /// ```
     pub fn set_pack_size(&mut self, pack_size: PackSize)  {
         self.pack_size = pack_size;
+    }
+}
+
+impl Default for NewGameArgs {
+    /// Creates default object to handle the arguments to create a new game. Meant to be consumed
+    /// by new_game_logic.
+    /// It's the same as 'NewGameArgs::new()'
+    ///
+    /// # Returns NewGameArgs instance
+    ///
+    /// # Example
+    /// ```
+    /// use dppkf_lib::model::operations::new_game_model::NewGameArgs;
+    /// use dppkf_lib::model::types::player::Player;
+    /// use doppelkopf_cards_lib::suits::SuitType;
+    /// use doppelkopf_cards_lib::deck::PackSize;
+    ///
+    /// let new_game_args = NewGameArgs::default();
+    /// assert_eq!(new_game_args.player, Player::new());
+    /// assert_eq!(new_game_args.suit_type, SuitType::French);
+    /// assert_eq!(new_game_args.pack_size, PackSize::FortyEight);
+    /// ```
+    fn default() -> Self {
+        Self::new()
     }
 }

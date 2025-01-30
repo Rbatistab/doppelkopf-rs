@@ -1,6 +1,15 @@
 //! Handles creation of a new game on CLI
 
-use crate::cli::cli_utils::constants::new_game_cli_constants::{FAILED_GET_PLAYER_NAME_STR, FAILED_GET_SUIT_TYPE_STR, GET_PACK_SIZE_STR, GET_PLAYER_NAME_STR, GET_SUIT_TYPES_STR, INVALID_PACK_SIZE_STR, INVALID_SUIT_TYPE_STR};
+use crate::cli::cli_utils::constants::new_game_cli_constants::{
+    GET_PACK_SIZE_STR,
+    GET_PLAYER_NAME_STR,
+    GET_SUIT_TYPES_STR,
+    INVALID_PACK_SIZE_STR,
+    INVALID_SUIT_TYPE_STR,
+    FAILED_GET_PACK_SIZE_STR,
+    FAILED_GET_PLAYER_NAME_STR,
+    FAILED_GET_SUIT_TYPE_STR
+};
 use std::io;
 use log::debug;
 use doppelkopf_cards_lib::deck::PackSize;
@@ -24,7 +33,7 @@ pub fn new_game_cli(player_name: &Option<String>, suit_type: &Option<SuitType>, 
 
     debug!("Creating new doppelkopf game...");
 
-    let mut game_state_machine = GameStateMachine::new();
+    let game_state_machine = GameStateMachine::new();
     debug!("Created new game state machine: {:?}", game_state_machine);
 
 
@@ -138,7 +147,7 @@ pub fn get_pack_size_from_cli() -> PackSize {
                 continue;
             },
             Err(_) => {
-                println!("{INVALID_PACK_SIZE_STR}");
+                println!("{FAILED_GET_PACK_SIZE_STR}");
                 continue;
             }
         }

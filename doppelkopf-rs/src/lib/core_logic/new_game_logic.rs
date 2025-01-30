@@ -15,7 +15,7 @@ use crate::model::operations::new_game_model::NewGameArgs;
 /// * `game_is` - UUID for the current new game
 pub fn get_new_game(args: NewGameArgs) -> String {
     debug!("Creating new game with args:\n{:?}", args);
-    let new_game_id = Uuid::new_v4().to_string();
+    Uuid::new_v4().to_string() // Temporary dummy return
     // set this id to the game state
 
     // let mut game_state=  GameState::new();
@@ -30,7 +30,6 @@ pub fn get_new_game(args: NewGameArgs) -> String {
     // Allow for announcement (from lib)
     // Play trick (from lib)
     // Evaluate rules (from lib)
-    return new_game_id;
 }
 
 // fn add_mock_players(game_state: &mut GameState) {

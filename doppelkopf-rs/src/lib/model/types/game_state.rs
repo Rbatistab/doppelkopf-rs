@@ -5,7 +5,6 @@
 
 use uuid::Uuid;
 use doppelkopf_cards_lib::deck::Deck;
-use doppelkopf_cards_lib::suits::SuitType;
 use crate::model::types::player::Player;
 
 /// Represents the current state of a Doppelkopf game
@@ -32,18 +31,18 @@ pub struct GameState {
 }
 
 impl GameState {
-    /// Creates a new game state with a unique identifier and empty player list
+    /// creates a new game state with a unique identifier and empty player list
     ///
-    /// Initializes a new game with:
-    /// - A randomly generated UUID v4 as the game identifier
-    /// - An empty vector for players
-    /// - A default deck of cards
+    /// initializes a new game with:
+    /// - a randomly generated uuid v4 as the game identifier
+    /// - an empty vector for players
+    /// - a default deck of cards
     ///
-    /// # Returns
+    /// # returns
     ///
-    /// A new GameState instance with empty players
+    /// a new gamestate instance with empty players
     ///
-    /// # Examples
+    /// # examples
     ///
     /// ```
     /// use doppelkopf_cards_lib::deck::Deck;
@@ -102,7 +101,35 @@ impl GameState {
     /// assert_eq!(game_state.all_players_joined(), true);
     /// ```
     pub fn all_players_joined(&self) -> bool {
-        return self.players.len() == 4
+        self.players.len() == 4
     }
+}
 
+/// Creates default game state with a unique identifier and empty player list
+/// It's the same as 'GameState::new()'
+///
+/// Initializes a new game with:
+/// - A randomly generated UUID v4 as the game identifier
+/// - An empty vector for players
+/// - A default deck of cards
+///
+/// # Returns
+///
+/// A new GameState instance with empty players
+///
+/// # Examples
+///
+/// ```
+/// use doppelkopf_cards_lib::deck::Deck;
+/// use dppkf_lib::model::types::game_state::GameState;
+///
+/// let game = GameState::default();
+/// assert!(game.id.len() > 0);
+/// assert!(game.players.is_empty());
+/// assert_eq!(game.deck, Deck::default_deck());
+/// ```
+impl Default for GameState {
+    fn default() -> Self {
+        Self::new()
+    }
 }

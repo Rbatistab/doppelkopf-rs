@@ -4,7 +4,6 @@
 //! In this module we call 'Deck' to the merge of 2 deck, one red, one black.
 //! And each of these deck can contain only Ace, 10, King, Queen, Jack, and 9
 
-use clap::ValueEnum;
 use crate::suits::SuitType;
 
 /// Represents size of the card deck

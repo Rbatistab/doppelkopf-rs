@@ -3,11 +3,11 @@
 //! 1. Take an entry point (either from `new-game` or `join-game`)
 //! 2. Follows to waiting time for all players to join
 //! 3. Starts a game loop:
-//!  3.1 Deal (set player's cards)
-//!  3.2 Auction (updates game round's auctions)
-//!  3.4 Play trick loop (all players play)
-//!  3.5 Apply rules (update scores)
-//! 4. Give a winner
+//!    3.1 Deal (set player's cards)
+//!    3.2 Auction (updates game round's auctions)
+//!    3.4 Play trick loop (all players play)
+//!    3.5 Apply rules (update scores)
+//!    4. Give a winner
 
 use log::debug;
 use crate::model::types::game_state::GameState;
@@ -72,5 +72,24 @@ impl GameStateMachine {
             }
         };
 
+    }
+}
+
+impl Default for GameStateMachine {
+    /// Creates a default instance Game State Machine on Initial state.
+    /// It's the same as 'GameStateMachine::new()'
+    ///
+    /// # Returns
+    /// * New GameStateMachine instance on Start step
+    ///
+    /// # Examples
+    /// ```
+    /// use dppkf_lib::core_logic::game_state_machine::{GameStateMachine, GameStateStep};
+    /// let new_game_state_machine = GameStateMachine::default();
+    ///
+    /// assert_eq!(new_game_state_machine.current_game_step, GameStateStep::Start);
+    // ```
+    fn default() -> Self {
+        Self::new()
     }
 }

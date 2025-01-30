@@ -88,5 +88,23 @@ impl Player {
             player_type
         }
     }
+}
+
+impl Default for Player {
+    /// Creates default new player (human)
+    /// It's the same as 'Player::new()'
+    ///
+    /// # Returns Player instance
+    ///
+    /// # Examples
+    /// ```
+    /// use dppkf_lib::model::types::player::{Player, PlayerType};
+    ///
+    /// let new_player = Player::default();
+    /// assert_eq!(new_player.player_type, PlayerType::Human);
+    /// ```
+    fn default() -> Self {
+        Self::new()
+    }
 
 }
