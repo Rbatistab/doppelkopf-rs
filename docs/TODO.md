@@ -29,11 +29,12 @@
   - [x] Create and document a `CheatSheetOption` enum (`cheat_sheet_model`)
 - Add the core logic
   - [ ] [IN_PROGRESS] Add logic and document for `cheat_sheet_logic`
+    - [x] Handle inputs and outputs with the proper model struct
     - [x] Make a general cheat sheet to print (overview)
-    - [ ] [IN_PROGRESS] Create constants for the cheat (text) to display as a cheat sheet
+    - [ ] Create constants for the cheat (text) to display as a cheat sheet
       - [x] Split by parts of the game (ex. trumps, game types, etc.)
       - [ ] Fill the strings with the proper cheat sheet
-    - [ ] Add tests and docs
+    - [x] Add tests and docs
   - [ ] Add logic and document for `new_game_logic`
     - [ ] (I'm a new game, what do I do?)
   - [ ] Add logic and document for `join_game_logic`
@@ -68,12 +69,12 @@
   - [x] Make it installable (`.install.sh` + instructions)
   - [x] Add clap to handle the CLI
     - [x] Set a debugging flag
-  - [ ] [IN_PROGRESS] Build cli commands to play the game
+  - [ ] Build cli commands to play the game
     - [x] Create command to get a new cheat sheet
       - [x] Update Clap commands for `cheat-sheet` option
       - [x] Make `cheat_sheet_cli` command that consumes `cheat_sheet_logic` from the lib
       - [ ] Update readme docs
-    - [ ] [ON_HOLD] Create command to start a new game
+    - [ ] Create command to start a new game
       - [x] Update Clap commands for `new-game` option
       - [ ] Make a `new_game_cli` command that consumes `new_game_logic` from the lib (***Ensure this command updates a game state but does NOT depend on game state machine (state machine agnostic)***)
         - [x] Enable `new_game_cli` command and add descriptions

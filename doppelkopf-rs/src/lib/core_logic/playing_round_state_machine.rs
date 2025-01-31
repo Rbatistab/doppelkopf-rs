@@ -21,9 +21,7 @@ pub enum PlayingRoundStep {
 /// # Fields
 /// * `current_round_step` - Current step of the round
 /// # Examples
-/// ```
-/// // TBD
-/// ```
+/// TBD
 #[derive(Debug, PartialEq)]
 pub struct PlayingRoundStateMachine {
     current_round_step: PlayingRoundStep

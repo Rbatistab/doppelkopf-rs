@@ -1,4 +1,7 @@
-// Opetations logic
+/// This module has the core logic of the game
+/// Docs in progress
+
+// Operations logic
 pub mod cheat_sheet_logic;
 pub mod new_game_logic;
 

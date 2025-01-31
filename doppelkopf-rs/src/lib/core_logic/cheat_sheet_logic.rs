@@ -1,36 +1,55 @@
 use log::debug;
+use crate::model::operations::cheat_sheet_model::{CheatSheetInput, CheatSheetOutput};
 use crate::model::types::cheat_sheet::CheatSheetOption;
 use crate::utils::constants::cheat_sheet_strings::*;
 
-pub fn get_cheat_sheet(cheat: &Option<CheatSheetOption>) -> &'static str {
+/// Gets requested cheat sheet
+///
+/// # Arguments
+///
+/// * `input` - CheatSheetInput
+///
+/// # Returns
+///
+/// CheatSheetOutput containing the requested sheet
+///
+/// # Examples
+/// ```
+/// use dppkf_lib::core_logic::cheat_sheet_logic::get_cheat;
+/// use dppkf_lib::model::operations::cheat_sheet_model::CheatSheetInput;
+/// use dppkf_lib::model::types::cheat_sheet::CheatSheetOption;
+/// use dppkf_lib::utils::constants::cheat_sheet_strings::CARD_DEAL;
+///
+/// let cheat = CheatSheetInput::from(CheatSheetOption::CardDeal);
+/// let sheet = get_cheat(cheat);
+/// assert_eq!(sheet.cheat, CARD_DEAL.to_string())
+/// ```
+pub fn get_cheat(input: CheatSheetInput) -> CheatSheetOutput {
     debug!("Getting cheat sheet from core logic...");
-    match *cheat {
-        Some(CheatSheetOption::GameOverview) => {
-            GAME_OVERVIEW
+    match input.cheat_sheet {
+        CheatSheetOption::GameOverview => {
+            CheatSheetOutput::from(GAME_OVERVIEW.to_string())
         },
-        Some(CheatSheetOption::CardDeal) => {
-            CARD_DEAL
+        CheatSheetOption::CardDeal => {
+            CheatSheetOutput::from(CARD_DEAL.to_string())
         },
-        Some(CheatSheetOption::Contracts) => {
-            CONTRACTS
+        CheatSheetOption::Contracts => {
+            CheatSheetOutput::from(CONTRACTS.to_string())
         },
-        Some(CheatSheetOption::Tricks) => {
-            TRICKS
+        CheatSheetOption::Tricks => {
+            CheatSheetOutput::from(TRICKS.to_string())
         },
-        Some(CheatSheetOption::Trumps) => {
-            TRUMPS
+        CheatSheetOption::Trumps => {
+            CheatSheetOutput::from(TRUMPS.to_string())
         },
-        Some(CheatSheetOption::Rules) => {
-            RULES
+        CheatSheetOption::Rules => {
+            CheatSheetOutput::from(RULES.to_string())
         },
-        Some(CheatSheetOption::SpecialFeatures) => {
-            SPECIAL_FEATURES
+        CheatSheetOption::SpecialFeatures => {
+            CheatSheetOutput::from(SPECIAL_FEATURES.to_string())
         },
-        Some(CheatSheetOption::Scoring) => {
-            SCORING
-        },
-        None => {
-            GAME_OVERVIEW
+        CheatSheetOption::Scoring => {
+            CheatSheetOutput::from(SCORING.to_string())
         }
     }
 }
