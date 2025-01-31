@@ -13,6 +13,10 @@
       - [ ] Model and document a `SuitType` enum
       - [ ] Model and document a `PackSize` enum
       - [ ] Make the logic to deal cards
+- [ ] Extract any util that is not necessary for the user from the utils mod
+  - [ ] cli_commands should move to the cli_logic -> Move
+  - [ ] cheat_sheet_strings should be known only to the cheat_sheet_logic -> Move
+  - [ ] text_style can stay there to give the user some 
 - [ ] Create a rule engine(?)
 
 ---

@@ -1,4 +1,5 @@
 //! Helper to handle game state (optional for consuming application)
+//!
 //! Follows logic as:
 //! 1. Take an entry point (either from `new-game` or `join-game`)
 //! 2. Follows to waiting time for all players to join

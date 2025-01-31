@@ -1,3 +1,6 @@
+//! This logic handles a request for a particular cheat sheet. The game is complex and is useful
+//! to have a reminder.
+
 use log::debug;
 use crate::model::operations::cheat_sheet_model::{CheatSheetInput, CheatSheetOutput};
 use crate::model::types::cheat_sheet::CheatSheetOption;

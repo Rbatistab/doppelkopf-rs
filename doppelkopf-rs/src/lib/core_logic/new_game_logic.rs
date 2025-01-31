@@ -1,4 +1,6 @@
 //! Creates a new game and stores it on the database.
+//!
+//! TBD
 
 use log::debug;
 use uuid::Uuid;

@@ -1,5 +1,6 @@
-//! This module handles states for a single doppelkopf round
-//! over all it's phases (deal cards, auction, play tricks, evaluate)
+//! This module handles states for a single doppelkopf round over all it's phases (deal cards, auction, play tricks, evaluate)
+//!
+//! TBD
 
 use log::debug;
 
