@@ -1,5 +1,5 @@
 use const_format::concatcp;
-use crate::utils::text_style::{BLUE, BOLD, ITALIC, RED, RESET, UNDERLINE};
+use crate::utils::text_style::{BLUE, BOLD, GREEN, ITALIC, RED, RESET, UNDERLINE};
 
 pub const GAME_OVERVIEW: &str = concatcp!(
     BOLD, UNDERLINE, "\nGame Overview\n", RESET,
@@ -20,15 +20,44 @@ pub const GAME_OVERVIEW: &str = concatcp!(
 );
 
 pub const CARD_DEAL: &str = concatcp!(
-    "card deal"
+    BOLD, UNDERLINE, "\nCard Deal\n", RESET,
+    "On each round, a dealer will shuffle and cut the cards. Then will deal each player with 12 cards (or 10 for 40-card game).\n",
+    "Normally the dealer will yield 3 cards at the time to each player until it reaches the 12 (or 10).\n",
+    "The deal for the next hand passes to the dealers left from round to round."
 );
 
 pub const CONTRACTS: &str = concatcp!(
-    "contracts"
+    BOLD, UNDERLINE, "\nContracts\n", RESET,
+    "After dealing, the players need to agree on a contract (or auction).\n",
+    "All players must agree to a normal game by saying ", BOLD, "'Fine'", RESET, " ('Gesund' 🇩🇪) or one or more can call ", BOLD, "'Hold'", RESET, " ('Halt' 🇩🇪) to request for a wedding or a solo.\n\n",
+    BOLD, "Always two there are, no more, no less.", RESET, " Once the contract is set, there will be two teams. The teams are either of 2 vs 2 or 1 vs 3.\n\n",
+    BOLD, "1. Normal game (2 vs 2)\n\n", RESET,
+    "When 2 different players have a Queens of Clubs (or 'Obers' 🇩🇪, known as 'Die Alten', the 'elders') they are a team (", BOLD, "Re", RESET, ") and will play against the other 2 (", BOLD, "Kontra", RESET, "):\n",
+    "  - Re team achieves at least 121 points (or a different pre-agreed condition) -> ", BOLD, GREEN, "Re wins\n", RESET,
+    "  - Re fails to get the points -> ", BOLD, GREEN, "Kontra wins\n\n", RESET,
+    BOLD, "2. Wedding (2 vs 2)\n\n", RESET,
+    "A player called 'suitor' who has both Queens of Clubs can call a 'wedding' and form a ", BOLD, "Re", RESET, " team with the first player to win a trick. However, if the suitor wins the first three games, he/she should play a 'Diamond solo' against the other three.\n\n",
+    "A suitor may chose not to say 'wedding' on the contract and play a 'Diamond solo too', called 'Silent Solo' ('Stilles Solo' 🇩🇪).\n\n",
+    BOLD, "3. Solo (1 vs 3)\n\n",
+    BOLD, "May you ride eternal, shiny and chrome.", RESET, " A single player will play against the other three. He/She will earn trice the value of the score card in case of winning a trick or lose trice the value on the other case, there are:\n",
+    "  - Diamond Solo: Only Diamonds make a Trump\n",
+    "  - Jack Solo ('Bubensolo' 🇩🇪): Only Jacks make a Trump\n",
+    "  - Queen Solo ('Damensolo' 🇩🇪): Only Queen make a Trump\n",
+    "  - Ace Solo ('Fleischloser/Knochenmann' 🇩🇪): There are no Trumps\n",
+    "  - Suit Solo ('Farbensolo' 🇩🇪): Announce a Suit to be a Trump for Jacks and Queens\n\n\n",
+    "Check the 'trumps' cheat sheet for more information on trumps."
 );
 
 pub const TRICKS: &str = concatcp!(
-    "tricks"
+    BOLD, UNDERLINE, "\nTricks\n", RESET,
+    "The player left to the dealer will play the first trick which normally will by the highest trick at hand.\n",
+    "Players must follow suit if possible. There are 3 options:\n",
+    "  - Play a trump (see cheat sheet for trumps)\n",
+    "  - Play any card\n",
+    "  - Discard\n",
+    "After all tricks are played the round is won by:\n",
+    "  - The highest trump\n",
+    "  - The highest card of the suit led. Since each card exists twice, there is the possibility of a tie; in that case, the first-played card wins the trick\n"
 );
 
 pub const TRUMPS: &str = concatcp!(

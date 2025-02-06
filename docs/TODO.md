@@ -53,7 +53,8 @@
 
 ***Remember the Web game is a client for the lib and here is the backend for it***
 
-- [ ] Model the [lambda operations](https://github.com/Rbatistab/dopplekopf-cdk/blob/main/docs/ARCHITECTURE_AND_DESIGN.md?plain=1#L68-L73)
+- [ ] Model the [lambda operations](https://github.com/Rbatistab/dopplekopf-cdk/blob/main/docs/ARCHITECTURE_AND_DESIGN.md?plain=1#L68-L73) on smithy
+  - [ ] Set up a smithy model for the lambda contracts
   - [ ] Model  and document a `CheatSheetLambdaInput` type (`cheat_sheet_lambda_model`)
   - [ ] Model  and document a `CheatSheetLambdaOutput` type  (`cheat_sheet_lambda_model`)
   - [ ] Model  and document a `NewGameArgsLambdaInput` type  (`new_game_lambda_model`)
@@ -62,6 +63,7 @@
   - [ ] Model  and document a `JoinGameArgsLambdaOutput` type  (`join_game_lambda_model`)
   - [ ] ...
 - [x] Split the operations into crates
+- [ ] Should actually merge into a single operations crate(?)
 
 ---
 
@@ -95,7 +97,7 @@
 
 ## Research
 
-- [ ] 
+- [ ] Dive deep on smithy and rust, [example](https://github.com/david-perez/smithy-rs-lambda-cdk/tree/master)
 
 ---
 

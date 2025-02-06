@@ -102,13 +102,13 @@ Start by dealing 12 cards to each player (*10 for 40-card games*).The dealer is 
 
 ## 2. Contract
 
-After this, you'll need to agree a contract, also known as auction. In this phase, the players either agree to a [normal-game](#normal_game) by saying "*Fine*" (*Gesund 🇩🇪*) or one or more of the players call "*Hold*" (*Halt 🇩🇪*) to call a [wedding](#wedding) or a [solo](#solo).
+After this, you'll need to agree a contract, also known as auction. In this phase, the players either agree to a [normal game](#normal_game) by saying "*Fine*" (*Gesund 🇩🇪*) or one or more of the players call "*Hold*" (*Halt 🇩🇪*) to call a [wedding](#wedding) or a [solo](#solo).
 
 ***Always two there are, no more, no less.*** Once the contract is set, there will be two teams of 2 vs 2 or 1 vs 3.
 
 ### 2.1 Normal game
 
-When 2 different players have a Queens of Clubs (or *Obers* 🇩🇪, known as *Die Alten*, the elders") they are a team (**Re**) and will play against the other 2 (**Kontra**):
+When 2 different players have a Queens of Clubs (or *Obers* 🇩🇪, known as *Die Alten*, the "elders") they are a team (**Re**) and will play against the other 2 (**Kontra**):
 * `Re` team achieves at least 121 points (*or a different pre-agreed condition*) -> `Re` wins
 * `Re` fails to get the points -> `Kontra` wins
 
@@ -142,7 +142,7 @@ The game flows like this:
     * Play a trump
     * Play any card
     * Discard
-1. After all tricks are plyed the round is won by:
+1. After all tricks are played the round is won by:
     1. The highest trump
     1. The highest card of the suit led. Since each card exists twice, there is the possibility of a tie; in that case, the first-played card wins the trick
 
