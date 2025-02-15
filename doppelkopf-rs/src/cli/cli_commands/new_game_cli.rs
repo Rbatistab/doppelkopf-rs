@@ -56,7 +56,7 @@ pub fn new_game_cli(player_name: &Option<String>, suit_type: &Option<SuitType>, 
     match suit_type {
         Some(suit_type) => {
             debug!("Suit type provided on 'new-game'");
-            new_game_args.set_suit_type(suit_type.clone());
+            new_game_args.set_suit_type(*suit_type);
         }
         None => {
             debug!("No suit type provided on 'new-game'");

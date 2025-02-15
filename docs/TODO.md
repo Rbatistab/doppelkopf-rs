@@ -6,10 +6,16 @@
 ---
 
 ## Utils
+- [ ] Create a data representation of the trumps
+  - [ ] Represent normal game trumps
 - [x] Split into a `Cards` crate library, agnostic to the game or it's logic
-  - [ ] Model the card-related types
-    - [ ] Model and document a `Cards` type
-    - [ ] Model and document a `Decks` type
+  - [ ] [IN_PROGRESS] Model the card-related types
+    - [ ] [IN_PROGRESS] Model and document a `Cards` type
+      - [x] Model and document Suits
+      - [x] Model and document Ranks
+      - [x] Create a `from` to create a new card
+      - [x] Create a builder design pattern as `CardBuilder`
+    - [ ] [ON HOLD] Model and document a `Decks` type
       - [ ] Model and document a `SuitType` enum
       - [ ] Model and document a `PackSize` enum
       - [ ] Make the logic to deal cards

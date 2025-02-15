@@ -163,6 +163,10 @@ impl Card {
     ///   - `C|D|H|S`: French Clubs, Diamonds, Hearts, Spades
     ///   - `E|Sc|He|G`: German Eichel(acorn), Schell(bells), herz(hearts) and Grun(leaves)
     ///
+    /// # Panics
+    ///
+    /// Will panic if the str doesn't match any of the regex options
+    ///
     /// # Examples
     /// ```
     /// use doppelkopf_cards_lib::card::Card;

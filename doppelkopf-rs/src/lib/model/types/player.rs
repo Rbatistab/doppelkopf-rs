@@ -1,4 +1,4 @@
-//! Representation of a player on the game
+//! Representation of a player on the game which may be human or AI.
 //!
 //! Core player types and implementations to manage players in a Doppelkopf game
 
@@ -62,6 +62,11 @@ impl Player {
     }
 
     /// Creates a new player, from a name and type
+    ///
+    /// # Fields
+    /// `name` - String representing the player name
+    ///
+    /// `player_type` - Variant of PlayerType
     ///
     /// # Returns Player instance
     ///

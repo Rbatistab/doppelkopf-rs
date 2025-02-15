@@ -1,3 +1,5 @@
+//! Represents cheat sheet options that a user can request.
+
 use clap::ValueEnum;
 
 /// Represent the desired cheat sheet.

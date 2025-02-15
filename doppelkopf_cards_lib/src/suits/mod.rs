@@ -5,7 +5,7 @@
 use clap::ValueEnum;
 
 /// Represents Suit type for the game
-#[derive(Debug, PartialEq, Clone, ValueEnum)]
+#[derive(Debug, PartialEq, Clone, Copy, ValueEnum)]
 pub enum SuitType {
     /// French suit (Diamonds, Hearts, Spades, Clubs)
     French,

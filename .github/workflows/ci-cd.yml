@@ -6,15 +6,15 @@ on:
       - main
   pull_request:
     branches:
-      -main
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Chekout code
-        uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Install rust
         uses: actions-rs/toolchain@v1
@@ -23,7 +23,7 @@ jobs:
           override: true
 
       - name: Cache Cargo registry
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/.cargo/registry/
           key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
@@ -31,7 +31,7 @@ jobs:
             ${{ runner.os }}-cargo-registry-
 
       - name: Cache Cargo build
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/.cargo/build/
           key: ${{ runner.os }}-cargo-build-${{ hashFiles('**/Cargo.lock') }}
