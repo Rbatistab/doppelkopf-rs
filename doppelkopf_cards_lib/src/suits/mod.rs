@@ -61,7 +61,7 @@ impl Suit {
     ///
     /// const BOLD: &str = "\x1b[1m";
     /// const RESET: &str = "\x1b[0m";
-    /// let bold_spade = format!("{}♠{}", BOLD, RESET);
+    /// let bold_spade = format!("{}♠ {}", BOLD, RESET);
     ///
     /// let french_rank = Suit::FrenchSuit(Spades).to_str();
     /// let german_rank = Suit::GermanSuit(Schell).to_str();
