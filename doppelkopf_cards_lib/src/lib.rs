@@ -7,5 +7,6 @@ pub mod card_builder;
 pub mod deck;
 pub mod ranks;
 pub mod suits;
+
+mod card_color;
 mod utils;
-// mod card_color;
