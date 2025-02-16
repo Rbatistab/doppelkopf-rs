@@ -12,9 +12,13 @@
   - [ ] [IN_PROGRESS] Model the card-related types
     - [ ] [IN_PROGRESS] Model and document a `Cards` type
       - [x] Model and document Suits
+        - [x]  Add `to_str` representation
       - [x] Model and document Ranks
+        - [x]  Add `to_str` representation
       - [x] Create a `from` to create a new card
       - [x] Create a builder design pattern as `CardBuilder`
+      - [ ] Add card color
+      - [ ] Creat a `to_str` representation of a card (a pretty one)
     - [ ] [ON HOLD] Model and document a `Decks` type
       - [ ] Model and document a `SuitType` enum
       - [ ] Model and document a `PackSize` enum
