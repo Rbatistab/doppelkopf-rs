@@ -96,14 +96,40 @@
 //! assert_eq!(ace_of_spaces.suit, Suit::FrenchSuit(Spades));
 //! assert_eq!(ace_of_spaces.suit_type, SuitType::French);
 //!
+//! println!("{}", ace_of_spaces.to_string());
+//! // Outputs:
+//! // ╭─────────╮
+//! // │ A       │
+//! // │         │
+//! // │         │
+//! // │    ♠    │
+//! // │         │
+//! // │         │
+//! // │      A  │
+//! // ╰─────────╯
+//!
 //! // Now let's make a German suited card:
 //! let fox = Card::new("A-Sc");
 //! println!("This is a German suited Ace of Bells from the new associated function: {:?}", fox);
 //! assert_eq!(fox.rank, Rank::GermanRank(Ass));
 //! assert_eq!(fox.suit, Suit::GermanSuit(Schell));
 //! assert_eq!(fox.suit_type, SuitType::German);
+//!
+//! println!("{}", fox.to_string());
+//! // Outputs: (german-suited cards use emojis for suits)
+//! // ╭──────────╮
+//! // │ A        │
+//! // │          │
+//! // │          │
+//! // │    🔔    │
+//! // │          │
+//! // │          │
+//! // │        A │
+//! // ╰──────────╯
+//!
 //! ```
 
+use std::fmt;
 use regex::Regex;
 
 use crate::ranks::FrenchCardRank::{Ace, Eight, Five, Four, Jack, King, Nine, Queen, Seven, Six, Ten, Three, Two};
@@ -194,6 +220,62 @@ impl Card {
                 panic!("Failed to create new card from {}", card_str);
             }
         }
+    }
+
+    /// Returns a string representation of the card as ASCII art.
+    ///
+    /// Creates a visual card representation with borders and the rank displayed
+    /// in the top-left and bottom-right corners.
+    ///
+    /// # Format
+    /// ```text
+    /// ╭─────────╮
+    /// │ R       │  // R = rank
+    /// │         │
+    /// │         │
+    /// │    S    │  // S = suit
+    /// │         │
+    /// │         │
+    /// │      R  │
+    /// ╰─────────╯
+    /// ```
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use doppelkopf_cards_lib::card::Card;
+    ///
+    /// let ace_of_spades = Card::new("A-S");
+    /// println!("{}", ace_of_spades.as_string());
+    /// // Outputs:
+    /// // ╭─────────╮
+    /// // │ A       │
+    /// // │         │
+    /// // │         │
+    /// // │    ♠    │
+    /// // │         │
+    /// // │         │
+    /// // │      A  │
+    /// // ╰─────────╯
+    /// ```
+    ///
+    /// # Returns
+    /// Returns a `String` containing the ASCII art representation of the card.
+    pub fn as_string(&self) -> String {
+        let rank = self.rank.to_str();
+        let suit = self.suit.to_str();
+        format!(
+            "╭──────────╮\n\
+            │ {}       │\n\
+            │          │\n\
+            │          │\n\
+            │    {}    │\n\
+            │          │\n\
+            │          │\n\
+            │        {}│\n\
+            ╰──────────╯",
+            rank, suit, rank
+        )
     }
 
     /// Validates the str representing the card against two regexes to determine the suit type and returns accordingly
@@ -333,6 +415,12 @@ impl Card {
         }
     }
 
+}
+
+impl fmt::Display for Card {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{}", self.as_string())
+    }
 }
 
 #[cfg(test)]
