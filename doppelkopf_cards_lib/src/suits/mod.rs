@@ -19,7 +19,7 @@ pub enum SuitType {
 
 
 /// Represents the options for a French suit
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub enum FrenchSuitVariant {
     Clubs,
     Diamonds,
@@ -28,7 +28,7 @@ pub enum FrenchSuitVariant {
 }
 
 /// Represents the options for a German suit
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub enum GermanSuitVariant {
     Eichel, // Acorns
     Schell, // Bells
@@ -37,7 +37,7 @@ pub enum GermanSuitVariant {
 }
 
 /// Represents the suit of a card, for either German or French cards
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub enum Suit {
     FrenchSuit(FrenchSuitVariant),
     GermanSuit(GermanSuitVariant),

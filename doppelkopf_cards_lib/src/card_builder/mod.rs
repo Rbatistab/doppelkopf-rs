@@ -8,22 +8,40 @@
 //! ```
 //! use doppelkopf_cards_lib::card::Card;
 //! use doppelkopf_cards_lib::card_builder::CardBuilder;
+//! use doppelkopf_cards_lib::card_color::CardColor;
 //! use doppelkopf_cards_lib::ranks::FrenchCardRank::Ace;
 //! use doppelkopf_cards_lib::ranks::Rank;
-//! use doppelkopf_cards_lib::suits::FrenchSuitVariant::Spades;
+//! use doppelkopf_cards_lib::suits::FrenchSuitVariant::{Diamonds, Spades};
 //! use doppelkopf_cards_lib::suits::{Suit, SuitType};
 //!
+//! // In this example we use `with_standard_color()` to follow standard Colors
 //! let ace_of_spades = CardBuilder::new()
 //!     .with_rank(Rank::FrenchRank(Ace))
 //!     .with_suit(Suit::FrenchSuit(Spades))
+//!     .with_standard_color()
 //!     .build();
 //!
 //! assert_eq!(ace_of_spades.rank, Rank::FrenchRank(Ace));
 //! assert_eq!(ace_of_spades.suit, Suit::FrenchSuit(Spades));
 //! assert_eq!(ace_of_spades.suit_type, SuitType::French);
+//! assert_eq!(ace_of_spades.color, CardColor::BLACK);
+//!
+//! // We can skip this and use the color by ourselves
+//! // Let's check `the fox` (or ace of diamonds)
+//! let fox = CardBuilder::new()
+//!     .with_rank(Rank::FrenchRank(Ace))
+//!     .with_suit(Suit::FrenchSuit(Diamonds))
+//!     .with_color(CardColor::RED)
+//!     .build();
+//!
+//! assert_eq!(fox.rank, Rank::FrenchRank(Ace));
+//! assert_eq!(fox.suit, Suit::FrenchSuit(Diamonds));
+//! assert_eq!(fox.suit_type, SuitType::French);
+//! assert_eq!(fox.color, CardColor::RED);
 //! ```
 
 use crate::card::Card;
+use crate::card_color::CardColor;
 use crate::ranks::Rank;
 use crate::suits::{Suit, SuitType};
 
@@ -31,14 +49,15 @@ use crate::suits::{Suit, SuitType};
 ///
 /// # Fields
 ///
-/// * `rank` -  Option for Rank instance
-/// * `suit` - Option for Suit instance
-/// * `suit_type` - Option for SuitType instance
+/// * `rank` -  Option for [Rank] instance
+/// * `suit` - Option for [Suit] instance
+/// * `suit_type` - Option for [SuitType] instance
 #[derive(Debug, PartialEq)]
 pub struct CardBuilder {
     rank: Option<Rank>,
     suit: Option<Suit>,
-    suit_type: Option<SuitType>
+    suit_type: Option<SuitType>,
+    color: Option<CardColor>
 }
 
 impl CardBuilder {
@@ -47,21 +66,24 @@ impl CardBuilder {
     ///
     /// # Creates a new CardBuilder instance
     ///
-    /// # Methods:
+    /// # Builder methods:
     ///
-    /// - `with_rank` - Sets the Rank
-    /// - `with_suit` - Sets the Suit
-    /// - `with_suit_type` - Sets the SuitType
+    /// - `with_rank` - Sets the [Rank]
+    /// - `with_suit` - Sets the [Suit]
+    /// - `with_suit_type` - Sets the [SuitType]
+    /// - `with_color` - Sets the [CardColor]
+    /// - `with_standard_color` - Sets [CardColor] from standard convention
+    /// - `build` - Builds the [Card] instance
     ///
-    /// # Panics
-    /// Will panic if the card already has a suit type, but you try to assign a rank from a different one
+    /// # Returns
     ///
-    /// # Examples
+    /// * New [CardBuilder] instance ready for method chaining with all fields as None
     pub fn new() -> Self {
         CardBuilder {
             rank: None,
             suit: None,
-            suit_type: None
+            suit_type: None,
+            color: None
         }
     }
 
@@ -96,8 +118,16 @@ impl CardBuilder {
     ///
     /// # Sets a rank for a new card builder
     ///
+    /// # Arguments
+    ///
+    /// * `suit` - The [Suit] to assign to this card
+    ///
     /// # Panics
     /// Will panic if the card already has a suit type, and you assign a suit from a different one
+    ///
+    /// # Returns
+    ///
+    /// * Returns the modified [CardBuilder] instance for method chaining
     pub fn with_suit(mut self, suit: Suit) -> CardBuilder {
         let suit_suit_type = CardBuilder::get_suit_type_from_suit(&suit);
 
@@ -119,16 +149,49 @@ impl CardBuilder {
         }
     }
 
+    /// Sets the color of the card explicitly
+    ///
+    /// # Arguments
+    ///
+    /// * `color` - The [CardColor] to assign to this card
+    ///
+    /// # Returns
+    ///
+    /// * Returns the modified [CardBuilder] instance for method chaining
+    pub fn with_color(mut self, color: CardColor) -> CardBuilder {
+        self.color = Some(color);
+        self
+    }
+
+    /// Automatically sets the card's color based on its suit using standard card color rules
+    ///
+    /// # Returns
+    ///
+    /// * Returns the modified [CardBuilder] instance for method chaining
+    ///
+    /// # Panics
+    ///
+    /// * Panics if the card's suit hasn't been set yet (is None)
+    ///
+    /// # Returns
+    ///
+    /// * Returns the modified [CardBuilder] instance for method chaining
+    pub fn with_standard_color(mut self) -> CardBuilder {
+        let color = Card::get_standard_card_color_from_suit(&self.suit.unwrap());
+        self.color = Some(color);
+        self
+    }
+
     /// Builds a Card instance
     ///
     /// # Panics
     /// If any of the Card fields are missing
     pub fn build(self) -> Card {
-        // Should validate it has all fields!!
         Card {
             rank: self.rank.expect("Can't build a Card if the rank is not defined."),
             suit: self.suit.expect("Can't build a Card if the suit is node defined."),
-            suit_type: self.suit_type.expect("Can't build a Card if the suit type is not defined.")
+            suit_type: self.suit_type.expect("Can't build a Card if the suit type is not defined."),
+            color: self.color.expect("Can't build a Card if the color is not defined."),
         }
     }
 
@@ -189,7 +252,8 @@ mod card_builder_tests {
         let french_builder = CardBuilder {
             rank: None,
             suit: None,
-            suit_type: Some(SuitType::French)
+            suit_type: Some(SuitType::French),
+            color: None
         };
 
         french_builder.with_rank(german_rank);
@@ -215,7 +279,8 @@ mod card_builder_tests {
         let german_builder = CardBuilder {
             rank: None,
             suit: None,
-            suit_type: Some(SuitType::German)
+            suit_type: Some(SuitType::German),
+            color: None
         };
 
         german_builder.with_suit(french_suit);
@@ -253,11 +318,13 @@ mod card_builder_tests {
         let card = CardBuilder::new()
             .with_rank(french_rank)
             .with_suit(french_suit)
+            .with_standard_color()
             .build();
 
         assert_eq!(card.rank, Rank::FrenchRank(Two));
         assert_eq!(card.suit, Suit::FrenchSuit(Hearts));
         assert_eq!(card.suit_type, SuitType::French);
+        assert_eq!(card.color, CardColor::RED);
     }
 
     #[test]
@@ -265,7 +332,7 @@ mod card_builder_tests {
     fn test_build_missing_fields() {
         let french_rank = Rank::FrenchRank(Two);
 
-        let card = CardBuilder::new()
+        let _card = CardBuilder::new()
             .with_rank(french_rank)
             .build();
     }

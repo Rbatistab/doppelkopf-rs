@@ -8,6 +8,7 @@
 //! ## Example:
 //! ```
 //! use doppelkopf_cards_lib::card::Card;
+//! use doppelkopf_cards_lib::card_color::CardColor;
 //! use doppelkopf_cards_lib::ranks::Rank;
 //! use doppelkopf_cards_lib::suits::{Suit, SuitType};
 //! use doppelkopf_cards_lib::ranks::FrenchCardRank::Ace;
@@ -16,7 +17,8 @@
 //! let manual_ace_of_spades = Card {
 //!     rank: Rank::FrenchRank(Ace),
 //!     suit: Suit::FrenchSuit(Spades),
-//!     suit_type: SuitType::French
+//!     suit_type: SuitType::French,
+//!     color: CardColor::BLACK
 //! };
 //!
 //! println!("This is a manually created ace of spades: {:?}", manual_ace_of_spades);
@@ -131,13 +133,14 @@
 
 use std::fmt;
 use regex::Regex;
-
+use crate::card_color::CardColor;
 use crate::ranks::FrenchCardRank::{Ace, Eight, Five, Four, Jack, King, Nine, Queen, Seven, Six, Ten, Three, Two};
 use crate::ranks::GermanCardRank::{Acht, Ass, Koing, Neun, Ober, Sieben, Unter, Zehn};
 use crate::ranks::Rank;
 use crate::suits::FrenchSuitVariant::{Clubs, Diamonds, Hearts, Spades};
 use crate::suits::GermanSuitVariant::{Eichel, Schell, Herz, Grun};
 use crate::suits::{Suit, SuitType};
+use crate::utils::constants::RESET;
 
 const FRENCH_SUIT_REGEX: &str = r"^\b([2-9]|10|J|Q|K|A)-(C|D|H|S)\b$";
 const GERMAN_SUIT_REGEX: &str = r"^\b([7-9]|10|U|O|K|A)-(E|Sc|He|G)\b$";
@@ -146,13 +149,15 @@ const GERMAN_SUIT_REGEX: &str = r"^\b([7-9]|10|U|O|K|A)-(E|Sc|He|G)\b$";
 ///
 /// # Fields
 ///
-/// * `rank` -  Rank of the card
-/// * `suit` - Suit of the card
-/// * `suit_type` - Type of suit (German or French)
+/// * `rank` -  [Rank] of the card
+/// * `suit` - [Suit] of the card
+/// * `suit_type` - [SuitType] (German or French)
+/// * `color` - [CardColor] of the card
 ///
 /// # Examples
 /// ```
 /// use doppelkopf_cards_lib::card::Card;
+/// use doppelkopf_cards_lib::card_color::CardColor;
 /// use doppelkopf_cards_lib::ranks::FrenchCardRank::Ace;
 /// use doppelkopf_cards_lib::ranks::Rank;
 /// use doppelkopf_cards_lib::suits::FrenchSuitVariant::Spades;
@@ -161,7 +166,8 @@ const GERMAN_SUIT_REGEX: &str = r"^\b([7-9]|10|U|O|K|A)-(E|Sc|He|G)\b$";
 /// let ace_of_spades = Card {
 ///     rank: Rank::FrenchRank(Ace),
 ///     suit: Suit::FrenchSuit(Spades),
-///     suit_type: SuitType::French
+///     suit_type: SuitType::French,
+///     color: CardColor::RED,
 /// };
 /// ```
 #[derive(Debug, PartialEq)]
@@ -169,10 +175,11 @@ pub struct Card {
     pub rank: Rank,
     pub suit: Suit,
     pub suit_type: SuitType,
+    pub color: CardColor
 }
 
 impl Card {
-    /// Creates a new card from a str
+    /// Creates a new [Card] from a str
     ///
     /// # Returns Card instance
     ///
@@ -196,6 +203,7 @@ impl Card {
     /// # Examples
     /// ```
     /// use doppelkopf_cards_lib::card::Card;
+    /// use doppelkopf_cards_lib::card_color::CardColor;
     /// use doppelkopf_cards_lib::ranks::FrenchCardRank::Ace;
     /// use doppelkopf_cards_lib::ranks::Rank;
     /// use doppelkopf_cards_lib::suits::FrenchSuitVariant::Spades;
@@ -206,6 +214,7 @@ impl Card {
     /// assert_eq!(ace_of_spaces.rank, Rank::FrenchRank(Ace));
     /// assert_eq!(ace_of_spaces.suit, Suit::FrenchSuit(Spades));
     /// assert_eq!(ace_of_spaces.suit_type, SuitType::French);
+    /// assert_eq!(ace_of_spaces.color, CardColor::BLACK);
     /// ```
     pub fn new(card_str: &str) -> Card {
         match Self::get_suit_type(card_str) {
@@ -264,17 +273,27 @@ impl Card {
     pub fn as_string(&self) -> String {
         let rank = self.rank.to_str();
         let suit = self.suit.to_str();
+        let color = self.color.to_str();
+
         format!(
-            "╭──────────╮\n\
-            │ {}       │\n\
-            │          │\n\
-            │          │\n\
-            │    {}    │\n\
-            │          │\n\
-            │          │\n\
-            │        {}│\n\
-            ╰──────────╯",
-            rank, suit, rank
+            "{}╭──────────╮{}\n\
+            {}│ {}{}       │{}\n\
+            {}│          │{}\n\
+            {}│          │{}\n\
+            {}│    {}{}    │{}\n\
+            {}│          │{}\n\
+            {}│          │{}\n\
+            {}│        {}{}│{}\n\
+            {}╰──────────╯{}",
+            color, RESET,
+            color, rank, color, RESET,
+            color, RESET,
+            color, RESET,
+            color, suit, color, RESET,
+            color, RESET,
+            color, RESET,
+            color, rank, color, RESET,
+            color, RESET
         )
     }
 
@@ -348,10 +367,13 @@ impl Card {
                 panic!("Failed to create new card with rank coded as '{}'", rank_str);
             }
 
+            let color = Self::get_standard_card_color_from_suit(&suit);
+
             Card {
                 rank,
                 suit,
-                suit_type: SuitType::French
+                suit_type: SuitType::French,
+                color
             }
 
         } else {
@@ -403,15 +425,44 @@ impl Card {
                 panic!("Failed to create new card with rank coded as '{}'", rank_str);
             }
 
+            let color = Self::get_standard_card_color_from_suit(&suit);
+
             Card {
                 rank,
                 suit,
-                suit_type: SuitType::German
+                suit_type: SuitType::German,
+                color
             }
 
         } else {
             eprintln!("The rank and the suit should be split by a '-' character. Regex should prevent this situation.");
             panic!("Couldn't split the rank and the suit of {}", card_str);
+        }
+    }
+
+    /// Gets the standard card color from the suit:
+    ///
+    /// # Standard red cards:
+    //   - Hearts
+    //   - Diamonds
+    //   - Hearts
+    //   - Bells
+    ///
+    /// # Standard black cards:
+    //   - Clubs (♣) → Black
+    //   - Spades (♠) → Black
+    //   - Acorns (Eichel) 🍂 → Black
+    //   - Leaves (Grün) 🍃 → Black
+    ///
+    /// This is used internally to determine the suit and rank
+    pub fn get_standard_card_color_from_suit(suit: &Suit) -> CardColor {
+        match suit {
+            Suit::FrenchSuit(Hearts) | Suit::FrenchSuit(Diamonds) | Suit::GermanSuit(Herz) | Suit::GermanSuit(Schell) => {
+                CardColor::RED
+            },
+            Suit::FrenchSuit(Spades) | Suit::FrenchSuit(Clubs) | Suit::GermanSuit(Eichel) | Suit::GermanSuit(Grun) => {
+                CardColor::BLACK
+            }
         }
     }
 
@@ -425,6 +476,7 @@ impl fmt::Display for Card {
 
 #[cfg(test)]
 mod card_tests {
+    use crate::utils::constants::RED;
     use super::*;
 
     #[test]
@@ -449,7 +501,8 @@ mod card_tests {
         let valid_french_card = Card {
             rank: Rank::FrenchRank(Ten),
             suit: Suit::FrenchSuit(Clubs),
-            suit_type: SuitType::French
+            suit_type: SuitType::French,
+            color: CardColor::BLACK
         };
 
         assert_eq!(Card::get_french_card_from_str(valid_french_regex), valid_french_card);
@@ -469,7 +522,8 @@ mod card_tests {
         let valid_german_card = Card {
             rank: Rank::GermanRank(Sieben),
             suit: Suit::GermanSuit(Schell),
-            suit_type: SuitType::German
+            suit_type: SuitType::German,
+            color: CardColor::RED
         };
 
         assert_eq!(Card::get_german_card_from_str(valid_german_regex), valid_german_card);
@@ -480,6 +534,24 @@ mod card_tests {
     fn test_get_german_card_from_str_panic() {
         let invalid_german_regex: &str = "2-A";
         let _invalid_card = Card::get_german_card_from_str(invalid_german_regex);
+    }
+
+    #[test]
+    fn test_get_card_color() {
+        let red_suit = Suit::FrenchSuit(Hearts);
+        let black_suit = Suit::GermanSuit(Grun);
+
+        assert_eq!(Card::get_standard_card_color_from_suit(&red_suit), CardColor::RED);
+        assert_eq!(Card::get_standard_card_color_from_suit(&black_suit), CardColor::BLACK);
+    }
+
+    #[test]
+    fn test_card_as_string() {
+        let ace_of_hearts_string = Card::new("A-H").as_string();
+        let card_string = "\u{1b}[31m╭──────────╮\u{1b}[0m\n\u{1b}[31m│ \u{1b}[1mA \u{1b}[0m\u{1b}[31m       │\u{1b}[0m\n\u{1b}[31m│          │\u{1b}[0m\n\u{1b}[31m│          │\u{1b}[0m\n\u{1b}[31m│    \u{1b}[1m♥ \u{1b}[0m\u{1b}[31m    │\u{1b}[0m\n\u{1b}[31m│          │\u{1b}[0m\n\u{1b}[31m│          │\u{1b}[0m\n\u{1b}[31m│        \u{1b}[1mA \u{1b}[0m\u{1b}[31m│\u{1b}[0m\n\u{1b}[31m╰──────────╯\u{1b}[0m";
+
+        assert_eq!(ace_of_hearts_string, card_string);
+
     }
 
 }
