@@ -140,7 +140,7 @@ use crate::ranks::Rank;
 use crate::suits::FrenchSuitVariant::{Clubs, Diamonds, Hearts, Spades};
 use crate::suits::GermanSuitVariant::{Eichel, Schell, Herz, Grun};
 use crate::suits::{Suit, SuitType};
-use crate::utils::constants::RESET;
+use crate::utils::constants::{BOLD, RESET};
 
 const FRENCH_SUIT_REGEX: &str = r"^\b([2-9]|10|J|Q|K|A)-(C|D|H|S)\b$";
 const GERMAN_SUIT_REGEX: &str = r"^\b([7-9]|10|U|O|K|A)-(E|Sc|He|G)\b$";
@@ -276,24 +276,24 @@ impl Card {
         let color = self.color.to_str();
 
         format!(
-            "{}╭──────────╮{}\n\
-            {}│ {}{}       │{}\n\
-            {}│          │{}\n\
-            {}│          │{}\n\
-            {}│    {}{}    │{}\n\
-            {}│          │{}\n\
-            {}│          │{}\n\
-            {}│        {}{}│{}\n\
-            {}╰──────────╯{}",
-            color, RESET,
-            color, rank, color, RESET,
-            color, RESET,
-            color, RESET,
-            color, suit, color, RESET,
-            color, RESET,
-            color, RESET,
-            color, rank, color, RESET,
-            color, RESET
+            "{}{}╭──────────╮{}\n\
+            {}{}│ {}{}{}       │{}\n\
+            {}{}│          │{}\n\
+            {}{}│          │{}\n\
+            {}{}│    {}{}{}    │{}\n\
+            {}{}│          │{}\n\
+            {}{}│          │{}\n\
+            {}{}│        {}{}{}│{}\n\
+            {}{}╰──────────╯{}",
+            BOLD, color, RESET,
+            BOLD, color, rank, BOLD, color, RESET,
+            BOLD, color, RESET,
+            BOLD, color, RESET,
+            BOLD, color, suit, BOLD, color, RESET,
+            BOLD, color, RESET,
+            BOLD, color, RESET,
+            BOLD, color, rank, BOLD, color, RESET,
+            BOLD, color, RESET
         )
     }
 
@@ -315,7 +315,7 @@ impl Card {
         }
     }
 
-    /// Gets a French Card instance from the coded str
+    /// Gets a French Card instance from the coded st
     ///
     /// This is used internally to determine the suit type
     fn get_french_card_from_str(card_str: &str) -> Card {
@@ -548,7 +548,7 @@ mod card_tests {
     #[test]
     fn test_card_as_string() {
         let ace_of_hearts_string = Card::new("A-H").as_string();
-        let card_string = "\u{1b}[31m╭──────────╮\u{1b}[0m\n\u{1b}[31m│ \u{1b}[1mA \u{1b}[0m\u{1b}[31m       │\u{1b}[0m\n\u{1b}[31m│          │\u{1b}[0m\n\u{1b}[31m│          │\u{1b}[0m\n\u{1b}[31m│    \u{1b}[1m♥ \u{1b}[0m\u{1b}[31m    │\u{1b}[0m\n\u{1b}[31m│          │\u{1b}[0m\n\u{1b}[31m│          │\u{1b}[0m\n\u{1b}[31m│        \u{1b}[1mA \u{1b}[0m\u{1b}[31m│\u{1b}[0m\n\u{1b}[31m╰──────────╯\u{1b}[0m";
+        let card_string = "\u{1b}[1m\u{1b}[31m╭──────────╮\u{1b}[0m\n\u{1b}[1m\u{1b}[31m│ \u{1b}[1mA \u{1b}[0m\u{1b}[1m\u{1b}[31m       │\u{1b}[0m\n\u{1b}[1m\u{1b}[31m│          │\u{1b}[0m\n\u{1b}[1m\u{1b}[31m│          │\u{1b}[0m\n\u{1b}[1m\u{1b}[31m│    \u{1b}[1m♥ \u{1b}[0m\u{1b}[1m\u{1b}[31m    │\u{1b}[0m\n\u{1b}[1m\u{1b}[31m│          │\u{1b}[0m\n\u{1b}[1m\u{1b}[31m│          │\u{1b}[0m\n\u{1b}[1m\u{1b}[31m│        \u{1b}[1mA \u{1b}[0m\u{1b}[1m\u{1b}[31m│\u{1b}[0m\n\u{1b}[1m\u{1b}[31m╰──────────╯\u{1b}[0m";
 
         assert_eq!(ace_of_hearts_string, card_string);
 

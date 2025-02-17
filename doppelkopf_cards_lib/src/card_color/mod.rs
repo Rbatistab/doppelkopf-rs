@@ -5,7 +5,7 @@
 //! terminal color support for visual representation.
 
 
-use crate::utils::constants::RED;
+use crate::utils::constants::{BLUE, RED};
 
 /// Represents card color
 #[derive(Debug, PartialEq)]
@@ -26,9 +26,10 @@ impl CardColor {
     /// better compatibility with different terminal color schemes.
     pub fn to_str(&self) -> &'static str {
        match self {
-           // Keep black as "" since we don't want to format tha black color
-           // We want the default color in the terminal to be the black card
-           CardColor::BLACK => { "" },
+           // Keep black as blue since we don't want to format tha black color
+           // A user's terminal may have a light or dark theme
+           // We want the default black color in the terminal to be the blue
+           CardColor::BLACK => { BLUE },
            CardColor::RED => { RED },
        }
     }
@@ -44,6 +45,6 @@ mod card_color_tests {
         let black = CardColor::BLACK;
 
         assert_eq!(red.to_str(), "\x1b[31m");
-        assert_eq!(black.to_str(), "");
+        assert_eq!(black.to_str(), "\x1b[34m");
     }
 }

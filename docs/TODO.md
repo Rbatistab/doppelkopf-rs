@@ -42,6 +42,7 @@
   - [x] Model  and document a `GameState` type (`player`)
   - [x] Create and document a `CheatSheetOption` enum (`cheat_sheet_model`)
 - Add the core logic
+  - [ ] Set up a trumps representation
   - [ ] [IN_PROGRESS] Add logic and document for `cheat_sheet_logic`
     - [x] Handle inputs and outputs with the proper model struct
     - [x] Make a general cheat sheet to print (overview)
