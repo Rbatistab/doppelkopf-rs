@@ -13,6 +13,8 @@ pub enum CheatSheetOption {
     Contracts,
     // How to play tricks
     Tricks,
+    // Announcements to multiply the score
+    Bids,
     // Which are the trumps to win a round
     Trumps,
     // The game rules

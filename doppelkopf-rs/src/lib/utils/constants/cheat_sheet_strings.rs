@@ -1,14 +1,14 @@
+use crate::utils::constants::follow_suit::{CLUBS_FOLLOW_SUIT, SPADES_FOLLOW_SUIT};
 use crate::utils::constants::trumps::{HEARTS_SOLO_TRUMPS_FRENCH, NORMAL_GAME_TRUMPS_FRENCH};
 use crate::utils::text_style::{BLUE, BOLD, GREEN, ITALIC, RED, RESET, UNDERLINE};
 use const_format::concatcp;
-use crate::utils::constants::follow_suit::{CLUBS_FOLLOW_SUIT, SPADES_FOLLOW_SUIT};
 
 pub const GAME_OVERVIEW: &str = concatcp!(
     BOLD, UNDERLINE, "\nGame Overview\n\n", RESET,
     BOLD, "1. Card Deal\n", RESET,
     "\n- You'll start with 2 deck of 24 or 20 cards (", RED, BOLD, "red", RESET, " and ", BOLD, "black", RESET, ").",
     "\n- One of the players will be the dealer and will deal 12 or 10 cards to each player, including himself.",
-    "\n* This CLI will print ", BOLD, "black", RESET, " as ", BLUE, BOLD, "blue", RESET, " for display purposes.",
+    "\n\n* This CLI will print ", BOLD, "black", RESET, " as ", BLUE, BOLD, "blue", RESET, " for display purposes.",
     BOLD, "\n\n2. Contract\n", RESET,
     "\n- All players say 'Fine' to agree to a normal game.",
     "\n- One or more players will say 'Hold' to ask for a different kind of game.",
@@ -64,10 +64,30 @@ pub const TRICKS: &str = concatcp!(
     "  - The highest card of the suit led. Since each card exists twice, there is the possibility of a tie; in that case, the first-played card wins the trick\n"
 );
 
+pub const BIDS: &str = concatcp!(
+    BOLD, UNDERLINE, "\nBids\n\n", RESET,
+    "A player may make announcements claiming that their team will succeed in achieving a specific goal.\n",
+    "These announcements increase the game value regardless of whether they are fulfilled. However, when a team fails a self-given goal, they automatically lose.\n\n",
+    "The bids, in order, are:\n",
+    " - ", BOLD, BLUE, "Re/Contra", RESET, ": The name of the player's team, claims that the team will make more than 120 points. and undertaking that their team will score more than 120 points. All following bids should follow this bid, this is the first valid bid => Doubles the value\n",
+    "    > Can only be played with 11 cards left\n",
+    " - ", BOLD, BLUE, "No 90", RESET, " (also called '", BLUE, "No 9", RESET, "'): Claims the opponents will get less than 90 points => Triples the value\n",
+    "    > Can only be played with 10 cards left\n",
+    " - ", BOLD, BLUE, "No 60", RESET, " (also called '", BLUE, "No 6", RESET, "'): Claims the opposing team will not make 60 points => X4 the value\n",
+    "    > Can only be played with 9 cards left\n",
+    " - ", BOLD, BLUE, "No 30", RESET, " (also called '", BLUE, "No 3", RESET, "': You get the idea\n",
+    "    > Can only be played with 8 cards left\n",
+    " - ", BOLD, BLUE, "Schwarz", RESET, ": Claims the opponents will not get a single trick, not even a trick worth zero points\n",
+    "    > Can only be played with 7 cards left\n\n",
+    "The fun part here is that each bid will imply all previous: 'No 6' will imply 'No 9' which will imply 'Re/Contra', hence the game increases by 4.\n",
+    "Also, every bid can have a counterbid making both valid."
+);
+
 pub const TRUMPS: &str = concatcp!(
     BOLD, UNDERLINE, "\nTrumps\n\n", RESET,
     "A trump card is a playing card that has a higher rank than other cards in a trick-taking game. The following are the trumps according to game contracts:\n\n",
-    BOLD, "1. Normal Game\n\n", RESET, "Starts with the 10 of hearts, called 'Dulle' (or 'Tolle' 🇩🇪) followed by the Queen of spades, and, in decreasing order it goes like:\n\n",
+    BOLD, "1. Normal Game\n\n", RESET,
+    "Starts with the 10 of hearts, called 'Dulle' (or 'Tolle' 🇩🇪) followed by the Queen of spades, and, in decreasing order it goes like:\n\n",
     "  ", NORMAL_GAME_TRUMPS_FRENCH, "\n\n",
     "Notice most cards make a trump, the rest are non trumps but, ", BOLD, "should follow suit", RESET, ", in decreasing order:\n\n",
     "- Clubs:\n",
@@ -75,11 +95,12 @@ pub const TRUMPS: &str = concatcp!(
     "- Spades:\n",
     "  ", SPADES_FOLLOW_SUIT," \n\n",
     "- Hearts (10 of hears will be missing because is the highest trump):\n",
-    "   \n\n",
-    BOLD, "2. Wedding\n\n", RESET, "Same Trumps and suits as the normal game.\n\n",
+    "  ❤️ A | ❤️ K | ❤️ 9 \n\n",
+    BOLD, "2. Wedding\n\n", RESET,
+    "Same Trumps and suits as the normal game.\n\n",
     BOLD, "3. Solos:\n\n", RESET,
     "These are the trumps according to the type for solo game, all are in decreasing order:\n\n",
-    BOLD, "  Diamond Solo:", RESET, " Same Trump as the normal game\n\n",
+    BOLD, "  Diamond Solo:", RESET, " Same Trump as the normal game.\n\n",
     BOLD, "  Hearts Solo:", RESET, " Similar to the normal game, but the 4 last trumps change.\n",
     "  These switch diamonds for hearts and remove the 10\n\n",
     "      ", HEARTS_SOLO_TRUMPS_FRENCH, "\n\n",
@@ -90,14 +111,69 @@ pub const TRUMPS: &str = concatcp!(
     "      ♠️ A | ♠️ 10 | ♠️ K | ♠️ 9 \n\n",
     "      Diamonds:\n\n",
     "      ♦️ A | ♦️ 10 | ♦️ K | ♦️ 9 \n\n",
-    BOLD, "  Jack Solo (Bubensolo 🇩🇪):", RESET, " Only Jacks make a Trump\n\n",
-    BOLD, "  Queen Solo (Damensolo 🇩🇪):", RESET, " Only Queens make a Trump\n\n",
-    BOLD, "  Suit Solo (Farbensolo 🇩🇪):", RESET, " Announce a Suit to be a Trump for Jacks and Queens\n\n",
-    BOLD, "  Ace Solo (Fleischloser/Knochenmann 🇩🇪):", RESET, " There are no Trumps\n\n"
+    BOLD, "  Jack Solo ('Bubensolo' 🇩🇪):", RESET, " Only Jacks make a Trump\n\n",
+    "      ♣️ J | ♠️ J | ❤️ J | ♦️ J \n\n",
+    BOLD, "  Queen Solo ('Damensolo' 🇩🇪):", RESET, " Only Queens make a Trump\n\n",
+    "      ♣️ Q | ♠️ Q | ❤️ Q | ♦️ Q \n\n",
+    BOLD, "  Ace Solo ('Fleischloser/Knochenmann' 🇩🇪):", RESET, " There are no Trumps\n\n",
+    "      ♣️ A | ♠️ A | ❤️ A | ♦️ A \n\n"
 );
 
 pub const RULES: &str = concatcp!("rules");
 
 pub const SPECIAL_FEATURES: &str = concatcp!("special features");
 
-pub const SCORING: &str = concatcp!("scoring");
+pub const SCORING: &str = concatcp!(
+    BOLD, UNDERLINE, "\nScoring\n\n", RESET,
+    "After a round, each team counts the points of their tricks and bids.\n\n",
+    "To get the winner team, sum the points of the tricks of the team as:\n\n",
+    "  ╭────────────────╮\n",
+    "  | ", BOLD, "Suit", RESET,"  | ", BOLD, "Points", RESET, " |\n",
+    "  |----------------|\n",
+    "  | ", BLUE, "Ace", RESET,"   |   11   |\n",
+    "  | ", BLUE, "Ten", RESET,"   |   10   |\n",
+    "  | ", BLUE, "King", RESET,"  |   4    |\n",
+    "  | ", BLUE, "Queen", RESET," |   3    |\n",
+    "  | ", BLUE, "Jack", RESET,"  |   2    |\n",
+    "  | ", BLUE, "Nine", RESET,"  |   0    |\n",
+    "  ╰────────────────╯\n\n",
+    BOLD, "Example:\n\n", RESET,
+    " - Re played Ace of Clubs + 9 of Clubs: 11(Ace) + 9 (0) = 11 points.\n",
+    " - Kontra played 10 of Clubs + 9 of Clubs: 10(10) + 9(0) = 10 points.\n\n",
+    "There are no trumps, Ace is the highest suit, so Re team wins the round and all the cards.\n",
+    "Re team gains 21 (11 + 10) points.\n\n",
+    BOLD, "Adding bids and calculating score:\n\n", RESET,
+    "The rounds will continue until all the cards are played. Then game value is calculated as follows:\n",
+    " - ", GREEN, BOLD, "1", RESET," for the team that wins the game.\n",
+    " - ", GREEN, BOLD, "+1", RESET," if the winning team is Kontra ('gegen die Alten', against the elders) unless a solo is played\n",
+    " - ", GREEN, BOLD, "+2", RESET," for an announcement of Re\n",
+    " - ", GREEN, BOLD, "+2", RESET," for an announcement of Kontra\n",
+    " - ", GREEN, BOLD, "+1", RESET," if the losing team has less than 90 points\n",
+    " - ", GREEN, BOLD, "+1", RESET," if No 90 was announced\n",
+    " - ", GREEN, BOLD, "+1", RESET," if the winning team won with more than 120 points against an announcement of No 90\n",
+    " - ", GREEN, BOLD, "+1", RESET," if the losing team has less than 60 points\n",
+    " - ", GREEN, BOLD, "+1", RESET," if No 60 was announced\n",
+    " - ", GREEN, BOLD, "+1", RESET," if the winning team won with at least 90 points against an announcement of No 60\n",
+    " - ", GREEN, BOLD, "+1", RESET," if the losing team has less than 30 points\n",
+    " - ", GREEN, BOLD, "+1", RESET," if No 30 was announced\n",
+    " - ", GREEN, BOLD, "+1", RESET," if the winning team won with at least 60 points against an announcement of No 30\n",
+    " - ", GREEN, BOLD, "+1", RESET," if the winning team made all tricks\n",
+    " - ", GREEN, BOLD, "+1", RESET," if Schwarz was announced\n",
+    " - ", GREEN, BOLD, "+1", RESET," if the winning team won with at least 30 points against an announcement of Schwarz\n",
+    " - Add special features:\n",
+    "   > ", BLUE, "Catch the fox", RESET, " (Non-solo game): ", GREEN, BOLD, "+1", RESET," a team's ace of diamonds ('the fox') is won by the other team.\n",
+    "   > ", BLUE, "Doppelkopf", RESET, " (Non-solo game): ", GREEN, BOLD, "+1", RESET," a team wins a trick with 40 or more points.\n",
+    "   > ", BLUE, "Charlie Miller", RESET, " (Non-solo game): ", GREEN, BOLD, "+1", RESET," a team's jack of clubs ('Charlie Miller'/Karlchen Müller') wins the last trick.\n",
+    "   > Solo special score: The solo player gets thrice the value added or subtracted.\n\n",
+    "After applying this rules, the points are added to each member\n\n",
+    BOLD, "Example:\n\n", RESET,
+    "Re, no 60 was announced, Kontra team said Kontra. Kontra gets 60 points and therefore wins.\n",
+    " > Game was won:           +1\n",
+    " > Won against the elders: +1\n",
+    " > Re was announced:       +2\n",
+    " > Kontra was announced:   +2\n",
+    " > No 90 was announced:    +1\n",
+    " > No 60 was announced:    +1\n",
+    "                           =", RED, BOLD, "8 points\n\n", RESET,
+    "Both Kontra players get +8, both Re -8.\n"
+);

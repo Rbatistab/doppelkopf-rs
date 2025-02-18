@@ -59,6 +59,7 @@ Run `dppkf cheat-sheet`. This will print an overview of the game. Use `dppkf -h`
 * card-deal
 * contracts
 * tricks
+* bids
 * trumps
 * rules
 * special-features

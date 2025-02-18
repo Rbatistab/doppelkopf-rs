@@ -42,6 +42,9 @@ pub fn get_cheat(input: CheatSheetInput) -> CheatSheetOutput {
         CheatSheetOption::Tricks => {
             CheatSheetOutput::from(TRICKS.to_string())
         },
+        CheatSheetOption::Bids => {
+            CheatSheetOutput::from(BIDS.to_string())
+        },
         CheatSheetOption::Trumps => {
             CheatSheetOutput::from(TRUMPS.to_string())
         },
