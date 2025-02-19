@@ -14,7 +14,7 @@ use dppkf_lib::utils::constants::cli_commands::{
     CHEAT_SHEET_ABOUT
 };
 use dppkf_lib::model::types::cheat_sheet::CheatSheetOption;
-use doppelkopf_cards_lib::suits::SuitType;
+use dppkf_cards_lib::suits::SuitType;
 use env_logger::{Builder, Env};
 use log::debug;
 
@@ -71,14 +71,14 @@ enum Commands {
 
 fn main() {
     // Delete these use's after development
-    use doppelkopf_cards_lib::card::Card;
-    use doppelkopf_cards_lib::ranks::GermanCardRank::Unter;
-    use doppelkopf_cards_lib::suits::FrenchSuitVariant::Hearts;
-    use doppelkopf_cards_lib::suits::GermanSuitVariant::Grun;
-    use doppelkopf_cards_lib::card_builder::CardBuilder;
-    use doppelkopf_cards_lib::ranks::FrenchCardRank::Ace;
-    use doppelkopf_cards_lib::ranks::Rank;
-    use doppelkopf_cards_lib::suits::Suit;
+    use dppkf_cards_lib::card::Card;
+    use dppkf_cards_lib::ranks::GermanCardRank::Unter;
+    use dppkf_cards_lib::suits::FrenchSuitVariant::Hearts;
+    use dppkf_cards_lib::suits::GermanSuitVariant::Grun;
+    use dppkf_cards_lib::card_builder::CardBuilder;
+    use dppkf_cards_lib::ranks::FrenchCardRank::Ace;
+    use dppkf_cards_lib::ranks::Rank;
+    use dppkf_cards_lib::suits::Suit;
 
     let cli = Cli::parse();
 

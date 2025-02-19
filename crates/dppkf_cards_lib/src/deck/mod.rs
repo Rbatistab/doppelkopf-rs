@@ -40,7 +40,7 @@ impl Deck {
     /// # Examples
     ///
     /// ```
-    /// use doppelkopf_cards_lib::deck::{Deck, PackSize};
+    /// use dppkf_cards_lib::deck::{Deck, PackSize};
     /// let french_deck = Deck::default_deck();
     /// ```
     pub fn default_deck() -> Deck {
@@ -57,8 +57,8 @@ impl Deck {
     /// # Examples
     ///
     /// ```
-    /// use doppelkopf_cards_lib::deck::{Deck, PackSize};
-    /// use doppelkopf_cards_lib::suits::SuitType;
+    /// use dppkf_cards_lib::deck::{Deck, PackSize};
+    /// use dppkf_cards_lib::suits::SuitType;
     ///
     /// let french_deck = Deck::from(SuitType::French, PackSize::FortyEight);
     /// let german_deck = Deck::from(SuitType::German, PackSize::FortyEight);

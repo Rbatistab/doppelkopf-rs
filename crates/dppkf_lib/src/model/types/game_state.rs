@@ -4,7 +4,7 @@
 
 
 use uuid::Uuid;
-use doppelkopf_cards_lib::deck::Deck;
+use dppkf_cards_lib::deck::Deck;
 use crate::model::types::player::Player;
 
 /// Represents the current state of a Doppelkopf game
@@ -45,7 +45,7 @@ impl GameState {
     /// # examples
     ///
     /// ```
-    /// use doppelkopf_cards_lib::deck::Deck;
+    /// use dppkf_cards_lib::deck::Deck;
     /// use dppkf_lib::model::types::game_state::GameState;
     ///
     /// let game = GameState::new();
@@ -120,7 +120,7 @@ impl GameState {
 /// # Examples
 ///
 /// ```
-/// use doppelkopf_cards_lib::deck::Deck;
+/// use dppkf_cards_lib::deck::Deck;
 /// use dppkf_lib::model::types::game_state::GameState;
 ///
 /// let game = GameState::default();

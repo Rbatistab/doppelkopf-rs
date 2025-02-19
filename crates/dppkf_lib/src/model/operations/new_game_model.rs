@@ -1,7 +1,7 @@
 /// Model operations for `new_game_logic`
 
-use doppelkopf_cards_lib::deck::PackSize;
-use doppelkopf_cards_lib::suits::SuitType;
+use dppkf_cards_lib::deck::PackSize;
+use dppkf_cards_lib::suits::SuitType;
 use crate::model::types::player::Player;
 
 /// Model input for `new_game_logic` from the dppkf_lib
@@ -31,8 +31,8 @@ impl NewGameInput {
     /// ```
     /// use dppkf_lib::model::operations::new_game_model::NewGameInput;
     /// use dppkf_lib::model::types::player::{Player, PlayerType};
-    /// use doppelkopf_cards_lib::suits::SuitType;
-    /// use doppelkopf_cards_lib::deck::PackSize;
+    /// use dppkf_cards_lib::suits::SuitType;
+    /// use dppkf_cards_lib::deck::PackSize;
     ///
     /// let player = Player::from("Hans".to_string(), PlayerType::AiPlayer);
     /// let suit_type = SuitType::German;
@@ -59,8 +59,8 @@ impl NewGameInput {
     /// ```
     /// use dppkf_lib::model::operations::new_game_model::NewGameInput;
     /// use dppkf_lib::model::types::player::Player;
-    /// use doppelkopf_cards_lib::suits::SuitType;
-    /// use doppelkopf_cards_lib::deck::PackSize;
+    /// use dppkf_cards_lib::suits::SuitType;
+    /// use dppkf_cards_lib::deck::PackSize;
     ///
     /// let new_game_args = NewGameInput::new();
     /// assert_eq!(new_game_args.player, Player::new());
@@ -97,7 +97,7 @@ impl NewGameInput {
     /// # Example
     /// ```
     /// use dppkf_lib::model::operations::new_game_model::NewGameInput;
-    /// use doppelkopf_cards_lib::suits::SuitType;
+    /// use dppkf_cards_lib::suits::SuitType;
     ///
     /// let mut new_game_args = NewGameInput::new();
     /// new_game_args.set_suit_type(SuitType::French);
@@ -113,7 +113,7 @@ impl NewGameInput {
     /// # Example
     /// ```
     /// use dppkf_lib::model::operations::new_game_model::NewGameInput;
-    /// use doppelkopf_cards_lib::deck::PackSize;
+    /// use dppkf_cards_lib::deck::PackSize;
     ///
     /// let mut new_game_args = NewGameInput::new();
     /// new_game_args.set_pack_size(PackSize::FortyEight);
@@ -136,8 +136,8 @@ impl Default for NewGameInput {
     /// ```
     /// use dppkf_lib::model::operations::new_game_model::NewGameInput;
     /// use dppkf_lib::model::types::player::Player;
-    /// use doppelkopf_cards_lib::suits::SuitType;
-    /// use doppelkopf_cards_lib::deck::PackSize;
+    /// use dppkf_cards_lib::suits::SuitType;
+    /// use dppkf_cards_lib::deck::PackSize;
     ///
     /// let new_game_args = NewGameInput::default();
     /// assert_eq!(new_game_args.player, Player::new());

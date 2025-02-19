@@ -1,0 +1,28 @@
+[package]
+name = "dppkf_cli"
+description = "A CLI implementation of Doppelkopf cards game - https://en.wikipedia.org/wiki/Doppelkopf"
+# documentation = "TBD"
+
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
+homepage.workspace = true
+repository.workspace = true
+
+[[bin]]
+name="dppkf"
+path= "src/dppkf.rs"
+
+[dependencies]
+# Workspace dependencies
+dppkf_cards_lib.workspace = true
+dppkf_lib.workspace = true
+
+# External dependencies
+clap = { version = "4.5.23", features = ["derive"] }
+const_format = "0.2.34"
+env_logger = "0.11.5"
+log = "0.4.22"

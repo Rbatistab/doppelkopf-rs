@@ -1,15 +1,32 @@
 [workspace]
 members = [
-  # CLI game
-  "crates/doppelkopf-rs",
-  # Lib
+  # Libs
+  "crates/dppkf_lib",
+  "crates/dppkf_cards_lib",
+
   # Lambda operations
   "crates/get_new_game_id_lambda",
   "crates/join_new_game_lambda",
   "crates/deal_cards_lambda",
   "crates/make_announcement_lambda",
   "crates/play_trick_lambda",
-  # Universal Libraries
-  "crates/doppelkopf_cards_lib"
+
+  # CLI game
+  "crates/dppkf_cli",
 ]
 resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+authors = ["Russell Batista <russbatisbarrrco@gmail.com>"]
+edition = "2021"
+# documentation = "TBD"
+license = "MIT"
+keywords = ["doppelkopf", "cards_game"]
+categories = ["game"]
+homepage = "https://rbatistab.com/"
+repository = "https://github.com/Rbatistab/doppelkopf-rs"
+
+[workspace.dependencies]
+dppkf_lib = { version = "0.1.0", path = "crates/dppkf_lib" }
+dppkf_cards_lib = { version = "0.1.0", path = "crates/dppkf_cards_lib" }

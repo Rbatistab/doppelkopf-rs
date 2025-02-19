@@ -6,13 +6,13 @@
 //!
 //! ## Example
 //! ```
-//! use doppelkopf_cards_lib::card::Card;
-//! use doppelkopf_cards_lib::card_builder::CardBuilder;
-//! use doppelkopf_cards_lib::card_color::CardColor;
-//! use doppelkopf_cards_lib::ranks::FrenchCardRank::Ace;
-//! use doppelkopf_cards_lib::ranks::Rank;
-//! use doppelkopf_cards_lib::suits::FrenchSuitVariant::{Diamonds, Spades};
-//! use doppelkopf_cards_lib::suits::{Suit, SuitType};
+//! use dppkf_cards_lib::card::Card;
+//! use dppkf_cards_lib::card_builder::CardBuilder;
+//! use dppkf_cards_lib::card_color::CardColor;
+//! use dppkf_cards_lib::ranks::FrenchCardRank::Ace;
+//! use dppkf_cards_lib::ranks::Rank;
+//! use dppkf_cards_lib::suits::FrenchSuitVariant::{Diamonds, Spades};
+//! use dppkf_cards_lib::suits::{Suit, SuitType};
 //!
 //! // In this example we use `with_standard_color()` to follow standard Colors
 //! let ace_of_spades = CardBuilder::new()

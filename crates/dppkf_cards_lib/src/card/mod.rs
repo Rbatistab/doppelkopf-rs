@@ -7,12 +7,12 @@
 //!
 //! ## Example:
 //! ```
-//! use doppelkopf_cards_lib::card::Card;
-//! use doppelkopf_cards_lib::card_color::CardColor;
-//! use doppelkopf_cards_lib::ranks::Rank;
-//! use doppelkopf_cards_lib::suits::{Suit, SuitType};
-//! use doppelkopf_cards_lib::ranks::FrenchCardRank::Ace;
-//! use doppelkopf_cards_lib::suits::FrenchSuitVariant::Spades;
+//! use dppkf_cards_lib::card::Card;
+//! use dppkf_cards_lib::card_color::CardColor;
+//! use dppkf_cards_lib::ranks::Rank;
+//! use dppkf_cards_lib::suits::{Suit, SuitType};
+//! use dppkf_cards_lib::ranks::FrenchCardRank::Ace;
+//! use dppkf_cards_lib::suits::FrenchSuitVariant::Spades;
 //!
 //! let manual_ace_of_spades = Card {
 //!     rank: Rank::FrenchRank(Ace),
@@ -83,13 +83,13 @@
 //! # Example:
 //!
 //! ```
-//! use doppelkopf_cards_lib::card::Card;
-//! use doppelkopf_cards_lib::ranks::Rank;
-//! use doppelkopf_cards_lib::suits::{Suit, SuitType};
-//! use doppelkopf_cards_lib::ranks::FrenchCardRank::Ace;
-//! use doppelkopf_cards_lib::ranks::GermanCardRank::Ass;
-//! use doppelkopf_cards_lib::suits::FrenchSuitVariant::Spades;
-//! use doppelkopf_cards_lib::suits::GermanSuitVariant::Schell;
+//! use dppkf_cards_lib::card::Card;
+//! use dppkf_cards_lib::ranks::Rank;
+//! use dppkf_cards_lib::suits::{Suit, SuitType};
+//! use dppkf_cards_lib::ranks::FrenchCardRank::Ace;
+//! use dppkf_cards_lib::ranks::GermanCardRank::Ass;
+//! use dppkf_cards_lib::suits::FrenchSuitVariant::Spades;
+//! use dppkf_cards_lib::suits::GermanSuitVariant::Schell;
 //!
 //! // Let's start with a French suited card
 //! let ace_of_spaces  = Card::new("A-S");
@@ -156,12 +156,12 @@ const GERMAN_SUIT_REGEX: &str = r"^\b([7-9]|10|U|O|K|A)-(E|Sc|He|G)\b$";
 ///
 /// # Examples
 /// ```
-/// use doppelkopf_cards_lib::card::Card;
-/// use doppelkopf_cards_lib::card_color::CardColor;
-/// use doppelkopf_cards_lib::ranks::FrenchCardRank::Ace;
-/// use doppelkopf_cards_lib::ranks::Rank;
-/// use doppelkopf_cards_lib::suits::FrenchSuitVariant::Spades;
-/// use doppelkopf_cards_lib::suits::{Suit, SuitType};
+/// use dppkf_cards_lib::card::Card;
+/// use dppkf_cards_lib::card_color::CardColor;
+/// use dppkf_cards_lib::ranks::FrenchCardRank::Ace;
+/// use dppkf_cards_lib::ranks::Rank;
+/// use dppkf_cards_lib::suits::FrenchSuitVariant::Spades;
+/// use dppkf_cards_lib::suits::{Suit, SuitType};
 ///
 /// let ace_of_spades = Card {
 ///     rank: Rank::FrenchRank(Ace),
@@ -202,12 +202,12 @@ impl Card {
     ///
     /// # Examples
     /// ```
-    /// use doppelkopf_cards_lib::card::Card;
-    /// use doppelkopf_cards_lib::card_color::CardColor;
-    /// use doppelkopf_cards_lib::ranks::FrenchCardRank::Ace;
-    /// use doppelkopf_cards_lib::ranks::Rank;
-    /// use doppelkopf_cards_lib::suits::FrenchSuitVariant::Spades;
-    /// use doppelkopf_cards_lib::suits::{Suit, SuitType};
+    /// use dppkf_cards_lib::card::Card;
+    /// use dppkf_cards_lib::card_color::CardColor;
+    /// use dppkf_cards_lib::ranks::FrenchCardRank::Ace;
+    /// use dppkf_cards_lib::ranks::Rank;
+    /// use dppkf_cards_lib::suits::FrenchSuitVariant::Spades;
+    /// use dppkf_cards_lib::suits::{Suit, SuitType};
     ///
     /// let ace_of_spaces  = Card::new("A-S");
     ///
@@ -252,7 +252,7 @@ impl Card {
     /// # Examples
     ///
     /// ```
-    /// use doppelkopf_cards_lib::card::Card;
+    /// use dppkf_cards_lib::card::Card;
     ///
     /// let ace_of_spades = Card::new("A-S");
     /// println!("{}", ace_of_spades.as_string());

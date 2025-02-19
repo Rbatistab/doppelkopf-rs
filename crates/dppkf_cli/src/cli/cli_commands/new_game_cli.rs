@@ -12,8 +12,8 @@ use crate::cli::cli_utils::constants::new_game_cli_constants::{
 };
 use std::io;
 use log::debug;
-use doppelkopf_cards_lib::deck::PackSize;
-use doppelkopf_cards_lib::suits::SuitType;
+use dppkf_cards_lib::deck::PackSize;
+use dppkf_cards_lib::suits::SuitType;
 use dppkf_lib::core_logic::game_state_machine::GameStateMachine;
 use dppkf_lib::core_logic::new_game_logic::get_new_game;
 use dppkf_lib::model::operations::new_game_model::NewGameInput;

@@ -56,9 +56,9 @@ impl Rank {
     /// This example uses `BOLD` and `RESET` formating because the ranks are bolded
     ///
     /// ```
-    /// use doppelkopf_cards_lib::ranks::Rank;
-    /// use doppelkopf_cards_lib::ranks::FrenchCardRank::Two;
-    /// use doppelkopf_cards_lib::ranks::GermanCardRank::Sieben;
+    /// use dppkf_cards_lib::ranks::Rank;
+    /// use dppkf_cards_lib::ranks::FrenchCardRank::Two;
+    /// use dppkf_cards_lib::ranks::GermanCardRank::Sieben;
     ///
     /// let french_rank = Rank::FrenchRank(Two).to_str();
     /// let german_rank = Rank::GermanRank(Sieben).to_str();

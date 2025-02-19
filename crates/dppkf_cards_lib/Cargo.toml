@@ -1,6 +1,6 @@
 [package]
-name = "get_new_game_id_lambda"
-description = "Creates a new game and stores it on the database"
+name = "dppkf_cards_lib"
+description = "Provides resources related to doppelkopf cards"
 # documentation = "TBD"
 
 version.workspace = true
@@ -12,8 +12,11 @@ categories.workspace = true
 homepage.workspace = true
 repository.workspace = true
 
-[[bin]]
-name="get_new_game_id_lambda_handler"
-path= "src/get_new_game_id_lambda_handler.rs"
+[lib]
+name = "dppkf_cards_lib"
+path = "src/lib.rs"
 
 [dependencies]
+const_format = "0.2.34"
+clap = { version = "4.5.23" }
+regex = "1.11.1"

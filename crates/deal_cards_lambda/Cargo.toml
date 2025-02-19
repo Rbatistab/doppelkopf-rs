@@ -1,13 +1,16 @@
 [package]
 name = "deal_cards_lambda"
-version = "0.1.0"
-edition = "2021"
-authors = ["Russell Batista <russbatisbarrrco@gmail.com>"]
 description = "Lambda operation that updates game state to represent a card dealing"
-license = "MIT"
-homepage = "https://rbatistab.com/"
 # documentation = "TBD"
-repository = "https://github.com/Rbatistab/doppelkopf-rs"
+
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
+homepage.workspace = true
+repository.workspace = true
 
 [[bin]]
 name="deal_cards_lambda_handler"

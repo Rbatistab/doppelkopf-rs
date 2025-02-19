@@ -55,9 +55,9 @@ impl Suit {
     ///
     /// ```
     /// use std::fmt::format;
-    /// use doppelkopf_cards_lib::suits::Suit;
-    /// use doppelkopf_cards_lib::suits::FrenchSuitVariant::Spades;
-    /// use doppelkopf_cards_lib::suits::GermanSuitVariant::Schell;
+    /// use dppkf_cards_lib::suits::Suit;
+    /// use dppkf_cards_lib::suits::FrenchSuitVariant::Spades;
+    /// use dppkf_cards_lib::suits::GermanSuitVariant::Schell;
     ///
     /// const BOLD: &str = "\x1b[1m";
     /// const RESET: &str = "\x1b[0m";
