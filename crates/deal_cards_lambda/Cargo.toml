@@ -11,6 +11,6 @@ repository = "https://github.com/Rbatistab/doppelkopf-rs"
 
 [[bin]]
 name="deal_cards_lambda_handler"
-path="src/deal_cards_lambda_handler.rs"
+path= "src/deal_cards_lambda_handler.rs"
 
 [dependencies]

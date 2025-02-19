@@ -1,14 +1,15 @@
 [workspace]
 members = [
   # CLI game
-  "doppelkopf-rs",
+  "crates/doppelkopf-rs",
+  # Lib
   # Lambda operations
-  "get_new_game_id_lambda",
-  "join_new_game_lambda",
-  "deal_cards_lambda",
-  "make_announcement_lambda",
-  "play_trick_lambda",
+  "crates/get_new_game_id_lambda",
+  "crates/join_new_game_lambda",
+  "crates/deal_cards_lambda",
+  "crates/make_announcement_lambda",
+  "crates/play_trick_lambda",
   # Universal Libraries
-  "doppelkopf_cards_lib"
+  "crates/doppelkopf_cards_lib"
 ]
 resolver = "2"

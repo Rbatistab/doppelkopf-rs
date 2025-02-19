@@ -15,7 +15,7 @@ path = "src/lib/lib.rs"
 
 [[bin]]
 name="dppkf"
-path="src/dppkf.rs"
+path= "src/dppkf.rs"
 
 [dependencies]
 doppelkopf_cards_lib = { path = "../doppelkopf_cards_lib" }

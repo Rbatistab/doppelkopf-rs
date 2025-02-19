@@ -70,6 +70,16 @@ enum Commands {
 }
 
 fn main() {
+    // Delete these use's after development
+    use doppelkopf_cards_lib::card::Card;
+    use doppelkopf_cards_lib::ranks::GermanCardRank::Unter;
+    use doppelkopf_cards_lib::suits::FrenchSuitVariant::Hearts;
+    use doppelkopf_cards_lib::suits::GermanSuitVariant::Grun;
+    use doppelkopf_cards_lib::card_builder::CardBuilder;
+    use doppelkopf_cards_lib::ranks::FrenchCardRank::Ace;
+    use doppelkopf_cards_lib::ranks::Rank;
+    use doppelkopf_cards_lib::suits::Suit;
+
     let cli = Cli::parse();
 
     if cli.debug {
@@ -88,7 +98,29 @@ fn main() {
             cli::cli_commands::cheat_sheet_cli::print_cheat_sheet(cheat);
         },
         None => {
-            cli::cli_commands::new_game_cli::new_game_cli(&None, &None, &None);
+            // cli::cli_commands::new_game_cli::new_game_cli(&None, &None, &None);
+            // my tests:
+            let card_1 = CardBuilder::new()
+                .with_rank(Rank::FrenchRank(Ace))
+                .with_suit(Suit::FrenchSuit(Hearts))
+                .with_standard_color()
+                .build();
+
+            println!("{}", card_1);
+
+            let card_2 = CardBuilder::new()
+                .with_rank(Rank::GermanRank(Unter))
+                .with_suit(Suit::GermanSuit(Grun))
+                .with_standard_color()
+                .build();
+
+            println!("{}", card_2);
+
+            let card_3 = Card::new("A-H").as_string();
+            println!("{}", card_3);
+            println!("{:?}", card_3);
+
         }
     }
+
 }
