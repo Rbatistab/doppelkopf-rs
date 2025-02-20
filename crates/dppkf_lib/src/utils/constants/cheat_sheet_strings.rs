@@ -24,7 +24,7 @@ pub const GAME_OVERVIEW: &str = concatcp!(
 pub const CARD_DEAL: &str = concatcp!(
     BOLD, UNDERLINE, "\nCard Deal\n\n", RESET,
     "On each round, a dealer will shuffle and cut the cards. Then will deal each player with 12 cards (or 10 for 40-card game).\n",
-    "Normally the dealer will yield 3 cards at the time to each player until it reaches the 12 (or 10).\n",
+    "Normally the dealer will yield 3 cards at the time to each player until it reaches the 12 (or 10).\n\n",
     "The deal for the next hand passes to the dealers left from round to round."
 );
 
@@ -56,9 +56,9 @@ pub const TRICKS: &str = concatcp!(
     "The player left to the dealer will play the first trick which normally will by the highest trick at hand.\n",
     "Players must follow suit if possible. There are 3 options, in order of relevance to win:\n",
     "  - Play a trump, which is a card with higher rank than the others (see cheat sheet for trumps)\n",
-    "  - Just follow suit: \n",
+    "  - Just follow suit \n",
     "  - Play any card\n",
-    "  - Discard\n",
+    "  - Discard\n\n",
     "After all tricks are played the round is won by:\n",
     "  - The highest trump\n",
     "  - The highest card of the suit led. Since each card exists twice, there is the possibility of a tie; in that case, the first-played card wins the trick\n"
@@ -119,9 +119,52 @@ pub const TRUMPS: &str = concatcp!(
     "      ♣️ A | ♠️ A | ❤️ A | ♦️ A \n\n"
 );
 
-pub const RULES: &str = concatcp!("rules");
+pub const RULES: &str = concatcp!(
+    BOLD, UNDERLINE, "\nRules\n\n", RESET,
+    "1. Basic setup: \n\n",
+    "  > Players: 4 players.\n",
+    "  > Deck: 48 or 40 cards (the 9's are optional) → each rank appears twice!\n",
+    "    - French Deck: Clubs, Spades, Hearts, Diamonds (each suit has A, K, Q, J, 10, 9).\n",
+    "    - German Deck: Acorns, Leaves, Hearts, Bells. (each suit has A, K, O, U, 10, 9).\n",
+    " > Goal: Win points by taking high-value cards in tricks.\n\n",
+    "2. Team's Re/Kontra or Solo\n\n",
+    " > Teams are not fixed and are determined during the game:\n",
+    "    - Re Team → Players with both Queens of Clubs (♣Q).\n",
+    "    - Kontra Team → The other two players.\n",
+    "  > Hidden teams: At first, players may not know their partners!\n",
+    "  > Auctions: May declare a contract to form a team and increase the score.\n",
+    "  > A solo player can declare a Solo round and play alone against the others.\n\n",
+    "3. Playing Tricks\n\n",
+    " > Each round has 12 to 10 tricks (Ex, for 48 cards / 4 players = 12 rounds).\n",
+    " > Players must follow suit if possible.\n",
+    " > Highest card wins the trick.\n\n",
+    "4. Scoring (Most Important Cards)\n\n",
+    " > After a round, each team counts the points of their tricks and bids.\n\n",
+    " > To get the winner team, sum the points of the tricks of the team as:\n\n",
+    "  ╭────────────────╮\n",
+    "  | ", BOLD, "Suit", RESET,"  | ", BOLD, "Points", RESET, " |\n",
+    "  |----------------|\n",
+    "  | ", BLUE, "Ace", RESET,"   |   11   |\n",
+    "  | ", BLUE, "Ten", RESET,"   |   10   |\n",
+    "  | ", BLUE, "King", RESET,"  |   4    |\n",
+    "  | ", BLUE, "Queen", RESET," |   3    |\n",
+    "  | ", BLUE, "Jack", RESET,"  |   2    |\n",
+    "  | ", BLUE, "Nine", RESET,"  |   0    |\n",
+    "  ╰────────────────╯\n\n",
+    "5. Game End & Winning\n\n",
+    " > Each team counts points.\n",
+    " > A full game is usually to 250 or 500 points.\n",
+    " > Bonus points for special moves (Doppelkopf, catching a Fox, etc.).\n",
+);
 
-pub const SPECIAL_FEATURES: &str = concatcp!("special features");
+pub const SPECIAL_FEATURES: &str = concatcp!(
+    BOLD, UNDERLINE, "\nSpecial features\n\n", RESET,
+    " - The following are special features that have an impact on a game:\n",
+    "   > ", BLUE, "Catch the fox", RESET, " (Non-solo game): ", GREEN, BOLD, "+1", RESET," a team's ace of diamonds ('the fox') is won by the other team.\n",
+    "   > ", BLUE, "Doppelkopf", RESET, " (Non-solo game): ", GREEN, BOLD, "+1", RESET," a team wins a trick with 40 or more points.\n",
+    "   > ", BLUE, "Charlie Miller", RESET, " (Non-solo game): ", GREEN, BOLD, "+1", RESET," a team's jack of clubs ('Charlie Miller'/Karlchen Müller') wins the last trick.\n",
+    "   > Solo special score: The solo player gets thrice the value added or subtracted.\n\n",
+    );
 
 pub const SCORING: &str = concatcp!(
     BOLD, UNDERLINE, "\nScoring\n\n", RESET,
