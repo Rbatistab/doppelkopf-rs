@@ -3,13 +3,12 @@
 //! This module provides representations and conversions for card suits
 //! in both French (international) and German card systems.
 
-use clap::ValueEnum;
 use const_format::concatcp;
 use crate::suits::Suit::{FrenchSuit, GermanSuit};
 use crate::utils::constants::{BOLD, RESET};
 
 /// Represents Suit type for the game
-#[derive(Debug, PartialEq, Clone, Copy, ValueEnum)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub enum SuitType {
     /// French suit (Diamonds, Hearts, Spades, Clubs)
     French,

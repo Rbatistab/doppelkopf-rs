@@ -18,6 +18,7 @@ use dppkf_lib::core_logic::game_state_machine::GameStateMachine;
 use dppkf_lib::core_logic::new_game_logic::get_new_game;
 use dppkf_lib::model::operations::new_game_model::NewGameInput;
 use dppkf_lib::model::types::player::{Player, PlayerType};
+use crate::cli::cli_enums::SuitTypeCli;
 
 /// Creates a new CLI game, it will take parameters from the CLI command `new-game` or it will
 /// capture them dynamically with the user.
@@ -26,7 +27,7 @@ use dppkf_lib::model::types::player::{Player, PlayerType};
 /// * `player_name` - (Optional) Name of player creating new game
 /// * `suit_type` - (Optional) Suit Type
 /// * `pack_size` - (Optional) Pack size
-pub fn new_game_cli(player_name: &Option<String>, suit_type: &Option<SuitType>, pack_size: &Option<u8>) {
+pub fn new_game_cli(player_name: &Option<String>, suit_type: &Option<SuitTypeCli>, pack_size: &Option<u8>) {
     debug!("Creating new game....");
     debug!("Provided player_name: {:?}", player_name);
     debug!("Provided suit_type: {:?}", suit_type);
@@ -56,7 +57,9 @@ pub fn new_game_cli(player_name: &Option<String>, suit_type: &Option<SuitType>, 
     match suit_type {
         Some(suit_type) => {
             debug!("Suit type provided on 'new-game'");
-            new_game_args.set_suit_type(*suit_type);
+            // Let's get leave this for when I come back to new game
+            new_game_args.set_suit_type(SuitType::French);
+            // new_game_args.set_suit_type(*suit_type);
         }
         None => {
             debug!("No suit type provided on 'new-game'");

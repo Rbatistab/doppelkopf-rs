@@ -5,6 +5,7 @@
 mod cli;
 
 use clap::{Parser, Subcommand};
+use cli::cli_enums::SuitTypeCli;
 use cli::cli_utils::validations::valid_pack_size;
 use dppkf_lib::utils::constants::cli_commands::{
     CLI_ABOUT,
@@ -13,10 +14,9 @@ use dppkf_lib::utils::constants::cli_commands::{
     NEW_GAME_ABOUT,
     CHEAT_SHEET_ABOUT
 };
-use dppkf_lib::model::types::cheat_sheet::CheatSheetOption;
-use dppkf_cards_lib::suits::SuitType;
 use env_logger::{Builder, Env};
 use log::debug;
+use crate::cli::cli_enums::CheatSheetOptionCli;
 
 #[derive(Parser)]
 #[command(version)]
@@ -41,7 +41,7 @@ enum Commands {
         /// Suit Type
         #[arg(value_enum)]
         #[arg(short, long)]
-        suit_type: Option<SuitType>,
+        suit_type: Option<SuitTypeCli>,
 
         /// Pack Size [possible values: 40, 48]
         #[arg(short = 'p', long)]
@@ -64,7 +64,7 @@ enum Commands {
     CheatSheet {
         /// Available cheat sheets
         #[arg(short, long)]
-        cheat: Option<CheatSheetOption>
+        cheat: Option<CheatSheetOptionCli>
     }
 
 }
