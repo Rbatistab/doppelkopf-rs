@@ -476,7 +476,6 @@ impl fmt::Display for Card {
 
 #[cfg(test)]
 mod card_tests {
-    use crate::utils::constants::RED;
     use super::*;
 
     #[test]
