@@ -10,7 +10,7 @@ PACKAGE_BIN_NAME = dppkf
 PACKAGE_BIN_PATH = target/release/$(PACKAGE_BIN_NAME)
 
 # Commands
-.PHONY: all build install unistall clean
+.PHONY: all build install uninstall clean
 
 all: build
 

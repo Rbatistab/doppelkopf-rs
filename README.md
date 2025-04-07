@@ -19,7 +19,7 @@ cd ../
 rm -rf doppelkopf-rs
 ```
 
-To uninstall clone the package and follow the "unistaller":
+To uninstall clone the package and follow the "uninstaller":
 ```shell
 # Clone the package
 git clone https://github.com/Rbatistab/doppelkopf-rs.git
@@ -52,9 +52,49 @@ $ dppkf join-game
 ### 2. [IN PROGRESS]
 TBD
 
-### 3. Not sure how to do something? Use the cheat sheet! [IN_PROGRESS]
+### 3. Not sure on something about Doppelkopf? Use the cheat sheet! [IN_PROGRESS]
 
-Run `dppkf cheat-sheet`. This will print an overview of the game. Use `dppkf -h` to see cheat options to check for specifics if you don't remember something:
+Run `dppkf cheat-sheet` to get an interactive prompt and navigate to the cheat sheet that you need:
+```shell
+$ dppkf cheat-sheet
+? Select a cheat:
+> Game overview
+  Card deal
+  Contracts
+  Tricks
+  Bids
+  Trumps
+v Rules
+[Use ↑↓ arrows to navigate, enter to select]
+```
+
+You can also skip the interactive prompt and jump to the cheat with the `-c` flag:
+```shell
+$ dppkf cheat-sheet -c 
+
+Bids
+
+A player may make announcements claiming that their team will succeed in achieving a specific goal.
+These announcements increase the game value regardless of whether they are fulfilled. However, when a team fails a self-given goal, they automatically lose.
+
+The bids, in order, are:
+ - Re/Contra: The name of the player's team, claims that the team will make more than 120 points. and undertaking that their team will score more than 120 points. All following bids should follow this bid, this is the first valid bid => Doubles the value
+    > Can only be played with 11 cards left
+ - No 90 (also called 'No 9'): Claims the opponents will get less than 90 points => Triples the value
+    > Can only be played with 10 cards left
+ - No 60 (also called 'No 6'): Claims the opposing team will not make 60 points => X4 the value
+    > Can only be played with 9 cards left
+ - No 30 (also called 'No 3': You get the idea
+    > Can only be played with 8 cards left
+ - Schwarz: Claims the opponents will not get a single trick, not even a trick worth zero points
+    > Can only be played with 7 cards left
+
+The fun part here is that each bid will imply all previous: 'No 6' will imply 'No 9' which will imply 'Re/Contra', hence the game increases by 4.
+Also, every bid can have a counterbid making both valid.
+
+```
+
+Options:
 * game-overview 
 * card-deal
 * contracts
@@ -69,17 +109,6 @@ Example:
 ```shell
 # I forgot the trumps!
 $ dppfk cheat-sheet -c trumps
-Normal GameStarts with the 10 of hearts, called Dulle(or Tolle 🇩🇪):
-  ❤️  10 | ♣️  Q | ♠️  Q | ❤️  Q | ♦️  Q | ♣️  J | ♠️  J | ❤️  J | ♦️  J | ♦️  A | ♦️  10 | ♦️  K | ♦️  9
-
-WeddingSame Trump as the normal gameDulle(or Tolle 🇩🇪):
-
-Solos:
-- Diamond Solo: Same Trump as the normal game
-- Jack Solo (Bubensolo 🇩🇪): Only Jacks make a Trump
-- Queen Solo (Damensolo 🇩🇪): Only Queen make a Trump
-- Ace Solo (Fleischloser/Knochenmann 🇩🇪): There are no Trumps
-- Suit Solo (Farbensolo 🇩🇪): Announce a Suit to be a Trump for Jacks and Queens
 ```
 
 # How to play the game?

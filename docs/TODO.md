@@ -46,9 +46,9 @@
   - [ ] [IN_PROGRESS] Add logic and document for `cheat_sheet_logic`
     - [x] Handle inputs and outputs with the proper model struct
     - [x] Make a general cheat sheet to print (overview)
-    - [ ] Create constants for the cheat (text) to display as a cheat sheet
+    - [x] Create constants for the cheat (text) to display as a cheat sheet
       - [x] Split by parts of the game (ex. trumps, game types, etc.)
-      - [ ] Fill the strings with the proper cheat sheet
+      - [x] Fill the strings with the proper cheat sheet
     - [x] Add tests and docs
   - [ ] Add logic and document for `new_game_logic`
     - [ ] (I'm a new game, what do I do?)
@@ -65,8 +65,8 @@
 ***Remember the Web game is a client for the lib and here is the backend for it***
 
 - [ ] Model the [lambda operations](https://github.com/Rbatistab/dopplekopf-cdk/blob/main/docs/ARCHITECTURE_AND_DESIGN.md?plain=1#L68-L73) on smithy
-  - [ ] Set up a smithy model for the lambda contracts
-  - [ ] Model  and document a `CheatSheetLambdaInput` type (`cheat_sheet_lambda_model`)
+  - [ ] [IN_PROGRESS] Set up a smithy model for the lambda contracts
+  - [ ] [IN_PROGRESS] Model  and document a `CheatSheetLambdaInput` type (`cheat_sheet_lambda_model`)
   - [ ] Model  and document a `CheatSheetLambdaOutput` type  (`cheat_sheet_lambda_model`)
   - [ ] Model  and document a `NewGameArgsLambdaInput` type  (`new_game_lambda_model`)
   - [ ] Model  and document a `NewGameArgsLambdaOutput` type  (`new_game_lambda_model`)
