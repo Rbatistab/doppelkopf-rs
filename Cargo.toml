@@ -5,11 +5,7 @@ members = [
   "crates/dppkf_cards_lib",
 
   # Lambda operations
-  "crates/get_new_game_id_lambda",
-  "crates/join_new_game_lambda",
-  "crates/deal_cards_lambda",
-  "crates/make_announcement_lambda",
-  "crates/play_trick_lambda",
+  "crates/dppkf_lambda",
 
   # CLI game
   "crates/dppkf_cli",

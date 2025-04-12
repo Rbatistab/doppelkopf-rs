@@ -1,5 +1,5 @@
 [package]
-name = "deal_cards_lambda"
+name = "dppkf_lambda"
 description = "Lambda operation that updates game state to represent a card dealing"
 # documentation = "TBD"
 
@@ -13,7 +13,23 @@ homepage.workspace = true
 repository.workspace = true
 
 [[bin]]
+name="get_new_game_lambda_handler"
+path= "src/get_new_game_lambda_handler.rs"
+
+[[bin]]
+name="join_new_game_lambda_handler"
+path= "src/join_new_game_lambda_handler.rs"
+
+[[bin]]
 name="deal_cards_lambda_handler"
 path= "src/deal_cards_lambda_handler.rs"
+
+[[bin]]
+name="make_announcement_lambda_handler"
+path= "src/make_announcement_lambda_handler.rs"
+
+[[bin]]
+name="play_trick_lambda_handler"
+path= "src/play_trick_lambda_handler.rs"
 
 [dependencies]
